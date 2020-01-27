@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Grant/CS1B/CS1B-A4/CashierFunction.cpp
+functions.h
+C:/Users/Grant/CS1B/CS1B-A4/functions.h
+
+C:/Users/Grant/CS1B/CS1B-A4/functions.h
+iostream
+-
+iomanip
+-
+windows.h
+-
+string
+-
+
