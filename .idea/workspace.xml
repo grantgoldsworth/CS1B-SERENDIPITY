@@ -34,7 +34,9 @@
       <change beforePath="$PROJECT_DIR$/BookInformation.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/BookInformation.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CashierFunction.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CashierFunction.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GetChoice.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GetChoice.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InventoryFunction.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryFunction.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReportsFunction.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ReportsFunction.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/A4.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/A4.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/A4.exe" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CASHIER_MODULE_DATA.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CASHIER_MODULE_DATA.txt" afterDir="false" />
@@ -179,7 +181,7 @@
       <workItem from="1580168717463" duration="1452000" />
       <workItem from="1580172760330" duration="1064000" />
       <workItem from="1580175280105" duration="610000" />
-      <workItem from="1580590513785" duration="6846000" />
+      <workItem from="1580590513785" duration="7112000" />
     </task>
     <servers />
   </component>
