@@ -19,6 +19,8 @@ using namespace std;
 
 char GetChoice(int min, int max);
 
+string tolowerstring(string);
+
 void CashierFunction();
 
 void InventoryFunction(const int&,

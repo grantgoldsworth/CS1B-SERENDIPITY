@@ -122,141 +122,6 @@ SERENDIPITY/fast:
 	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/build
 .PHONY : SERENDIPITY/fast
 
-BookInformation.obj: BookInformation.cpp.obj
-
-.PHONY : BookInformation.obj
-
-# target to build an object file
-BookInformation.cpp.obj:
-	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/BookInformation.cpp.obj
-.PHONY : BookInformation.cpp.obj
-
-BookInformation.i: BookInformation.cpp.i
-
-.PHONY : BookInformation.i
-
-# target to preprocess a source file
-BookInformation.cpp.i:
-	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/BookInformation.cpp.i
-.PHONY : BookInformation.cpp.i
-
-BookInformation.s: BookInformation.cpp.s
-
-.PHONY : BookInformation.s
-
-# target to generate assembly for a file
-BookInformation.cpp.s:
-	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/BookInformation.cpp.s
-.PHONY : BookInformation.cpp.s
-
-CashierFunction.obj: CashierFunction.cpp.obj
-
-.PHONY : CashierFunction.obj
-
-# target to build an object file
-CashierFunction.cpp.obj:
-	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/CashierFunction.cpp.obj
-.PHONY : CashierFunction.cpp.obj
-
-CashierFunction.i: CashierFunction.cpp.i
-
-.PHONY : CashierFunction.i
-
-# target to preprocess a source file
-CashierFunction.cpp.i:
-	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/CashierFunction.cpp.i
-.PHONY : CashierFunction.cpp.i
-
-CashierFunction.s: CashierFunction.cpp.s
-
-.PHONY : CashierFunction.s
-
-# target to generate assembly for a file
-CashierFunction.cpp.s:
-	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/CashierFunction.cpp.s
-.PHONY : CashierFunction.cpp.s
-
-GetChoice.obj: GetChoice.cpp.obj
-
-.PHONY : GetChoice.obj
-
-# target to build an object file
-GetChoice.cpp.obj:
-	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/GetChoice.cpp.obj
-.PHONY : GetChoice.cpp.obj
-
-GetChoice.i: GetChoice.cpp.i
-
-.PHONY : GetChoice.i
-
-# target to preprocess a source file
-GetChoice.cpp.i:
-	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/GetChoice.cpp.i
-.PHONY : GetChoice.cpp.i
-
-GetChoice.s: GetChoice.cpp.s
-
-.PHONY : GetChoice.s
-
-# target to generate assembly for a file
-GetChoice.cpp.s:
-	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/GetChoice.cpp.s
-.PHONY : GetChoice.cpp.s
-
-InventoryFunction.obj: InventoryFunction.cpp.obj
-
-.PHONY : InventoryFunction.obj
-
-# target to build an object file
-InventoryFunction.cpp.obj:
-	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/InventoryFunction.cpp.obj
-.PHONY : InventoryFunction.cpp.obj
-
-InventoryFunction.i: InventoryFunction.cpp.i
-
-.PHONY : InventoryFunction.i
-
-# target to preprocess a source file
-InventoryFunction.cpp.i:
-	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/InventoryFunction.cpp.i
-.PHONY : InventoryFunction.cpp.i
-
-InventoryFunction.s: InventoryFunction.cpp.s
-
-.PHONY : InventoryFunction.s
-
-# target to generate assembly for a file
-InventoryFunction.cpp.s:
-	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/InventoryFunction.cpp.s
-.PHONY : InventoryFunction.cpp.s
-
-ReportsFunction.obj: ReportsFunction.cpp.obj
-
-.PHONY : ReportsFunction.obj
-
-# target to build an object file
-ReportsFunction.cpp.obj:
-	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/ReportsFunction.cpp.obj
-.PHONY : ReportsFunction.cpp.obj
-
-ReportsFunction.i: ReportsFunction.cpp.i
-
-.PHONY : ReportsFunction.i
-
-# target to preprocess a source file
-ReportsFunction.cpp.i:
-	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/ReportsFunction.cpp.i
-.PHONY : ReportsFunction.cpp.i
-
-ReportsFunction.s: ReportsFunction.cpp.s
-
-.PHONY : ReportsFunction.s
-
-# target to generate assembly for a file
-ReportsFunction.cpp.s:
-	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/ReportsFunction.cpp.s
-.PHONY : ReportsFunction.cpp.s
-
 invmenu.obj: invmenu.cpp.obj
 
 .PHONY : invmenu.obj
@@ -311,6 +176,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+mainfucntions.obj: mainfucntions.cpp.obj
+
+.PHONY : mainfucntions.obj
+
+# target to build an object file
+mainfucntions.cpp.obj:
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.obj
+.PHONY : mainfucntions.cpp.obj
+
+mainfucntions.i: mainfucntions.cpp.i
+
+.PHONY : mainfucntions.i
+
+# target to preprocess a source file
+mainfucntions.cpp.i:
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.i
+.PHONY : mainfucntions.cpp.i
+
+mainfucntions.s: mainfucntions.cpp.s
+
+.PHONY : mainfucntions.s
+
+# target to generate assembly for a file
+mainfucntions.cpp.s:
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.s
+.PHONY : mainfucntions.cpp.s
+
 reports.obj: reports.cpp.obj
 
 .PHONY : reports.obj
@@ -347,27 +239,15 @@ help:
 	@echo ... rebuild_cache
 	@echo ... SERENDIPITY
 	@echo ... edit_cache
-	@echo ... BookInformation.obj
-	@echo ... BookInformation.i
-	@echo ... BookInformation.s
-	@echo ... CashierFunction.obj
-	@echo ... CashierFunction.i
-	@echo ... CashierFunction.s
-	@echo ... GetChoice.obj
-	@echo ... GetChoice.i
-	@echo ... GetChoice.s
-	@echo ... InventoryFunction.obj
-	@echo ... InventoryFunction.i
-	@echo ... InventoryFunction.s
-	@echo ... ReportsFunction.obj
-	@echo ... ReportsFunction.i
-	@echo ... ReportsFunction.s
 	@echo ... invmenu.obj
 	@echo ... invmenu.i
 	@echo ... invmenu.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... mainfucntions.obj
+	@echo ... mainfucntions.i
+	@echo ... mainfucntions.s
 	@echo ... reports.obj
 	@echo ... reports.i
 	@echo ... reports.s

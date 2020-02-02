@@ -4,13 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/BookInformation.cpp" "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/BookInformation.cpp.obj"
-  "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/CashierFunction.cpp" "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/CashierFunction.cpp.obj"
-  "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/GetChoice.cpp" "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/GetChoice.cpp.obj"
-  "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/InventoryFunction.cpp" "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/InventoryFunction.cpp.obj"
-  "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/ReportsFunction.cpp" "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/ReportsFunction.cpp.obj"
   "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/invmenu.cpp" "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/invmenu.cpp.obj"
   "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/main.cpp" "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/main.cpp.obj"
+  "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/mainfucntions.cpp" "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.obj"
   "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/reports.cpp" "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/reports.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

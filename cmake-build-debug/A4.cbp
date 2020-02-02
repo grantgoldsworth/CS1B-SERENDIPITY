@@ -80,21 +80,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Grant/CS1B/CS1B-SERENDIPITY/BookInformation.cpp">
-			<Option target="SERENDIPITY"/>
-		</Unit>
-		<Unit filename="C:/Users/Grant/CS1B/CS1B-SERENDIPITY/CashierFunction.cpp">
-			<Option target="SERENDIPITY"/>
-		</Unit>
-		<Unit filename="C:/Users/Grant/CS1B/CS1B-SERENDIPITY/GetChoice.cpp">
-			<Option target="SERENDIPITY"/>
-		</Unit>
-		<Unit filename="C:/Users/Grant/CS1B/CS1B-SERENDIPITY/InventoryFunction.cpp">
-			<Option target="SERENDIPITY"/>
-		</Unit>
-		<Unit filename="C:/Users/Grant/CS1B/CS1B-SERENDIPITY/ReportsFunction.cpp">
-			<Option target="SERENDIPITY"/>
-		</Unit>
 		<Unit filename="C:/Users/Grant/CS1B/CS1B-SERENDIPITY/functions.h">
 			<Option target="SERENDIPITY"/>
 		</Unit>
@@ -105,6 +90,9 @@
 			<Option target="SERENDIPITY"/>
 		</Unit>
 		<Unit filename="C:/Users/Grant/CS1B/CS1B-SERENDIPITY/main.cpp">
+			<Option target="SERENDIPITY"/>
+		</Unit>
+		<Unit filename="C:/Users/Grant/CS1B/CS1B-SERENDIPITY/mainfucntions.cpp">
 			<Option target="SERENDIPITY"/>
 		</Unit>
 		<Unit filename="C:/Users/Grant/CS1B/CS1B-SERENDIPITY/reports.cpp">

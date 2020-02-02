@@ -53,7 +53,16 @@ void InventoryFunction(const int& DBSIZE,
 
         switch (choice) {
             case '1':
-                lookUpBook();
+                lookUpBook(DBSIZE,
+                           bookCount,
+                           bookTitle,
+                           isbn,
+                           author,
+                           publisher,
+                           dateAdded,
+                           qtyOnHand,
+                           wholesale,
+                           retail);
                 break;
 
             case '2':

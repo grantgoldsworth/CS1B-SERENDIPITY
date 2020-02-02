@@ -1,11 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/SERENDIPITY.dir/BookInformation.cpp.obj"
-  "CMakeFiles/SERENDIPITY.dir/CashierFunction.cpp.obj"
-  "CMakeFiles/SERENDIPITY.dir/GetChoice.cpp.obj"
-  "CMakeFiles/SERENDIPITY.dir/InventoryFunction.cpp.obj"
-  "CMakeFiles/SERENDIPITY.dir/ReportsFunction.cpp.obj"
   "CMakeFiles/SERENDIPITY.dir/invmenu.cpp.obj"
   "CMakeFiles/SERENDIPITY.dir/main.cpp.obj"
+  "CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.obj"
   "CMakeFiles/SERENDIPITY.dir/reports.cpp.obj"
   "SERENDIPITY.exe"
   "SERENDIPITY.exe.manifest"

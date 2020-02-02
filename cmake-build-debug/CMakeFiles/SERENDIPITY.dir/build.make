@@ -69,74 +69,9 @@ CMakeFiles/SERENDIPITY.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SERENDIPITY.dir/main.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-SERENDIPITY\main.cpp -o CMakeFiles\SERENDIPITY.dir\main.cpp.s
 
-CMakeFiles/SERENDIPITY.dir/CashierFunction.cpp.obj: CMakeFiles/SERENDIPITY.dir/flags.make
-CMakeFiles/SERENDIPITY.dir/CashierFunction.cpp.obj: ../CashierFunction.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SERENDIPITY.dir/CashierFunction.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SERENDIPITY.dir\CashierFunction.cpp.obj -c C:\Users\Grant\CS1B\CS1B-SERENDIPITY\CashierFunction.cpp
-
-CMakeFiles/SERENDIPITY.dir/CashierFunction.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SERENDIPITY.dir/CashierFunction.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-SERENDIPITY\CashierFunction.cpp > CMakeFiles\SERENDIPITY.dir\CashierFunction.cpp.i
-
-CMakeFiles/SERENDIPITY.dir/CashierFunction.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SERENDIPITY.dir/CashierFunction.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-SERENDIPITY\CashierFunction.cpp -o CMakeFiles\SERENDIPITY.dir\CashierFunction.cpp.s
-
-CMakeFiles/SERENDIPITY.dir/InventoryFunction.cpp.obj: CMakeFiles/SERENDIPITY.dir/flags.make
-CMakeFiles/SERENDIPITY.dir/InventoryFunction.cpp.obj: ../InventoryFunction.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SERENDIPITY.dir/InventoryFunction.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SERENDIPITY.dir\InventoryFunction.cpp.obj -c C:\Users\Grant\CS1B\CS1B-SERENDIPITY\InventoryFunction.cpp
-
-CMakeFiles/SERENDIPITY.dir/InventoryFunction.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SERENDIPITY.dir/InventoryFunction.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-SERENDIPITY\InventoryFunction.cpp > CMakeFiles\SERENDIPITY.dir\InventoryFunction.cpp.i
-
-CMakeFiles/SERENDIPITY.dir/InventoryFunction.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SERENDIPITY.dir/InventoryFunction.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-SERENDIPITY\InventoryFunction.cpp -o CMakeFiles\SERENDIPITY.dir\InventoryFunction.cpp.s
-
-CMakeFiles/SERENDIPITY.dir/ReportsFunction.cpp.obj: CMakeFiles/SERENDIPITY.dir/flags.make
-CMakeFiles/SERENDIPITY.dir/ReportsFunction.cpp.obj: ../ReportsFunction.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SERENDIPITY.dir/ReportsFunction.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SERENDIPITY.dir\ReportsFunction.cpp.obj -c C:\Users\Grant\CS1B\CS1B-SERENDIPITY\ReportsFunction.cpp
-
-CMakeFiles/SERENDIPITY.dir/ReportsFunction.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SERENDIPITY.dir/ReportsFunction.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-SERENDIPITY\ReportsFunction.cpp > CMakeFiles\SERENDIPITY.dir\ReportsFunction.cpp.i
-
-CMakeFiles/SERENDIPITY.dir/ReportsFunction.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SERENDIPITY.dir/ReportsFunction.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-SERENDIPITY\ReportsFunction.cpp -o CMakeFiles\SERENDIPITY.dir\ReportsFunction.cpp.s
-
-CMakeFiles/SERENDIPITY.dir/GetChoice.cpp.obj: CMakeFiles/SERENDIPITY.dir/flags.make
-CMakeFiles/SERENDIPITY.dir/GetChoice.cpp.obj: ../GetChoice.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SERENDIPITY.dir/GetChoice.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SERENDIPITY.dir\GetChoice.cpp.obj -c C:\Users\Grant\CS1B\CS1B-SERENDIPITY\GetChoice.cpp
-
-CMakeFiles/SERENDIPITY.dir/GetChoice.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SERENDIPITY.dir/GetChoice.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-SERENDIPITY\GetChoice.cpp > CMakeFiles\SERENDIPITY.dir\GetChoice.cpp.i
-
-CMakeFiles/SERENDIPITY.dir/GetChoice.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SERENDIPITY.dir/GetChoice.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-SERENDIPITY\GetChoice.cpp -o CMakeFiles\SERENDIPITY.dir\GetChoice.cpp.s
-
-CMakeFiles/SERENDIPITY.dir/BookInformation.cpp.obj: CMakeFiles/SERENDIPITY.dir/flags.make
-CMakeFiles/SERENDIPITY.dir/BookInformation.cpp.obj: ../BookInformation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SERENDIPITY.dir/BookInformation.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SERENDIPITY.dir\BookInformation.cpp.obj -c C:\Users\Grant\CS1B\CS1B-SERENDIPITY\BookInformation.cpp
-
-CMakeFiles/SERENDIPITY.dir/BookInformation.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SERENDIPITY.dir/BookInformation.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-SERENDIPITY\BookInformation.cpp > CMakeFiles\SERENDIPITY.dir\BookInformation.cpp.i
-
-CMakeFiles/SERENDIPITY.dir/BookInformation.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SERENDIPITY.dir/BookInformation.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-SERENDIPITY\BookInformation.cpp -o CMakeFiles\SERENDIPITY.dir\BookInformation.cpp.s
-
 CMakeFiles/SERENDIPITY.dir/invmenu.cpp.obj: CMakeFiles/SERENDIPITY.dir/flags.make
 CMakeFiles/SERENDIPITY.dir/invmenu.cpp.obj: ../invmenu.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/SERENDIPITY.dir/invmenu.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SERENDIPITY.dir/invmenu.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SERENDIPITY.dir\invmenu.cpp.obj -c C:\Users\Grant\CS1B\CS1B-SERENDIPITY\invmenu.cpp
 
 CMakeFiles/SERENDIPITY.dir/invmenu.cpp.i: cmake_force
@@ -149,7 +84,7 @@ CMakeFiles/SERENDIPITY.dir/invmenu.cpp.s: cmake_force
 
 CMakeFiles/SERENDIPITY.dir/reports.cpp.obj: CMakeFiles/SERENDIPITY.dir/flags.make
 CMakeFiles/SERENDIPITY.dir/reports.cpp.obj: ../reports.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/SERENDIPITY.dir/reports.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SERENDIPITY.dir/reports.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SERENDIPITY.dir\reports.cpp.obj -c C:\Users\Grant\CS1B\CS1B-SERENDIPITY\reports.cpp
 
 CMakeFiles/SERENDIPITY.dir/reports.cpp.i: cmake_force
@@ -160,33 +95,38 @@ CMakeFiles/SERENDIPITY.dir/reports.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SERENDIPITY.dir/reports.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-SERENDIPITY\reports.cpp -o CMakeFiles\SERENDIPITY.dir\reports.cpp.s
 
+CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.obj: CMakeFiles/SERENDIPITY.dir/flags.make
+CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.obj: ../mainfucntions.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SERENDIPITY.dir\mainfucntions.cpp.obj -c C:\Users\Grant\CS1B\CS1B-SERENDIPITY\mainfucntions.cpp
+
+CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-SERENDIPITY\mainfucntions.cpp > CMakeFiles\SERENDIPITY.dir\mainfucntions.cpp.i
+
+CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-SERENDIPITY\mainfucntions.cpp -o CMakeFiles\SERENDIPITY.dir\mainfucntions.cpp.s
+
 # Object files for target SERENDIPITY
 SERENDIPITY_OBJECTS = \
 "CMakeFiles/SERENDIPITY.dir/main.cpp.obj" \
-"CMakeFiles/SERENDIPITY.dir/CashierFunction.cpp.obj" \
-"CMakeFiles/SERENDIPITY.dir/InventoryFunction.cpp.obj" \
-"CMakeFiles/SERENDIPITY.dir/ReportsFunction.cpp.obj" \
-"CMakeFiles/SERENDIPITY.dir/GetChoice.cpp.obj" \
-"CMakeFiles/SERENDIPITY.dir/BookInformation.cpp.obj" \
 "CMakeFiles/SERENDIPITY.dir/invmenu.cpp.obj" \
-"CMakeFiles/SERENDIPITY.dir/reports.cpp.obj"
+"CMakeFiles/SERENDIPITY.dir/reports.cpp.obj" \
+"CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.obj"
 
 # External object files for target SERENDIPITY
 SERENDIPITY_EXTERNAL_OBJECTS =
 
 SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/main.cpp.obj
-SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/CashierFunction.cpp.obj
-SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/InventoryFunction.cpp.obj
-SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/ReportsFunction.cpp.obj
-SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/GetChoice.cpp.obj
-SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/BookInformation.cpp.obj
 SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/invmenu.cpp.obj
 SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/reports.cpp.obj
+SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.obj
 SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/build.make
 SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/linklibs.rsp
 SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/objects1.rsp
 SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable SERENDIPITY.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable SERENDIPITY.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\SERENDIPITY.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
