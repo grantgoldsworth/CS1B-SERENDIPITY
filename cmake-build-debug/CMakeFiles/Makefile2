@@ -43,21 +43,21 @@ RM = "C:\Program Files\JetBrains\CLion 2019.3.1\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Grant\CS1B\CS1B-A4
+CMAKE_SOURCE_DIR = C:\Users\Grant\CS1B\CS1B-SERENDIPITY
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Grant\CS1B\CS1B-A4\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/A4.dir/all
+all: CMakeFiles/SERENDIPITY.dir/all
 
 .PHONY : all
 
 # The main recursive "clean" target.
-clean: CMakeFiles/A4.dir/clean
+clean: CMakeFiles/SERENDIPITY.dir/clean
 
 .PHONY : clean
 
@@ -67,31 +67,31 @@ preinstall:
 .PHONY : preinstall
 
 #=============================================================================
-# Target rules for target CMakeFiles/A4.dir
+# Target rules for target CMakeFiles/SERENDIPITY.dir
 
 # All Build rule for target.
-CMakeFiles/A4.dir/all:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/depend
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Grant\CS1B\CS1B-A4\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target A4"
-.PHONY : CMakeFiles/A4.dir/all
+CMakeFiles/SERENDIPITY.dir/all:
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/depend
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target SERENDIPITY"
+.PHONY : CMakeFiles/SERENDIPITY.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/A4.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Grant\CS1B\CS1B-A4\cmake-build-debug\CMakeFiles 9
-	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/A4.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Grant\CS1B\CS1B-A4\cmake-build-debug\CMakeFiles 0
-.PHONY : CMakeFiles/A4.dir/rule
+CMakeFiles/SERENDIPITY.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles 9
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/SERENDIPITY.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles/SERENDIPITY.dir/rule
 
 # Convenience name for target.
-A4: CMakeFiles/A4.dir/rule
+SERENDIPITY: CMakeFiles/SERENDIPITY.dir/rule
 
-.PHONY : A4
+.PHONY : SERENDIPITY
 
 # clean rule for target.
-CMakeFiles/A4.dir/clean:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/clean
-.PHONY : CMakeFiles/A4.dir/clean
+CMakeFiles/SERENDIPITY.dir/clean:
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/clean
+.PHONY : CMakeFiles/SERENDIPITY.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

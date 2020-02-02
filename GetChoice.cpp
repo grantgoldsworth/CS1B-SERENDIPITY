@@ -49,6 +49,5 @@ char GetChoice(int min, int max) {
 
     } while (invalidInput);
 
-    system("cls");
     return input;
 }

@@ -47,24 +47,13 @@ RM = "C:\Program Files\JetBrains\CLion 2019.3.1\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Grant\CS1B\CS1B-A4
+CMAKE_SOURCE_DIR = C:\Users\Grant\CS1B\CS1B-SERENDIPITY
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Grant\CS1B\CS1B-A4\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"C:\Program Files\JetBrains\CLion 2019.3.1\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -77,11 +66,22 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	"C:\Program Files\JetBrains\CLion 2019.3.1\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Grant\CS1B\CS1B-A4\cmake-build-debug\CMakeFiles C:\Users\Grant\CS1B\CS1B-A4\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Grant\CS1B\CS1B-A4\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -110,17 +110,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named A4
+# Target rules for targets named SERENDIPITY
 
 # Build rule for target.
-A4: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 A4
-.PHONY : A4
+SERENDIPITY: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 SERENDIPITY
+.PHONY : SERENDIPITY
 
 # fast build rule for target.
-A4/fast:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/build
-.PHONY : A4/fast
+SERENDIPITY/fast:
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/build
+.PHONY : SERENDIPITY/fast
 
 BookInformation.obj: BookInformation.cpp.obj
 
@@ -128,7 +128,7 @@ BookInformation.obj: BookInformation.cpp.obj
 
 # target to build an object file
 BookInformation.cpp.obj:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/BookInformation.cpp.obj
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/BookInformation.cpp.obj
 .PHONY : BookInformation.cpp.obj
 
 BookInformation.i: BookInformation.cpp.i
@@ -137,7 +137,7 @@ BookInformation.i: BookInformation.cpp.i
 
 # target to preprocess a source file
 BookInformation.cpp.i:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/BookInformation.cpp.i
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/BookInformation.cpp.i
 .PHONY : BookInformation.cpp.i
 
 BookInformation.s: BookInformation.cpp.s
@@ -146,7 +146,7 @@ BookInformation.s: BookInformation.cpp.s
 
 # target to generate assembly for a file
 BookInformation.cpp.s:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/BookInformation.cpp.s
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/BookInformation.cpp.s
 .PHONY : BookInformation.cpp.s
 
 CashierFunction.obj: CashierFunction.cpp.obj
@@ -155,7 +155,7 @@ CashierFunction.obj: CashierFunction.cpp.obj
 
 # target to build an object file
 CashierFunction.cpp.obj:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/CashierFunction.cpp.obj
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/CashierFunction.cpp.obj
 .PHONY : CashierFunction.cpp.obj
 
 CashierFunction.i: CashierFunction.cpp.i
@@ -164,7 +164,7 @@ CashierFunction.i: CashierFunction.cpp.i
 
 # target to preprocess a source file
 CashierFunction.cpp.i:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/CashierFunction.cpp.i
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/CashierFunction.cpp.i
 .PHONY : CashierFunction.cpp.i
 
 CashierFunction.s: CashierFunction.cpp.s
@@ -173,7 +173,7 @@ CashierFunction.s: CashierFunction.cpp.s
 
 # target to generate assembly for a file
 CashierFunction.cpp.s:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/CashierFunction.cpp.s
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/CashierFunction.cpp.s
 .PHONY : CashierFunction.cpp.s
 
 GetChoice.obj: GetChoice.cpp.obj
@@ -182,7 +182,7 @@ GetChoice.obj: GetChoice.cpp.obj
 
 # target to build an object file
 GetChoice.cpp.obj:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/GetChoice.cpp.obj
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/GetChoice.cpp.obj
 .PHONY : GetChoice.cpp.obj
 
 GetChoice.i: GetChoice.cpp.i
@@ -191,7 +191,7 @@ GetChoice.i: GetChoice.cpp.i
 
 # target to preprocess a source file
 GetChoice.cpp.i:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/GetChoice.cpp.i
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/GetChoice.cpp.i
 .PHONY : GetChoice.cpp.i
 
 GetChoice.s: GetChoice.cpp.s
@@ -200,7 +200,7 @@ GetChoice.s: GetChoice.cpp.s
 
 # target to generate assembly for a file
 GetChoice.cpp.s:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/GetChoice.cpp.s
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/GetChoice.cpp.s
 .PHONY : GetChoice.cpp.s
 
 InventoryFunction.obj: InventoryFunction.cpp.obj
@@ -209,7 +209,7 @@ InventoryFunction.obj: InventoryFunction.cpp.obj
 
 # target to build an object file
 InventoryFunction.cpp.obj:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/InventoryFunction.cpp.obj
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/InventoryFunction.cpp.obj
 .PHONY : InventoryFunction.cpp.obj
 
 InventoryFunction.i: InventoryFunction.cpp.i
@@ -218,7 +218,7 @@ InventoryFunction.i: InventoryFunction.cpp.i
 
 # target to preprocess a source file
 InventoryFunction.cpp.i:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/InventoryFunction.cpp.i
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/InventoryFunction.cpp.i
 .PHONY : InventoryFunction.cpp.i
 
 InventoryFunction.s: InventoryFunction.cpp.s
@@ -227,7 +227,7 @@ InventoryFunction.s: InventoryFunction.cpp.s
 
 # target to generate assembly for a file
 InventoryFunction.cpp.s:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/InventoryFunction.cpp.s
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/InventoryFunction.cpp.s
 .PHONY : InventoryFunction.cpp.s
 
 ReportsFunction.obj: ReportsFunction.cpp.obj
@@ -236,7 +236,7 @@ ReportsFunction.obj: ReportsFunction.cpp.obj
 
 # target to build an object file
 ReportsFunction.cpp.obj:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/ReportsFunction.cpp.obj
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/ReportsFunction.cpp.obj
 .PHONY : ReportsFunction.cpp.obj
 
 ReportsFunction.i: ReportsFunction.cpp.i
@@ -245,7 +245,7 @@ ReportsFunction.i: ReportsFunction.cpp.i
 
 # target to preprocess a source file
 ReportsFunction.cpp.i:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/ReportsFunction.cpp.i
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/ReportsFunction.cpp.i
 .PHONY : ReportsFunction.cpp.i
 
 ReportsFunction.s: ReportsFunction.cpp.s
@@ -254,7 +254,7 @@ ReportsFunction.s: ReportsFunction.cpp.s
 
 # target to generate assembly for a file
 ReportsFunction.cpp.s:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/ReportsFunction.cpp.s
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/ReportsFunction.cpp.s
 .PHONY : ReportsFunction.cpp.s
 
 invmenu.obj: invmenu.cpp.obj
@@ -263,7 +263,7 @@ invmenu.obj: invmenu.cpp.obj
 
 # target to build an object file
 invmenu.cpp.obj:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/invmenu.cpp.obj
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/invmenu.cpp.obj
 .PHONY : invmenu.cpp.obj
 
 invmenu.i: invmenu.cpp.i
@@ -272,7 +272,7 @@ invmenu.i: invmenu.cpp.i
 
 # target to preprocess a source file
 invmenu.cpp.i:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/invmenu.cpp.i
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/invmenu.cpp.i
 .PHONY : invmenu.cpp.i
 
 invmenu.s: invmenu.cpp.s
@@ -281,7 +281,7 @@ invmenu.s: invmenu.cpp.s
 
 # target to generate assembly for a file
 invmenu.cpp.s:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/invmenu.cpp.s
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/invmenu.cpp.s
 .PHONY : invmenu.cpp.s
 
 main.obj: main.cpp.obj
@@ -290,7 +290,7 @@ main.obj: main.cpp.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/main.cpp.obj
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -299,7 +299,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -308,7 +308,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 reports.obj: reports.cpp.obj
@@ -317,7 +317,7 @@ reports.obj: reports.cpp.obj
 
 # target to build an object file
 reports.cpp.obj:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/reports.cpp.obj
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/reports.cpp.obj
 .PHONY : reports.cpp.obj
 
 reports.i: reports.cpp.i
@@ -326,7 +326,7 @@ reports.i: reports.cpp.i
 
 # target to preprocess a source file
 reports.cpp.i:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/reports.cpp.i
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/reports.cpp.i
 .PHONY : reports.cpp.i
 
 reports.s: reports.cpp.s
@@ -335,7 +335,7 @@ reports.s: reports.cpp.s
 
 # target to generate assembly for a file
 reports.cpp.s:
-	$(MAKE) -f CMakeFiles\A4.dir\build.make CMakeFiles/A4.dir/reports.cpp.s
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/reports.cpp.s
 .PHONY : reports.cpp.s
 
 # Help Target
@@ -344,9 +344,9 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
-	@echo ... edit_cache
-	@echo ... A4
 	@echo ... rebuild_cache
+	@echo ... SERENDIPITY
+	@echo ... edit_cache
 	@echo ... BookInformation.obj
 	@echo ... BookInformation.i
 	@echo ... BookInformation.s

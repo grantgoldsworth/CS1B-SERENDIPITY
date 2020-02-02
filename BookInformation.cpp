@@ -19,16 +19,31 @@
  *
  ******************************************************************************/
 
-void BookInformation() {
+void BookInformation(string isbn,
+                     string title,
+                     string author,
+                     string publisher,
+                     string date,
+                     int    qty,
+                     double wholesale,
+                     double retail
+                     ) {
 
-    cout << "ISBN:\n";
-    cout << "Title:\n";
-    cout << "Author:\n";
-    cout << "Publisher:\n";
-    cout << "Date Added:\n";
-    cout << "Quantity-On-Hand:\n";
-    cout << "Wholesale cost:\n";
-    cout << "Retail Price:\n";
+    const int MENU_SPACE = 25;
+
+    cout << right;
+    cout << "|" << setw(61) << "==[ Serendipity Booksellers ]==" << setw(33) << "|\n\n";
+    cout << setw(62) << "---[ Book Information ]---\n\n\n";
+
+    cout << setprecision(2) << fixed << left;
+    cout << setw(MENU_SPACE) << "ISBN:"                 << isbn << endl;
+    cout << setw(MENU_SPACE) <<"Title:"                 << title << endl;
+    cout << setw(MENU_SPACE) <<"Author:"                << author << endl;
+    cout << setw(MENU_SPACE) <<"Publisher:"             << publisher << endl;
+    cout << setw(MENU_SPACE) <<"Date Added:"            << date << endl;
+    cout << setw(MENU_SPACE) <<"Quantity-On-Hand:"      << qty << endl;
+    cout << setw(MENU_SPACE) <<"Wholesale cost:"        << wholesale << endl;
+    cout << setw(MENU_SPACE) <<"Retail Price:"          << retail << endl;
 
     system("pause");
 

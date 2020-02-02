@@ -5,13 +5,26 @@
  * DUE DATE : 1/27/2020
 *******************************************/
 
+#include <string>
+using namespace std;
+
 #ifndef A4_INVENTORY_H
 #define A4_INVENTORY_H
 
 // InventoryFunction functions
 void lookUpBook();
 
-void addBook();
+void addBook(const int&,
+                int&,
+                string [],
+                string [],
+                string [],
+                string [],
+                string [],
+                int    [],
+                double [],
+                double []
+                );
 
 void editBook();
 

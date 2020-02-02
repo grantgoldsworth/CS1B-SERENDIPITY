@@ -42,10 +42,10 @@ RM = "C:\Program Files\JetBrains\CLion 2019.3.1\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Grant\CS1B\CS1B-A4
+CMAKE_SOURCE_DIR = C:\Users\Grant\CS1B\CS1B-SERENDIPITY
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Grant\CS1B\CS1B-A4\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/A4.dir/depend.make
@@ -58,107 +58,107 @@ include CMakeFiles/A4.dir/flags.make
 
 CMakeFiles/A4.dir/main.cpp.obj: CMakeFiles/A4.dir/flags.make
 CMakeFiles/A4.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-A4\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/A4.dir/main.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\A4.dir\main.cpp.obj -c C:\Users\Grant\CS1B\CS1B-A4\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/A4.dir/main.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\A4.dir\main.cpp.obj -c C:\Users\Grant\CS1B\CS1B-SERENDIPITY\main.cpp
 
 CMakeFiles/A4.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/A4.dir/main.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-A4\main.cpp > CMakeFiles\A4.dir\main.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-SERENDIPITY\main.cpp > CMakeFiles\A4.dir\main.cpp.i
 
 CMakeFiles/A4.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/A4.dir/main.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-A4\main.cpp -o CMakeFiles\A4.dir\main.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-SERENDIPITY\main.cpp -o CMakeFiles\A4.dir\main.cpp.s
 
 CMakeFiles/A4.dir/CashierFunction.cpp.obj: CMakeFiles/A4.dir/flags.make
 CMakeFiles/A4.dir/CashierFunction.cpp.obj: ../CashierFunction.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-A4\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/A4.dir/CashierFunction.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\A4.dir\CashierFunction.cpp.obj -c C:\Users\Grant\CS1B\CS1B-A4\CashierFunction.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/A4.dir/CashierFunction.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\A4.dir\CashierFunction.cpp.obj -c C:\Users\Grant\CS1B\CS1B-SERENDIPITY\CashierFunction.cpp
 
 CMakeFiles/A4.dir/CashierFunction.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/A4.dir/CashierFunction.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-A4\CashierFunction.cpp > CMakeFiles\A4.dir\CashierFunction.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-SERENDIPITY\CashierFunction.cpp > CMakeFiles\A4.dir\CashierFunction.cpp.i
 
 CMakeFiles/A4.dir/CashierFunction.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/A4.dir/CashierFunction.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-A4\CashierFunction.cpp -o CMakeFiles\A4.dir\CashierFunction.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-SERENDIPITY\CashierFunction.cpp -o CMakeFiles\A4.dir\CashierFunction.cpp.s
 
 CMakeFiles/A4.dir/InventoryFunction.cpp.obj: CMakeFiles/A4.dir/flags.make
 CMakeFiles/A4.dir/InventoryFunction.cpp.obj: ../InventoryFunction.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-A4\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/A4.dir/InventoryFunction.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\A4.dir\InventoryFunction.cpp.obj -c C:\Users\Grant\CS1B\CS1B-A4\InventoryFunction.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/A4.dir/InventoryFunction.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\A4.dir\InventoryFunction.cpp.obj -c C:\Users\Grant\CS1B\CS1B-SERENDIPITY\InventoryFunction.cpp
 
 CMakeFiles/A4.dir/InventoryFunction.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/A4.dir/InventoryFunction.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-A4\InventoryFunction.cpp > CMakeFiles\A4.dir\InventoryFunction.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-SERENDIPITY\InventoryFunction.cpp > CMakeFiles\A4.dir\InventoryFunction.cpp.i
 
 CMakeFiles/A4.dir/InventoryFunction.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/A4.dir/InventoryFunction.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-A4\InventoryFunction.cpp -o CMakeFiles\A4.dir\InventoryFunction.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-SERENDIPITY\InventoryFunction.cpp -o CMakeFiles\A4.dir\InventoryFunction.cpp.s
 
 CMakeFiles/A4.dir/ReportsFunction.cpp.obj: CMakeFiles/A4.dir/flags.make
 CMakeFiles/A4.dir/ReportsFunction.cpp.obj: ../ReportsFunction.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-A4\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/A4.dir/ReportsFunction.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\A4.dir\ReportsFunction.cpp.obj -c C:\Users\Grant\CS1B\CS1B-A4\ReportsFunction.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/A4.dir/ReportsFunction.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\A4.dir\ReportsFunction.cpp.obj -c C:\Users\Grant\CS1B\CS1B-SERENDIPITY\ReportsFunction.cpp
 
 CMakeFiles/A4.dir/ReportsFunction.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/A4.dir/ReportsFunction.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-A4\ReportsFunction.cpp > CMakeFiles\A4.dir\ReportsFunction.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-SERENDIPITY\ReportsFunction.cpp > CMakeFiles\A4.dir\ReportsFunction.cpp.i
 
 CMakeFiles/A4.dir/ReportsFunction.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/A4.dir/ReportsFunction.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-A4\ReportsFunction.cpp -o CMakeFiles\A4.dir\ReportsFunction.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-SERENDIPITY\ReportsFunction.cpp -o CMakeFiles\A4.dir\ReportsFunction.cpp.s
 
 CMakeFiles/A4.dir/GetChoice.cpp.obj: CMakeFiles/A4.dir/flags.make
 CMakeFiles/A4.dir/GetChoice.cpp.obj: ../GetChoice.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-A4\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/A4.dir/GetChoice.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\A4.dir\GetChoice.cpp.obj -c C:\Users\Grant\CS1B\CS1B-A4\GetChoice.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/A4.dir/GetChoice.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\A4.dir\GetChoice.cpp.obj -c C:\Users\Grant\CS1B\CS1B-SERENDIPITY\GetChoice.cpp
 
 CMakeFiles/A4.dir/GetChoice.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/A4.dir/GetChoice.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-A4\GetChoice.cpp > CMakeFiles\A4.dir\GetChoice.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-SERENDIPITY\GetChoice.cpp > CMakeFiles\A4.dir\GetChoice.cpp.i
 
 CMakeFiles/A4.dir/GetChoice.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/A4.dir/GetChoice.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-A4\GetChoice.cpp -o CMakeFiles\A4.dir\GetChoice.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-SERENDIPITY\GetChoice.cpp -o CMakeFiles\A4.dir\GetChoice.cpp.s
 
 CMakeFiles/A4.dir/BookInformation.cpp.obj: CMakeFiles/A4.dir/flags.make
 CMakeFiles/A4.dir/BookInformation.cpp.obj: ../BookInformation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-A4\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/A4.dir/BookInformation.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\A4.dir\BookInformation.cpp.obj -c C:\Users\Grant\CS1B\CS1B-A4\BookInformation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/A4.dir/BookInformation.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\A4.dir\BookInformation.cpp.obj -c C:\Users\Grant\CS1B\CS1B-SERENDIPITY\BookInformation.cpp
 
 CMakeFiles/A4.dir/BookInformation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/A4.dir/BookInformation.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-A4\BookInformation.cpp > CMakeFiles\A4.dir\BookInformation.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-SERENDIPITY\BookInformation.cpp > CMakeFiles\A4.dir\BookInformation.cpp.i
 
 CMakeFiles/A4.dir/BookInformation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/A4.dir/BookInformation.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-A4\BookInformation.cpp -o CMakeFiles\A4.dir\BookInformation.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-SERENDIPITY\BookInformation.cpp -o CMakeFiles\A4.dir\BookInformation.cpp.s
 
 CMakeFiles/A4.dir/invmenu.cpp.obj: CMakeFiles/A4.dir/flags.make
 CMakeFiles/A4.dir/invmenu.cpp.obj: ../invmenu.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-A4\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/A4.dir/invmenu.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\A4.dir\invmenu.cpp.obj -c C:\Users\Grant\CS1B\CS1B-A4\invmenu.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/A4.dir/invmenu.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\A4.dir\invmenu.cpp.obj -c C:\Users\Grant\CS1B\CS1B-SERENDIPITY\invmenu.cpp
 
 CMakeFiles/A4.dir/invmenu.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/A4.dir/invmenu.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-A4\invmenu.cpp > CMakeFiles\A4.dir\invmenu.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-SERENDIPITY\invmenu.cpp > CMakeFiles\A4.dir\invmenu.cpp.i
 
 CMakeFiles/A4.dir/invmenu.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/A4.dir/invmenu.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-A4\invmenu.cpp -o CMakeFiles\A4.dir\invmenu.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-SERENDIPITY\invmenu.cpp -o CMakeFiles\A4.dir\invmenu.cpp.s
 
 CMakeFiles/A4.dir/reports.cpp.obj: CMakeFiles/A4.dir/flags.make
 CMakeFiles/A4.dir/reports.cpp.obj: ../reports.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-A4\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/A4.dir/reports.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\A4.dir\reports.cpp.obj -c C:\Users\Grant\CS1B\CS1B-A4\reports.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/A4.dir/reports.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\A4.dir\reports.cpp.obj -c C:\Users\Grant\CS1B\CS1B-SERENDIPITY\reports.cpp
 
 CMakeFiles/A4.dir/reports.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/A4.dir/reports.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-A4\reports.cpp > CMakeFiles\A4.dir\reports.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-SERENDIPITY\reports.cpp > CMakeFiles\A4.dir\reports.cpp.i
 
 CMakeFiles/A4.dir/reports.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/A4.dir/reports.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-A4\reports.cpp -o CMakeFiles\A4.dir\reports.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-SERENDIPITY\reports.cpp -o CMakeFiles\A4.dir\reports.cpp.s
 
 # Object files for target A4
 A4_OBJECTS = \
@@ -186,7 +186,7 @@ A4.exe: CMakeFiles/A4.dir/build.make
 A4.exe: CMakeFiles/A4.dir/linklibs.rsp
 A4.exe: CMakeFiles/A4.dir/objects1.rsp
 A4.exe: CMakeFiles/A4.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Grant\CS1B\CS1B-A4\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable A4.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable A4.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\A4.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -199,6 +199,6 @@ CMakeFiles/A4.dir/clean:
 .PHONY : CMakeFiles/A4.dir/clean
 
 CMakeFiles/A4.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\Grant\CS1B\CS1B-A4 C:\Users\Grant\CS1B\CS1B-A4 C:\Users\Grant\CS1B\CS1B-A4\cmake-build-debug C:\Users\Grant\CS1B\CS1B-A4\cmake-build-debug C:\Users\Grant\CS1B\CS1B-A4\cmake-build-debug\CMakeFiles\A4.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\Grant\CS1B\CS1B-SERENDIPITY C:\Users\Grant\CS1B\CS1B-SERENDIPITY C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles\A4.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/A4.dir/depend
 

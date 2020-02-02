@@ -1,3 +1,3 @@
-C:/Users/Grant/CS1B/CS1B-A4/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Grant/CS1B/CS1B-A4/cmake-build-debug/CMakeFiles/A4.dir
-C:/Users/Grant/CS1B/CS1B-A4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Grant/CS1B/CS1B-SERENDIPITY/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Grant/CS1B/CS1B-SERENDIPITY/cmake-build-debug/CMakeFiles/SERENDIPITY.dir
+C:/Users/Grant/CS1B/CS1B-SERENDIPITY/cmake-build-debug/CMakeFiles/edit_cache.dir

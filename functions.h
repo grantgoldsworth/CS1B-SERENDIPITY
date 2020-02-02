@@ -21,10 +21,19 @@ char GetChoice(int min, int max);
 
 void CashierFunction();
 
-void InventoryFunction();
+void InventoryFunction(const int&,
+                        int&,
+                        string [],
+                        string [],
+                        string [],
+                        string [],
+                        string [],
+                        int [],
+                        double [],
+                        double []);
 
 void ReportsFunction();
 
-void BookInformation();
+void BookInformation(string, string, string, string, string, int, double, double);
 
 #endif //A1_FUNCTIONS_H

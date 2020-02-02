@@ -19,7 +19,16 @@
  *
  ******************************************************************************/
 
-void InventoryFunction() {
+void InventoryFunction(const int& DBSIZE,
+                       int&   bookCount,
+                       string bookTitle[],
+                       string isbn[],
+                       string author[],
+                       string publisher[],
+                       string dateAdded[],
+                       int    qtyOnHand[],
+                       double wholesale[],
+                       double retail[]) {
 
     const int MENU_INDENT = 30;     // used to format the indent of the menu
     char  choice;                   // holds the user's choice, assigned from GetChoice()
@@ -40,6 +49,7 @@ void InventoryFunction() {
         cout << right;
 
         choice = GetChoice(1, 5);
+        system("cls");
 
         switch (choice) {
             case '1':
@@ -47,7 +57,25 @@ void InventoryFunction() {
                 break;
 
             case '2':
-                addBook();
+                if (bookCount < DBSIZE) {
+                    addBook(DBSIZE,
+                            bookCount,
+                            bookTitle,
+                            isbn,
+                            author,
+                            publisher,
+                            dateAdded,
+                            qtyOnHand,
+                            wholesale,
+                            retail);
+                }
+                else {
+                    cout << "ERROR - Cannot add book! Database has maximum amount of books stored in it!\n";
+                    cout << "Database Size: "   << DBSIZE << endl;
+                    cout << "Number of books: " << bookCount << endl;
+                    system("pause");
+                    system("cls");
+                }
                 break;
 
             case '3':

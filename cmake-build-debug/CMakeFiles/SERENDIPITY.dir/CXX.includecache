@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Grant/CS1B/CS1B-SERENDIPITY/BookInformation.cpp
-functions.h
-C:/Users/Grant/CS1B/CS1B-SERENDIPITY/functions.h
-
 C:/Users/Grant/CS1B/CS1B-SERENDIPITY/functions.h
 iostream
 -
@@ -25,6 +21,12 @@ reports.h
 C:/Users/Grant/CS1B/CS1B-SERENDIPITY/reports.h
 
 C:/Users/Grant/CS1B/CS1B-SERENDIPITY/inventory.h
+string
+-
+
+C:/Users/Grant/CS1B/CS1B-SERENDIPITY/invmenu.cpp
+functions.h
+C:/Users/Grant/CS1B/CS1B-SERENDIPITY/functions.h
 
 C:/Users/Grant/CS1B/CS1B-SERENDIPITY/reports.h
 

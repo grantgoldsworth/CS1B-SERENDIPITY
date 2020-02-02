@@ -43,7 +43,7 @@ void ReportsFunction() {
         cout << right;
 
         choice = GetChoice(1, 7);
-
+        system("cls");
 
         switch (choice) {
             case '1':

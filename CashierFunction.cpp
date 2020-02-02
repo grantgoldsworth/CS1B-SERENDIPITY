@@ -37,11 +37,6 @@ void CashierFunction() {
     float  total;       // total with tax included
     char   answer;      // whether or not user wants to check out another book (y/n)
 
-    // output the heading for the cashier module
-    cout << right;
-    cout << "|" << setw(61) << "==[ Serendipity Booksellers ]==" << setw(33) << "|\n\n";
-    cout << setw(56) << "---[ Cashier ]---";
-
 
     /**********************************************
     * DO-WHILE LOOP
@@ -56,6 +51,11 @@ void CashierFunction() {
          * INPUT - obtain information from user about
          * the book to purchase
          **********************************************/
+
+        // output the heading for the cashier module
+        cout << right;
+        cout << "|" << setw(61) << "==[ Serendipity Booksellers ]==" << setw(33) << "|\n\n";
+        cout << setw(56) << "---[ Cashier ]---";
 
         cout << "\n\nDate: ";
         getline(cin, date);
@@ -99,16 +99,15 @@ void CashierFunction() {
 
         // output the subtotal, the tax, and final total
         cout << left << setw(ISBN_COL)  << ' ' << setw(48) << "Subtotal: " << setw(2) << "$" << right << subTotal << endl;
-        cout << left << setw(ISBN_COL)  << ' ' << setw(48) << "Tax: " << setw(2) << "$" << right << subTotal * TAX_RATE   << endl;
+        cout << left << setw(ISBN_COL)  << ' ' << setw(48) << "Tax: " << setw(2) << "$" << right << setw(5) << subTotal * TAX_RATE   << endl;
         cout << left << setw(ISBN_COL)  << ' ' << setw(48) << "Total: " << setw(2) << "$" << right << total << endl << endl << endl;
 
         // ask the user if they want to check out another book
-        cout << "\nWould you like to check out another book? [y/n]: ";
-        cin.get(answer);
-        answer = toupper(answer);
-        cin.ignore(1000, '\n');
+        cout << "\nWould you like to check out another book? \n [1] Yes \n [2] No\n";
+        answer = GetChoice(1, 2);
+        system("cls");
 
-    } while (answer != 'N');
+    } while (answer != '2');
 
     cout << "\n\nThank you for shopping at Serendipity!\n";
     system("pause");
