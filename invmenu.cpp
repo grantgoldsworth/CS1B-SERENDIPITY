@@ -61,25 +61,25 @@ void lookUpBook(const int& DATABASE_SIZE,
         case '1':
             cout << "\nEnter title to search for: ";
             getline(cin, target);
-            index = searchArray(bookTitle, target, bookCount);
+            index = searchArray(bookTitle, bookTitle, target, bookCount);
             break;
 
         case '2':
             cout << "\nEnter author to search for: ";
             getline(cin, target);
-            index = searchArray(author, target, bookCount);
+            index = searchArray(author, bookTitle, target, bookCount);
             break;
 
         case '3':
             cout << "\nEnter ISBN to search for: ";
             getline(cin, target);
-            index = searchArray(isbn, target, bookCount);
+            index = searchArray(isbn, bookTitle, target, bookCount);
             break;
 
         case '4':
             cout << "\nEnter publisher to search for: ";
             getline(cin, target);
-            index = searchArray(publisher, target, bookCount);
+            index = searchArray(publisher, bookTitle, target, bookCount);
             break;
 
         default:
@@ -119,17 +119,41 @@ void lookUpBook(const int& DATABASE_SIZE,
  *
  ******************************************************************************/
 
-int searchArray(const string array[], string target, int bookCount) {
+int searchArray(const string targetArray[], const string titlesArray[], string target, int bookCount) {
 
-    int index = -1;
+    int index = 0;
+    string matchesArray[bookCount];
+    int    indexMatches[bookCount];
+    int matchCount = 0;
+
 
     target = tolowerstring(target);
 
+    system("cls");
+    cout << "\t\t***** CONTENTS OF THE TARGET ARRAY ******\n\n";
+    for (int j = 0; j < bookCount; j ++) {
+        cout << "[" << j << "]: " << targetArray[j] << endl;
+    }
+    cout << endl << endl;
+
     for (int i = 0; i < bookCount; i ++) {
-       if (tolowerstring(array[i]).find(target) != string::npos) {
-           index = i;
+       if (tolowerstring(targetArray[i]).find(target) != string::npos) {
+           cout << "lowercase of target array elem: " << tolowerstring(targetArray[i]) << endl;
+           cout << "lowercase of target: " << target << endl;
+           matchesArray[matchCount]  = targetArray[matchCount];
+           indexMatches[matchCount] = i;
+           cout << "\t\t matchesArray[matchCount] = " << matchesArray[matchCount] << endl;
+           cout << "\t\t indexMatches[matchCount] = " << indexMatches[matchCount] << endl << endl;
+           matchCount ++;
        }
    }
+    cout << "There were " << matchCount << " matches for the search query " << target << endl;
+    for (int i = 0; i < matchCount; i ++) {
+        cout << "Book title: " << titlesArray[indexMatches[i]] << endl;
+        cout << "With attribute: " << matchesArray[i] << endl << endl;
+    }
+    system("pause");
+
 
     return index;
 }
@@ -179,7 +203,7 @@ void addBook(const int& DATABASE_SIZE,
     const int MENU_INDENT = 55;
 
     char choice;
-    char saveChoice;
+
 
     string tempTitle        = "EMPTY";
     string tempISBN         = "EMPTY";
@@ -190,7 +214,10 @@ void addBook(const int& DATABASE_SIZE,
     double tempWholesale    = 0;
     double tempRetail       = 0;
 
-
+    /***************
+     * NEED TO ADD MULTIPLE SEARCH RETURNS
+     * FUNCTIONALITY
+     ***************/
     if (bookCount < DATABASE_SIZE) {
         do { // while (choice != '4')
 
@@ -241,7 +268,7 @@ void addBook(const int& DATABASE_SIZE,
 
                 case '4':
                     cout << "Enter publisher: ";
-                    getline(cin, tempAuthor);
+                    getline(cin, tempPublisher);
                     break;
 
                 case '5':
@@ -268,27 +295,33 @@ void addBook(const int& DATABASE_SIZE,
                     break;
 
                 case '9':
-                    bookTitle[bookCount] = tempTitle;
-                    isbn[bookCount] = tempISBN;
-                    author[bookCount] = tempAuthor;
-                    publisher[bookCount] = tempPublisher;
-                    dateAdded[bookCount] = tempDate;
-                    qtyOnHand[bookCount] = tempQty;
-                    wholesale[bookCount] = tempWholesale;
-                    retail[bookCount] = tempRetail;
+                    if (bookCount < DATABASE_SIZE) {
+                        bookTitle[bookCount] = tempTitle;
+                        isbn[bookCount] = tempISBN;
+                        author[bookCount] = tempAuthor;
+                        publisher[bookCount] = tempPublisher;
+                        dateAdded[bookCount] = tempDate;
+                        qtyOnHand[bookCount] = tempQty;
+                        wholesale[bookCount] = tempWholesale;
+                        retail[bookCount] = tempRetail;
 
-                    bookCount++;
+                        bookCount++;
 
-                    // reset placeholders to default values for next book entry
-                    tempTitle = "EMPTY";
-                    tempISBN = "EMPTY";
-                    tempAuthor = "EMPTY";
-                    tempPublisher = "EMPTY";
-                    tempDate = "EMPTY";
-                    tempQty = 0;
-                    tempWholesale = 0;
-                    tempRetail = 0;
-
+                        // reset placeholders to default values for next book entry
+                        tempTitle = "EMPTY";
+                        tempISBN = "EMPTY";
+                        tempAuthor = "EMPTY";
+                        tempPublisher = "EMPTY";
+                        tempDate = "EMPTY";
+                        tempQty = 0;
+                        tempWholesale = 0;
+                        tempRetail = 0;
+                    }
+                    else {
+                        cout << "\n\n****** ERROR - MAXIMUM DATABASE CAPACITY REACHED - CANNOT ADD MORE BOOKS ******\n";
+                        cout << "****** DATABASE SIZE: " << DATABASE_SIZE << " --- BOOK COUNT: " << bookCount << " ******\n\n";
+                        system("pause");
+                    }
                     break;
 
                 default:
@@ -298,7 +331,7 @@ void addBook(const int& DATABASE_SIZE,
             system("cls");
 
 
-        } while (choice != '0');
+        } while (choice != '0' && bookCount < DATABASE_SIZE);
     }
     else {
         cout << "\n\n****** ERROR - MAXIMUM DATABASE CAPACITY REACHED - CANNOT ADD MORE BOOKS ******\n";

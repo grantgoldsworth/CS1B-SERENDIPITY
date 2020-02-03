@@ -24,6 +24,7 @@ void lookUpBook(const int&,
                 const double []);
 
 int searchArray(const string [],
+                const string [],
                 string,
                 int);
 
