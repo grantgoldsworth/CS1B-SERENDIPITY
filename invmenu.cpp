@@ -192,7 +192,7 @@ int searchArray(const string targetArray[],
                             wholesale[indexMatches[j]],
                             retail[indexMatches[j]]);
 
-            cout << "Is this the book you were looking for? \n";
+            cout << "\nIs this the book you were looking for? \n";
             cout << "[1] Yes\n";
             cout << "[2] No\n";
             choice = GetChoice(1, 2);
@@ -258,6 +258,7 @@ void addBook(const int& DATABASE_SIZE,
 
     char choice;
     bool changes;
+    bool isbnIsClone;
     string tempTitle        = "EMPTY";
     string tempISBN         = "EMPTY";
     string tempAuthor       = "EMPTY";
@@ -289,8 +290,11 @@ void addBook(const int& DATABASE_SIZE,
         cout << setw(MENU_INDENT) << "[4] Enter publisher"                  << "| --  " << tempPublisher << endl;
         cout << setw(MENU_INDENT) << "[5] Enter date added (MM/DD/YYYY)"    << "| --  " << tempDate      << endl;
         cout << setw(MENU_INDENT) << "[6] Enter quantity on hand"           << "| --  " << tempQty       << endl;
+        cout << setprecision(2) << fixed;
         cout << setw(MENU_INDENT) << "[7] Enter wholesale cost"             << "| --$ " << tempWholesale << endl;
         cout << setw(MENU_INDENT) << "[8] Enter retail price"               << "| --$ " << tempRetail    << endl;
+        cout.unsetf(ios_base::floatfield);
+        cout << setprecision(6);
         cout << "[9] Save book to database\n";
         cout << "[0] Return to Inventory Menu...\n";
         cout << setfill('=') << setw(MENU_INDENT + 25) << "=" << endl;
@@ -309,8 +313,8 @@ void addBook(const int& DATABASE_SIZE,
                 break;
 
             case '2':
-                cout << "Enter ISBN: ";
-                getline(cin, tempISBN);
+                tempISBN = getUniqueISBN(bookTitle, isbn, bookCount);
+
                 changes = true;
                 break;
 
@@ -416,6 +420,56 @@ void addBook(const int& DATABASE_SIZE,
 
     system("cls");
 }
+
+
+
+
+/******************************************************************************
+ * FUNCTION - getUniqueISBN
+ * ____________________________________________________________________________
+ * This function receives
+ * ===> returns
+ * PRE-CONDITIONS
+ * 		Following must be defined prior to function call:
+ *
+ * POST-CONDITIONS
+ *
+ ******************************************************************************/
+
+string getUniqueISBN(const string bookTitle[], const string isbn[], const int bookCount) {
+
+    string tempISBN;
+    bool isbnIsClone;
+
+    do {
+        int isbnCloneIndex = 0;
+
+        cout << "Enter ISBN: ";
+        getline(cin, tempISBN);
+
+        isbnIsClone = false;
+        for (int j = 0; j < bookCount; j ++) {
+            if (tempISBN == isbn[j]) {
+                isbnIsClone = true;
+                isbnCloneIndex = j;
+            }
+        }
+
+        if (isbnIsClone) {
+            cout << "\n***** ERROR -- DUPLICATE ISBN ENTERED! *****\n";
+            cout << "Your ISBN matches the ISBN of " << bookTitle[isbnCloneIndex];
+            cout << " (" << tempISBN << ")\n";
+            cout << "Please enter a unique ISBN.\n";
+        }
+
+    } while (isbnIsClone);
+
+    return tempISBN;
+}
+
+
+
+
 
 /******************************************************************************
  * FUNCTION - editBook

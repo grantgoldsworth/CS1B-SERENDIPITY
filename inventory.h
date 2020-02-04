@@ -47,6 +47,8 @@ void addBook(const int&,
                 double []
                 );
 
+string getUniqueISBN(const string [], const string [], int);
+
 void editBook();
 
 void deleteBook();

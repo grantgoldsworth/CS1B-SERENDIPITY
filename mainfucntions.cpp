@@ -229,7 +229,7 @@ void InventoryFunction(const int& DBSIZE,
         cout << left;
         cout << setw(MENU_INDENT) << " " << "[1] Look up a book\n";
         cout << setw(MENU_INDENT) << " " << "[2] Add a book\n";
-        cout << setw(MENU_INDENT) << " " << "[3] Look at a book's record\n";
+        cout << setw(MENU_INDENT) << " " << "[3] Edit a book's record\n";
         cout << setw(MENU_INDENT) << " " << "[4] Delete a book\n";
         cout << setw(MENU_INDENT) << " " << "[5] Return to Main Menu\n";
         cout << right;
@@ -239,16 +239,23 @@ void InventoryFunction(const int& DBSIZE,
 
         switch (choice) {
             case '1':
-                lookUpBookIndex = lookUpBook(DBSIZE,
-                                               bookCount,
-                                               bookTitle,
-                                               isbn,
-                                               author,
-                                               publisher,
-                                               dateAdded,
-                                               qtyOnHand,
-                                               wholesale,
-                                               retail);
+                if (bookCount != 0) {
+                    lookUpBookIndex = lookUpBook(DBSIZE,
+                                                 bookCount,
+                                                 bookTitle,
+                                                 isbn,
+                                                 author,
+                                                 publisher,
+                                                 dateAdded,
+                                                 qtyOnHand,
+                                                 wholesale,
+                                                 retail);
+                }
+                else {
+                    cout << "There are no books in the inventory. Returning to Inventory Menu...\n";
+                    system("pause");
+                    system("cls");
+                }
                 break;
 
             case '2':
@@ -274,11 +281,23 @@ void InventoryFunction(const int& DBSIZE,
                 break;
 
             case '3':
-                editBook();
+                if (bookCount != 0) {
+                    editBook();
+                } else {
+                    cout << "There are no books in the inventory. Returning to Inventory Menu...\n";
+                    system("pause");
+                    system("cls");
+                }
                 break;
 
             case '4':
-                deleteBook();
+                if (bookCount != 0) {
+                    deleteBook();
+                } else {
+                    cout << "There are no books in the inventory. Returning to Inventory Menu...\n";
+                    system("pause");
+                    system("cls");
+                }
                 break;
 
             default:
