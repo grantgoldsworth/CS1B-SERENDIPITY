@@ -12,7 +12,7 @@ using namespace std;
 #define A4_INVENTORY_H
 
 // InventoryFunction functions
-void lookUpBook(const int&,
+int lookUpBook(const int&,
                 int,
                 const string [],
                 const string [],
@@ -25,6 +25,13 @@ void lookUpBook(const int&,
 
 int searchArray(const string [],
                 const string [],
+                const string [],
+                const string [],
+                const string [],
+                const string [],
+                const int [],
+                const double [],
+                const double [],
                 string,
                 int);
 

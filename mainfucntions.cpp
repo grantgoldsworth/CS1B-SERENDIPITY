@@ -217,6 +217,7 @@ void InventoryFunction(const int& DBSIZE,
 
     const int MENU_INDENT = 30;     // used to format the indent of the menu
     char  choice;                   // holds the user's choice, assigned from GetChoice()
+    int   lookUpBookIndex;
 
     do {
         // output the header for this module
@@ -238,16 +239,16 @@ void InventoryFunction(const int& DBSIZE,
 
         switch (choice) {
             case '1':
-                lookUpBook(DBSIZE,
-                           bookCount,
-                           bookTitle,
-                           isbn,
-                           author,
-                           publisher,
-                           dateAdded,
-                           qtyOnHand,
-                           wholesale,
-                           retail);
+                lookUpBookIndex = lookUpBook(DBSIZE,
+                                               bookCount,
+                                               bookTitle,
+                                               isbn,
+                                               author,
+                                               publisher,
+                                               dateAdded,
+                                               qtyOnHand,
+                                               wholesale,
+                                               retail);
                 break;
 
             case '2':

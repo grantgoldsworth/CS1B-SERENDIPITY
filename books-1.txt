@@ -17,7 +17,6 @@ Del Rey
 8
 100.00
 9
-
 1
 The Empire Strikes Back (Star Wars)
 2
@@ -35,7 +34,6 @@ Ballantine
 8
 185.00
 9
-
 1
 Splinter of the Mind's Eye (Star Wars)
 2
@@ -53,7 +51,6 @@ Del Rey
 8
 26.50
 9
-
 1
 Return of the Jedi (Star Wars)
 2
@@ -71,7 +68,6 @@ Del Rey
 8
 6.50
 9
-
 1
 Heir to the Empire (Star Wars: The Thrawn Trilogy, Vol. 1)
 2
@@ -89,7 +85,6 @@ Bantam
 8
 27.00
 9
-
 1
 Dark Force Rising (Star Wars: The Thrawn Trilogy, Vol. 2
 2
@@ -107,7 +102,6 @@ Bantam
 8
 27.00
 9
-
 1
 The Last Command (Star Wars: The Thrawn Trilogy)
 2
@@ -125,7 +119,6 @@ Bantam
 8
 17
 9
-
 1
 Specter of the Past (Star Wars: The Hand of Thrawn #1)
 2
@@ -143,7 +136,6 @@ Bantam
 8
 15
 9
-
 1
 Vision of the Future (Star Wars: The Hand of Thrawn, Book 2)
 2
@@ -161,7 +153,6 @@ Bantam
 8
 15
 9
-
 1
 Battlestar Galactica
 2
@@ -179,7 +170,6 @@ Titan Books
 8
 150.00
 9
-
 1
 New Battlestar Galactica Volume 1 (Battlestar Galactica (Dynamite)) (v. 1)
 2
@@ -197,7 +187,6 @@ Dynamite Entertainment
 8
 35.00
 9
-
 1
 New Battlestar Galactica Volume II Hardcover (Battlestar Galactica (Dynamite)) 
 2
@@ -215,7 +204,6 @@ Dynamite Entertainment
 8
 37.00
 9
-
 1
 The Hobbit
 2
@@ -233,7 +221,6 @@ Houghton Mifflin Harcourt
 8
 20.00
 9
-
 1
 The Lord of the Rings: 50th Anniversary, One Vol. Edition
 2
@@ -251,7 +238,6 @@ Houghton Mifflin Harcourt
 8
 32.00
 9
-
 1
 The Two Towers
 2
@@ -269,7 +255,6 @@ Houghton Mifflin Harcourt
 8
 19.00
 9
-
 1
 The Return of the King
 2
@@ -287,7 +272,6 @@ Houghton Mifflin Harcourt
 8
 19.00
 9
-
 1
 The Fellowship of the Ring
 2
@@ -305,7 +289,6 @@ Houghton Mifflin Harcourt
 8
 20.00
 9
-
 1
 C++ Programming: From Problem Analysis to Program Design 7th Edition
 2
@@ -323,7 +306,6 @@ Course Technology
 8
 100.00
 9
-
 1
 Digital Computer Electronics
 2
@@ -341,7 +323,6 @@ Mc Graw Hill India
 8
 50.00
 9
-
 1
 Assembly Language for x86 Processors (7th Edition)
 2
