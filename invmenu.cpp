@@ -31,8 +31,7 @@
  *
  ******************************************************************************/
 
-int lookUpBook(const int& DATABASE_SIZE,
-                int   bookCount,
+int lookUpBook(int   bookCount,
                 const string bookTitle[],
                 const string isbn[],
                 const string author[],
@@ -72,7 +71,7 @@ int lookUpBook(const int& DATABASE_SIZE,
         case '2':
             cout << "\nEnter author to search for: ";
             getline(cin, target);
-            index = searchArray(bookTitle, bookTitle,
+            index = searchArray(author, bookTitle,
                                 isbn, author,
                                 publisher, dateAdded,
                                 qtyOnHand, wholesale,
@@ -106,21 +105,6 @@ int lookUpBook(const int& DATABASE_SIZE,
             break;
     }
 
-    if (index != -1) {
-        BookInformation(bookTitle[index],
-                isbn[index],
-                author[index],
-                publisher[index],
-                dateAdded[index],
-                qtyOnHand[index],
-                wholesale[index],
-                retail[index]);
-    }
-    else if (choice != '5') {
-        cout << "\nBook not found. Exiting search...\n";
-    }
-
-    system("pause");
     system("cls");
 
     return index;
@@ -158,15 +142,8 @@ int searchArray(const string targetArray[],
     int matchCount = 0;
     char choice;
 
-
     target = tolowerstring(target);
 
-    system("cls");
-    cout << "\t\t***** CONTENTS OF THE TARGET ARRAY ******\n\n";
-    for (int j = 0; j < bookCount; j ++) {
-        cout << "[" << j << "]: " << targetArray[j] << endl;
-    }
-    cout << endl << endl;
 
     for (int i = 0; i < bookCount; i ++) {
        if (tolowerstring(targetArray[i]).find(target) != string::npos) {
@@ -183,19 +160,19 @@ int searchArray(const string targetArray[],
         do {
             system("cls");
             cout << "Match [" << j + 1 << " / " << matchCount << "]\n\n";
-            BookInformation(bookTitle[indexMatches[j]],
-                            isbn[indexMatches[j]],
-                            author[indexMatches[j]],
-                            publisher[indexMatches[j]],
-                            date[indexMatches[j]],
-                            qtyOnHand[indexMatches[j]],
-                            wholesale[indexMatches[j]],
-                            retail[indexMatches[j]]);
+
+            cout << left;
+            cout << setw(14) << "Title: "     << bookTitle[indexMatches[j]] << endl;
+            cout << setw(14) << "ISBN: "      << isbn[indexMatches[j]] << endl;
+            cout << setw(14) << "Author: "    << author[indexMatches[j]] << endl;
+            cout << setw(14) << "Publisher: " << publisher[indexMatches[j]] << endl;
+            cout << right;
 
             cout << "\nIs this the book you were looking for? \n";
             cout << "[1] Yes\n";
             cout << "[2] No\n";
             choice = GetChoice(1, 2);
+            system("cls");
 
             if (choice == '1') {
                 index = j;
@@ -243,8 +220,7 @@ int searchArray(const string targetArray[],
  *      chooses to save changes to an addition
  ******************************************************************************/
 
-void addBook(const int& DATABASE_SIZE,
-             int& bookCount,
+void addBook(int& bookCount,
              string bookTitle[],
              string isbn[],
              string author[],
@@ -278,7 +254,7 @@ void addBook(const int& DATABASE_SIZE,
         cout << "|" << setw(61) << "==[ Serendipity Booksellers ]==" << setw(33) << "|\n\n";
         cout << setw(56) << "--- Add Book ---\n\n";
 
-        cout << "CURRENT DATABASE SIZE: " << DATABASE_SIZE << setw(10) << ' ' << "BOOK COUNT: " << bookCount << endl
+        cout << "CURRENT DATABASE SIZE: " << DBSIZE << setw(10) << ' ' << "BOOK COUNT: " << bookCount << endl
              << endl;
 
         cout << left;
@@ -370,7 +346,7 @@ void addBook(const int& DATABASE_SIZE,
                 break;
 
             case '9':
-                if (bookCount < DATABASE_SIZE) {
+                if (bookCount < DBSIZE) {
                     bookTitle[bookCount] = tempTitle;
                     isbn[bookCount] = tempISBN;
                     author[bookCount] = tempAuthor;
@@ -396,7 +372,7 @@ void addBook(const int& DATABASE_SIZE,
                 }
                 else {
                     cout << "\n\n****** ERROR - MAXIMUM DATABASE CAPACITY REACHED - CANNOT ADD MORE BOOKS ******\n";
-                    cout << "****** DATABASE SIZE: " << DATABASE_SIZE << " --- BOOK COUNT: " << bookCount << " ******\n\n";
+                    cout << "****** DATABASE SIZE: " << DBSIZE << " --- BOOK COUNT: " << bookCount << " ******\n\n";
                     system("pause");
                 }
                 break;
@@ -416,7 +392,7 @@ void addBook(const int& DATABASE_SIZE,
         system("cls");
 
 
-    } while (choice != '0' && bookCount < DATABASE_SIZE);
+    } while (choice != '0' && bookCount < DBSIZE);
 
     system("cls");
 }
@@ -483,10 +459,126 @@ string getUniqueISBN(const string bookTitle[], const string isbn[], const int bo
  *
  ******************************************************************************/
 
-void editBook() {
-    cout << "Welcome to the edit book menu!\n";
-    cout << "There's nothing here! Go back to Inventory menu.\n\n";
-    system("pause");
+void editBook(const int& bookCount,
+                string bookTitle[],
+                string isbn[],
+                string author[],
+                string publisher[],
+                string dateAdded[],
+                int    qtyOnHand[],
+                double wholesale[],
+                double retail[]) {
+
+    const int MENU_INDENT = 55;
+
+    int index;
+    char choice;
+
+    index = lookUpBook(bookCount, bookTitle, isbn, author, publisher, dateAdded, qtyOnHand, wholesale, retail);
+
+    do { // while (choice != '4')
+
+
+        // main menu screen output
+        cout << right;
+        cout << "|" << setw(61) << "==[ Serendipity Booksellers ]==" << setw(33) << "|\n\n";
+        cout << setw(56) << "--- Edit Book ---\n\n";
+
+        cout << left;
+        cout << setfill('=') << setw(MENU_INDENT + 25) << "=" << endl;
+        cout << setfill(' ');
+        cout << setw(MENU_INDENT) << "[1] Enter book title"                 << "| --  " << bookTitle[index] << endl;
+        cout << setw(MENU_INDENT) << "[2] Enter ISBN"                       << "| --  " << isbn[index]      << endl;
+        cout << setw(MENU_INDENT) << "[3] Enter author"                     << "| --  " << author[index]    << endl;
+        cout << setw(MENU_INDENT) << "[4] Enter publisher"                  << "| --  " << publisher[index] << endl;
+        cout << setw(MENU_INDENT) << "[5] Enter date added (MM/DD/YYYY)"    << "| --  " << dateAdded[index] << endl;
+        cout << setw(MENU_INDENT) << "[6] Enter quantity on hand"           << "| --  " << qtyOnHand[index] << endl;
+        cout << setprecision(2) << fixed;
+        cout << setw(MENU_INDENT) << "[7] Enter wholesale cost"             << "| --$ " << wholesale[index] << endl;
+        cout << setw(MENU_INDENT) << "[8] Enter retail price"               << "| --$ " << retail[index]    << endl;
+        cout.unsetf(ios_base::floatfield);
+        cout << setprecision(6);
+        cout << "[9] Save book to database\n";
+        cout << "[0] Return to Inventory Menu...\n";
+        cout << setfill('=') << setw(MENU_INDENT + 25) << "=" << endl;
+        cout << setfill(' ');
+
+        cout << right;
+        choice = GetChoice(0, 9);
+
+        // determine which module to navigate to based on user input
+        switch (choice) {
+
+            case '1':
+                cout << "Enter book's title: ";
+                getline(cin, bookTitle[index]);
+                break;
+
+            case '2':
+                isbn[index] = getUniqueISBN(bookTitle, isbn, bookCount);
+
+                break;
+
+            case '3':
+                cout << "Enter author: ";
+                getline(cin, author[index]);
+                break;
+
+            case '4':
+                cout << "Enter publisher: ";
+                getline(cin, publisher[index]);
+                break;
+
+            case '5':
+                cout << "Enter date of addition: ";
+                getline(cin, dateAdded[index]);
+                break;
+
+            case '6':
+                cout << "Enter quantity on hand: ";
+                cin  >> qtyOnHand[index];
+                while (qtyOnHand[index] < 0) {
+                    cout << "Error - enter valid quantity: ";
+                    cin  >> qtyOnHand[index];
+                }
+                cin.ignore(1000, '\n');
+                break;
+
+            case '7':
+                cout << "Enter wholesale price: ";
+                cin  >> wholesale[index];
+                while ( wholesale[index] < 0) {
+                    cout << "Error - enter valid quantity: ";
+                    cin  >>  wholesale[index];
+                }
+                cin.ignore(1000, '\n');
+                break;
+
+            case '8':
+                cout << "Enter retail price: ";
+                cin  >> retail[index];
+                while (retail[index] < 0) {
+                    cout << "Error - enter valid quantity: ";
+                    cin  >> retail[index];
+                }
+                cin.ignore(1000, '\n');
+                break;
+
+            case '9':
+                cout << "Changes saved. Returning to Inventory Menu...\n";
+                system("pause");
+                break;
+
+
+            default:
+                break;
+
+        } // end switch (choice)
+        system("cls");
+
+
+    } while (choice != '9');
+
     system("cls");
 }
 

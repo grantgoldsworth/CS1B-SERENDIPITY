@@ -17,7 +17,6 @@ int main() {
      *                          in the inventory. Controls array size for the data
      *******************************************************************************/
     const int MENU_INDENT = 30;
-    const int DBSIZE      = 20;
 
     /*******************************************************************************
      * INVENTORY DATABASE ARRAYS
@@ -67,8 +66,7 @@ int main() {
                 break;
 
             case '2':
-                InventoryFunction(DBSIZE,
-                           bookCount,
+                InventoryFunction(bookCount,
                                bookTitle,
                                isbn,
                                author,
@@ -81,6 +79,9 @@ int main() {
 
             case '3':
                 ReportsFunction();
+                break;
+
+            default:
                 break;
 
         } // end switch (choice)

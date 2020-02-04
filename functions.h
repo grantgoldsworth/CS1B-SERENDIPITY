@@ -17,14 +17,15 @@ using namespace std;
 #ifndef A1_FUNCTIONS_H
 #define A1_FUNCTIONS_H
 
+const int DBSIZE = 20;
+
 char GetChoice(int min, int max);
 
 string tolowerstring(string);
 
 void CashierFunction();
 
-void InventoryFunction(const int&,
-                        int&,
+void InventoryFunction(int&,
                         string [],
                         string [],
                         string [],

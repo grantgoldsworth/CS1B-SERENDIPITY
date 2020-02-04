@@ -204,8 +204,7 @@ void CashierFunction() {
  *
  ******************************************************************************/
 
-void InventoryFunction(const int& DBSIZE,
-                       int&   bookCount,
+void InventoryFunction(int&   bookCount,
                        string bookTitle[],
                        string isbn[],
                        string author[],
@@ -240,8 +239,7 @@ void InventoryFunction(const int& DBSIZE,
         switch (choice) {
             case '1':
                 if (bookCount != 0) {
-                    lookUpBookIndex = lookUpBook(DBSIZE,
-                                                 bookCount,
+                    lookUpBookIndex = lookUpBook(bookCount,
                                                  bookTitle,
                                                  isbn,
                                                  author,
@@ -250,6 +248,22 @@ void InventoryFunction(const int& DBSIZE,
                                                  qtyOnHand,
                                                  wholesale,
                                                  retail);
+
+                    if (lookUpBookIndex != -1) {
+                        BookInformation(bookTitle[lookUpBookIndex],
+                                        isbn[lookUpBookIndex],
+                                        author[lookUpBookIndex],
+                                        publisher[lookUpBookIndex],
+                                        dateAdded[lookUpBookIndex],
+                                        qtyOnHand[lookUpBookIndex],
+                                        wholesale[lookUpBookIndex],
+                                        retail[lookUpBookIndex]);
+                    }
+                    else if (choice != '5') {
+                        cout << "\nBook not found. Exiting search...\n";
+                    }
+
+                    system("pause");
                 }
                 else {
                     cout << "There are no books in the inventory. Returning to Inventory Menu...\n";
@@ -260,8 +274,7 @@ void InventoryFunction(const int& DBSIZE,
 
             case '2':
                 if (bookCount < DBSIZE) {
-                    addBook(DBSIZE,
-                            bookCount,
+                    addBook(bookCount,
                             bookTitle,
                             isbn,
                             author,
@@ -282,7 +295,15 @@ void InventoryFunction(const int& DBSIZE,
 
             case '3':
                 if (bookCount != 0) {
-                    editBook();
+                    editBook(bookCount,
+                            bookTitle,
+                            isbn,
+                            author,
+                            publisher,
+                            dateAdded,
+                            qtyOnHand,
+                            wholesale,
+                            retail);
                 } else {
                     cout << "There are no books in the inventory. Returning to Inventory Menu...\n";
                     system("pause");
