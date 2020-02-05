@@ -15,15 +15,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/invmenu.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/invmenu.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/objects.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/reports.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/reports.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/SERENDIPITY.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/SERENDIPITY.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.h" beforeDir="false" afterPath="$PROJECT_DIR$/functions.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/inventory.h" beforeDir="false" afterPath="$PROJECT_DIR$/inventory.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/invmenu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/invmenu.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainfucntions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mainfucntions.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +100,8 @@
       <workItem from="1580661843319" duration="11379000" />
       <workItem from="1580770152726" duration="1114000" />
       <workItem from="1580774507608" duration="4261000" />
-      <workItem from="1580840561558" duration="6180000" />
+      <workItem from="1580840561558" duration="6367000" />
+      <workItem from="1580859105489" duration="2818000" />
     </task>
     <servers />
   </component>
@@ -155,10 +152,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="253" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1580082922456" />
-    <state x="625" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1580840566359">
+    <state x="625" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1580859120179">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="625" y="365" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580840566359" />
+    <state x="625" y="365" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580859120179" />
     <state x="625" y="365" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1580774512207" />
     <state x="2545" y="365" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1580076943671" />
     <state x="656" y="118" width="607" height="804" key="find.popup" timestamp="1580085270288">

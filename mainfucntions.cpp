@@ -236,7 +236,21 @@ void InventoryFunction(int&   bookCount,
         choice = GetChoice(1, 5);
         system("cls");
 
+
+
+
         switch (choice) {
+
+            /*******************************************************
+             * CASE 1 - look up a book
+             *
+             * check to see if there are books in the inventory
+             *
+             * Call lookUpBook and allow for search of a book. Obtain
+             * index of target book (-1 if none)
+             *
+             * if -1, do not output information of book.
+             *******************************************************/
             case '1':
                 if (bookCount != 0) {
                     lookUpBookIndex = lookUpBook(bookCount,
@@ -258,20 +272,28 @@ void InventoryFunction(int&   bookCount,
                                         qtyOnHand[lookUpBookIndex],
                                         wholesale[lookUpBookIndex],
                                         retail[lookUpBookIndex]);
-                    }
-                    else if (choice != '5') {
-                        cout << "\nBook not found. Exiting search...\n";
-                    }
 
-                    system("pause");
+                        // pause screen after displaying information
+                        system("pause");
+                        system("cls");
+                    }
                 }
                 else {
                     cout << "There are no books in the inventory. Returning to Inventory Menu...\n";
                     system("pause");
                     system("cls");
                 }
+
                 break;
 
+
+            /*******************************************************
+             * CASE 2 - Add a book
+             *
+             * check to see if there is room for an addition
+             *
+             * call addBook function to add information of new book
+             *******************************************************/
             case '2':
                 if (bookCount < DBSIZE) {
                     addBook(bookCount,
@@ -286,31 +308,73 @@ void InventoryFunction(int&   bookCount,
                 }
                 else {
                     cout << "ERROR - Cannot add book! Database has maximum amount of books stored in it!\n";
-                    cout << "Database Size: "   << DBSIZE << endl;
+                    cout << "Database Size:   "   << DBSIZE << endl;
                     cout << "Number of books: " << bookCount << endl;
                     system("pause");
                     system("cls");
                 }
                 break;
 
+
+            /*******************************************************
+             * CASE 3 - Edit a book
+             *
+             * check to see if there are books in the inventory
+             *
+             * Call lookUpBook and allow for search of a book. Obtain
+             * index of target book (-1 if none)
+             *
+             * Call up edit book to allow user to modify elements
+             * of index targeted book. Auto saves with each change.
+             *
+             * if -1, do not output information of book.
+             *******************************************************/
             case '3':
                 if (bookCount != 0) {
-                    editBook(bookCount,
-                            bookTitle,
-                            isbn,
-                            author,
-                            publisher,
-                            dateAdded,
-                            qtyOnHand,
-                            wholesale,
-                            retail);
+
+                    lookUpBookIndex = lookUpBook(bookCount,
+                                                 bookTitle,
+                                                 isbn,
+                                                 author,
+                                                 publisher,
+                                                 dateAdded,
+                                                 qtyOnHand,
+                                                 wholesale,
+                                                 retail);
+
+                    if (lookUpBookIndex != -1) {
+
+                        editBook(bookCount,
+                                 bookTitle,
+                                 isbn,
+                                 author,
+                                 publisher,
+                                 dateAdded,
+                                 qtyOnHand,
+                                 wholesale,
+                                 retail,
+                                 lookUpBookIndex);
+                    }
                 } else {
                     cout << "There are no books in the inventory. Returning to Inventory Menu...\n";
                     system("pause");
-                    system("cls");
                 }
+
+                system("cls");
                 break;
 
+
+            /*******************************************************
+             * CASE 4 - Delete a book
+             *
+             * check to see if there are books in the inventory
+             *
+             * obtain target book index with lookUpBook
+             *
+             * Call delete book function and proceed with removal
+             * of target book from active inventory
+             *
+             *******************************************************/
             case '4':
                 if (bookCount != 0) {
                     deleteBook();
@@ -323,7 +387,9 @@ void InventoryFunction(int&   bookCount,
 
             default:
                 break;
-        }
+
+
+        } // end switch(choice)
 
     } while (choice != '5');
 

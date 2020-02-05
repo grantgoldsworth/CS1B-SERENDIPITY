@@ -12,11 +12,19 @@
 /******************************************************************************
  * FUNCTION - lookUpBook
  * ____________________________________________________________________________
- * This function receives
- * ===> returns
+ * This function receives the number of book sin the database, as well as the
+ * series of parallel arrays containing book information.
+ * It will prompt the user what they wish to search by (title, isbn, author, publisher).
+ * It will either:
+ *      + come up with a list of potential matches for the query and ask user to select which one
+ *      they desire (or none), and will return the index of the selected match (or -1 if none)
+ *      + return -1 for no matches, and inform the user
+ *
+ * ===> returns an integer index of a book's location in the database arrays
+ *
  * PRE-CONDITIONS
  * 		Following must be defined prior to function call:
- * 		    DATABASE_SIZE   : the max number of books possible in database
+ * 		    bookCount       : the number of books currently in the database
  * 		        < all of the below arrays are parallel >
  * 		    bookcount       : the current number of books in the DB; index of book to be added
  * 		    bookTitle       : book title strings array
@@ -28,23 +36,26 @@
  * 		    wholesale       : wholesale price floats array
  * 		    retail          : retail price floats array
  * POST-CONDITIONS
- *
+ *      This function will not modify the actual parameters
+ *      Plenty of output, though. :)
  ******************************************************************************/
 
-int lookUpBook(int   bookCount,
-                const string bookTitle[],
-                const string isbn[],
-                const string author[],
-                const string publisher[],
-                const string dateAdded[],
-                const int    qtyOnHand[],
-                const double wholesale[],
-                const double retail[]) {
+int lookUpBook( int   bookCount,            // VAL - the # of books in the database
+                const string bookTitle[],   // REF - the array of book title strings
+                const string isbn[],        // REF - array of isbn strings
+                const string author[],      // REF - array of author strings
+                const string publisher[],   // REF - array of publisher strings
+                const string dateAdded[],   // REF - array of dates of book addition strings
+                const int    qtyOnHand[],   // REF - array QOH's of the books
+                const double wholesale[],   // REF - array of wholesale prices of the books
+                const double retail[]) {    // REF - array of retail prices of the books
 
-    string target;
-    char choice;
-    int index = -1;
+    string target;  // IN CALC OUT - the user input search query
+    char choice;    // IN CALC     - the user's menu navigation option
+    int index = -1; // CALC        - the index of the target book of the search, set to unfound be default
 
+
+    // output menu screen
     cout << "\t\t===[ BOOK SEARCH ]===\n\n";
     cout << "What would you like to search by?\n";
     cout << "[1] Title\n";
@@ -53,10 +64,13 @@ int lookUpBook(int   bookCount,
     cout << "[4] Publisher\n";
     cout << "[5] Cancel search\n\n";
 
+    // obtain user choice
     choice = GetChoice(1, 5);
 
-
+    // different searches based on user input
     switch (choice) {
+
+        /* CASE 1 - SEARCH BY BOOK TITLE */
         case '1':
             cout << "\nEnter title to search for: ";
             getline(cin, target);
@@ -68,6 +82,8 @@ int lookUpBook(int   bookCount,
                                 bookCount);
             break;
 
+
+        /* CASE 2 - SEARCH BY BOOK AUTHOR */
         case '2':
             cout << "\nEnter author to search for: ";
             getline(cin, target);
@@ -79,6 +95,8 @@ int lookUpBook(int   bookCount,
                                 bookCount);
             break;
 
+
+        /* CASE 3 - SEARCH BY BOOK ISBN NUMBER */
         case '3':
             cout << "\nEnter ISBN to search for: ";
             getline(cin, target);
@@ -90,6 +108,8 @@ int lookUpBook(int   bookCount,
                                 bookCount);
             break;
 
+
+        /* CASE 4 - SEARCH BY BOOK PUBLISHER */
         case '4':
             cout << "\nEnter publisher to search for: ";
             getline(cin, target);
@@ -101,14 +121,17 @@ int lookUpBook(int   bookCount,
                                 bookCount);
             break;
 
+
+        /* DEFAULT - idk just break. how would you even get here though lol? */
         default:
             break;
-    }
+    } // end switch (choice)
 
     system("cls");
 
     return index;
 }
+
 
 
 /******************************************************************************
@@ -180,7 +203,15 @@ int searchArray(const string targetArray[],
 
             j ++;
 
+            if (choice == '2' && j == matchCount) {
+                cout << "The book you are looking for was not found.\n";
+                system("pause");
+            }
+
         } while (choice != '1' && j < matchCount);
+
+
+
     }
     else {
         cout << "There were no matches for your search.\n\n";
@@ -459,7 +490,7 @@ string getUniqueISBN(const string bookTitle[], const string isbn[], const int bo
  *
  ******************************************************************************/
 
-void editBook(const int& bookCount,
+void editBook(int& bookCount,
                 string bookTitle[],
                 string isbn[],
                 string author[],
@@ -467,14 +498,13 @@ void editBook(const int& bookCount,
                 string dateAdded[],
                 int    qtyOnHand[],
                 double wholesale[],
-                double retail[]) {
+                double retail[],
+                int index) {
 
     const int MENU_INDENT = 55;
 
-    int index;
     char choice;
 
-    index = lookUpBook(bookCount, bookTitle, isbn, author, publisher, dateAdded, qtyOnHand, wholesale, retail);
 
     do { // while (choice != '4')
 
