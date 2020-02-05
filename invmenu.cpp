@@ -623,10 +623,47 @@ void editBook(int& bookCount,
  *
  ******************************************************************************/
 
-void deleteBook() {
-    cout << "Welcome to the delete book menu!\n";
-    cout << "There's nothing here! Go back to Inventory menu.\n\n";
-    system("pause");
+void deleteBook(int& bookCount,
+                string bookTitle[],
+                string isbn[],
+                string author[],
+                string publisher[],
+                string dateAdded[],
+                int    qtyOnHand[],
+                double wholesale[],
+                double retail[],
+                int index) {
+
+    char choice;
+
+    BookInformation(bookTitle[index],
+                    isbn[index],
+                    author[index],
+                    publisher[index],
+                    dateAdded[index],
+                    qtyOnHand[index],
+                    wholesale[index],
+                    retail[index]);
+
+    cout << "\nYou are about to delete this book from the database. Do you wish to continue?\n";
+    cout << "[1] Yes, delete this book.\n";
+    cout << "[2] No, return to the Inventory Menu.\n";
+
+    choice = GetChoice(1,2);
+
+    if (choice == '1') {
+            bookCount --;
+
+            bookTitle[index] = bookTitle[bookCount];
+            author[index]    = author[bookCount];
+            isbn[index]      = isbn[bookCount];
+            publisher[index] = publisher[bookCount];
+            dateAdded[index] = dateAdded[bookCount];
+            qtyOnHand[index] = qtyOnHand[bookCount];
+            wholesale[index] = wholesale[bookCount];
+            retail[index]    = retail[bookCount];
+    }
+
     system("cls");
 }
 

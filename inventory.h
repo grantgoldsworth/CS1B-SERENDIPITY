@@ -58,6 +58,15 @@ void editBook(int&,
               double [],
               int);
 
-void deleteBook();
+void deleteBook(int&,
+                string [],
+                string [],
+                string [],
+                string [],
+                string [],
+                int    [],
+                double [],
+                double [],
+                int );
 
 #endif //A4_INVENTORY_H

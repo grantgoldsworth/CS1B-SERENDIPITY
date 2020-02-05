@@ -377,15 +377,36 @@ void InventoryFunction(int&   bookCount,
              *******************************************************/
             case '4':
                 if (bookCount != 0) {
-                    deleteBook();
+
+                    lookUpBookIndex = lookUpBook(bookCount,
+                                                 bookTitle,
+                                                 isbn,
+                                                 author,
+                                                 publisher,
+                                                 dateAdded,
+                                                 qtyOnHand,
+                                                 wholesale,
+                                                 retail);
+
+                    if (lookUpBookIndex != -1) {
+
+                        deleteBook(bookCount,
+                                 bookTitle,
+                                 isbn,
+                                 author,
+                                 publisher,
+                                 dateAdded,
+                                 qtyOnHand,
+                                 wholesale,
+                                 retail,
+                                 lookUpBookIndex);
+                    }
                 } else {
                     cout << "There are no books in the inventory. Returning to Inventory Menu...\n";
                     system("pause");
-                    system("cls");
                 }
-                break;
 
-            default:
+                system("cls");
                 break;
 
 
