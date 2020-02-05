@@ -528,8 +528,7 @@ void editBook(int& bookCount,
         cout << setw(MENU_INDENT) << "[8] Enter retail price"               << "| --$ " << retail[index]    << endl;
         cout.unsetf(ios_base::floatfield);
         cout << setprecision(6);
-        cout << "[9] Save book to database\n";
-        cout << "[0] Return to Inventory Menu...\n";
+        cout << "[9] Save and return to inventory menu\n";
         cout << setfill('=') << setw(MENU_INDENT + 25) << "=" << endl;
         cout << setfill(' ');
 
