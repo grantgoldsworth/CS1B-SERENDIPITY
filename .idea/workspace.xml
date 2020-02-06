@@ -13,14 +13,14 @@
   <component name="ChangeListManager">
     <list default="true" id="036fd02e-248e-46da-bb3a-9f4c3cf046d4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/invmenu.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/invmenu.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/objects.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/SERENDIPITY.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/SERENDIPITY.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.h" beforeDir="false" afterPath="$PROJECT_DIR$/functions.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/inventory.h" beforeDir="false" afterPath="$PROJECT_DIR$/inventory.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/invmenu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/invmenu.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainfucntions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mainfucntions.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/reports.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports.h" beforeDir="false" afterPath="$PROJECT_DIR$/reports.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +103,8 @@
       <workItem from="1580840561558" duration="6367000" />
       <workItem from="1580859105489" duration="3483000" />
       <workItem from="1580872942918" duration="563000" />
-      <workItem from="1580875216726" duration="821000" />
+      <workItem from="1580875216726" duration="1072000" />
+      <workItem from="1580959208742" duration="5406000" />
     </task>
     <servers />
   </component>
@@ -154,10 +155,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="253" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1580082922456" />
-    <state x="625" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1580875216447">
+    <state x="625" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1580959209856">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="625" y="365" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580875216447" />
+    <state x="625" y="365" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580959209856" />
     <state x="625" y="365" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1580774512207" />
     <state x="2545" y="365" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1580076943671" />
     <state x="656" y="118" width="607" height="804" key="find.popup" timestamp="1580085270288">

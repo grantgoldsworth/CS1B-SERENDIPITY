@@ -1,8 +1,8 @@
 /*******************************************
  * AUTHOR   : GRANT GOLDSWORTH
  * ID	    : 1164709
- * PROJECT  : A4
- * DUE DATE : 1/27/2020
+ * PROJECT  : A5
+ * DUE DATE : 2/10/2020
 *******************************************/
 
 #include <string>
@@ -27,10 +27,6 @@ int searchArray(const string [],
                 const string [],
                 const string [],
                 const string [],
-                const string [],
-                const int [],
-                const double [],
-                const double [],
                 string,
                 int);
 
@@ -45,7 +41,9 @@ void addBook(int&,
                 double []
                 );
 
-string getUniqueISBN(const string [], const string [], int);
+string getUniqueISBN(const string [],
+                     const string [],
+                     int);
 
 void editBook(int&,
               string [],

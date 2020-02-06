@@ -1,8 +1,8 @@
 /*******************************************
  * AUTHOR   : GRANT GOLDSWORTH
  * ID	    : 1164709
- * PROJECT  : A4
- * DUE DATE : 1/27/2020
+ * PROJECT  : A5
+ * DUE DATE : 2/10/2020
 *******************************************/
 
 #include "functions.h"
@@ -67,18 +67,25 @@ int lookUpBook( int   bookCount,            // VAL - the # of books in the datab
     // obtain user choice
     choice = GetChoice(1, 5);
 
-    // different searches based on user input
+    /******************************************************
+     * SWITCH - What To Search Through
+     * based on user choice from menu above, search for a book
+     * match in either titles, isbn, author, or publisher
+     * arrays. Obtain index via search function, then pass it
+     * to book information output function.
+     ******************************************************/
     switch (choice) {
 
         /* CASE 1 - SEARCH BY BOOK TITLE */
         case '1':
             cout << "\nEnter title to search for: ";
             getline(cin, target);
-            index = searchArray(bookTitle, bookTitle,
-                                isbn, author,
-                                publisher, dateAdded,
-                                qtyOnHand, wholesale,
-                                retail, target,
+            index = searchArray(bookTitle,
+                                bookTitle,
+                                isbn,
+                                author,
+                                publisher,
+                                target,
                                 bookCount);
             break;
 
@@ -87,11 +94,12 @@ int lookUpBook( int   bookCount,            // VAL - the # of books in the datab
         case '2':
             cout << "\nEnter author to search for: ";
             getline(cin, target);
-            index = searchArray(author, bookTitle,
-                                isbn, author,
-                                publisher, dateAdded,
-                                qtyOnHand, wholesale,
-                                retail, target,
+            index = searchArray(author,
+                                bookTitle,
+                                isbn,
+                                author,
+                                publisher,
+                                target,
                                 bookCount);
             break;
 
@@ -100,11 +108,12 @@ int lookUpBook( int   bookCount,            // VAL - the # of books in the datab
         case '3':
             cout << "\nEnter ISBN to search for: ";
             getline(cin, target);
-            index = searchArray(isbn, bookTitle,
-                                isbn, author,
-                                publisher, dateAdded,
-                                qtyOnHand, wholesale,
-                                retail, target,
+            index = searchArray(isbn,
+                                bookTitle,
+                                isbn,
+                                author,
+                                publisher,
+                                target,
                                 bookCount);
             break;
 
@@ -113,11 +122,12 @@ int lookUpBook( int   bookCount,            // VAL - the # of books in the datab
         case '4':
             cout << "\nEnter publisher to search for: ";
             getline(cin, target);
-            index = searchArray(publisher, bookTitle,
-                                isbn, author,
-                                publisher, dateAdded,
-                                qtyOnHand, wholesale,
-                                retail, target,
+            index = searchArray(publisher,
+                                bookTitle,
+                                isbn,
+                                author,
+                                publisher,
+                                target,
                                 bookCount);
             break;
 
@@ -137,53 +147,73 @@ int lookUpBook( int   bookCount,            // VAL - the # of books in the datab
 /******************************************************************************
  * FUNCTION - searchArray
  * ____________________________________________________________________________
- * This function receives
- * ===> returns
+ * This function receives a target array first, and then a few arrays
+ * for general information display for matches during the search.
+ * ===> returns the index that marks the book search match location
+ *              in the arrays, or -1 if it is not found.
  * PRE-CONDITIONS
  * 		Following must be defined prior to function call:
-
- * POST-CONDITIONS
+ * 		        < all of the below arrays are parallel >
+ * 		    targetArray     : the array to search for matches in
+ * 		    bookTitle       : book title strings array
+ * 		    isbn            : isbn strings array
+ * 		    author          : author strings array
+ * 		    publisher       : publisher strings array
+ * 		    target          : the target query to search with
+ * 		    bookCount       : the number of books in the database, helps make search efficient
  *
+ * POST-CONDITIONS
+ *      This function will not modify any of the actual parameters.
  ******************************************************************************/
 
-int searchArray(const string targetArray[],
-                const string bookTitle[],
-                const string isbn[],
-                const string author[],
-                const string publisher[],
-                const string date[],
-                const int    qtyOnHand[],
-                const double wholesale[],
-                const double retail[],
-                string target,
-                const int bookCount) {
+int searchArray(const string targetArray[],     // REF - the array to search through for matches
+                const string bookTitle[],       // REF - book titles strings array
+                const string isbn[],            // REF - book isbn strings array
+                const string author[],          // REF - book author strings array
+                const string publisher[],       // REF - book publisher strings array
+                string target,                  // VAL - the query to use for searching
+                const int bookCount) {          // VAL - the number of books in the DB, used to control search length
 
-    int index = -1;
-    int j;
-    string matchesArray[bookCount];
-    int    indexMatches[bookCount];
-    int matchCount = 0;
-    char choice;
+    string matchesArray[bookCount]; // array of substring matches for the target query
+    int    indexMatches[bookCount]; // array of database index locations of the matches found
 
+    int index = -1;         // index location of the final match of the search in DB arrays. Unfound by default
+    int j;                  // Loop Control Variable for outputing matches loop
+    int matchCount = 0;     // the number of matches for the target query
+    char choice;            // user navigation / selection choice holder
+
+    // convert target to lowercase for case insensitive searching
     target = tolowerstring(target);
 
 
+    /**********************************************************
+     * FOR - LOOP - Finding matches for the query
+     * Iterate through the target array. If there is a substring match
+     * (lowercase and exact substring is found in target string) then add
+     * the TARGET ARRAY's value to the matches list, as well as the position
+     * of the match in the targetArray index (add to index holding array)
+     **********************************************************/
     for (int i = 0; i < bookCount; i ++) {
        if (tolowerstring(targetArray[i]).find(target) != string::npos) {
            matchesArray[matchCount]  = targetArray[matchCount];
            indexMatches[matchCount] = i;
            matchCount ++;
        }
-   }
+   } // end for (int i = 0; i < bookCount, i ++)
+
+    // if there are matches, iterate through them all and ask the user if it is the one they were looking for
     if (matchCount != 0) {
         cout << "There were " << matchCount << " matches for the search query " << target << endl;
 
         j = 0;
 
-        do {
+        // while the user has not selected a match, and the list has not run out,
+        // display a bit of info for each query match and ask user if it is the one they were lookin for.
+        do { // while (choice != '1' && j < matchCount)
             system("cls");
             cout << "Match [" << j + 1 << " / " << matchCount << "]\n\n";
 
+            // output a bit of info about the match
             cout << left;
             cout << setw(14) << "Title: "     << bookTitle[indexMatches[j]] << endl;
             cout << setw(14) << "ISBN: "      << isbn[indexMatches[j]] << endl;
@@ -191,18 +221,22 @@ int searchArray(const string targetArray[],
             cout << setw(14) << "Publisher: " << publisher[indexMatches[j]] << endl;
             cout << right;
 
+            // ask user if this is the one they want
             cout << "\nIs this the book you were looking for? \n";
             cout << "[1] Yes\n";
             cout << "[2] No\n";
             choice = GetChoice(1, 2);
             system("cls");
 
+            // if user selects 'Yes', assign the database-array index of the match to the return value of this function
             if (choice == '1') {
-                index = j;
+                index = indexMatches[j];
             }
 
+            // increment j to process next match in the match list
             j ++;
 
+            // if the user has toggled through all of the matches, output a sorry message
             if (choice == '2' && j == matchCount) {
                 cout << "The book you are looking for was not found.\n";
                 system("pause");
@@ -212,7 +246,8 @@ int searchArray(const string targetArray[],
 
 
 
-    }
+    } // end if (matchCount != 0)
+    // if the match count is, say sorry
     else {
         cout << "There were no matches for your search.\n\n";
         system("pause");
@@ -434,26 +469,41 @@ void addBook(int& bookCount,
 /******************************************************************************
  * FUNCTION - getUniqueISBN
  * ____________________________________________________________________________
- * This function receives
- * ===> returns
+ * This function receives a bookTitle array and an isbn array as well as the
+ * number of books in the databse. It will prompt the user to enter an ISBN
+ * number (string), and will check the database to see if it is unique. If there
+ * is another exact match, output an error message and some info about the clone.
+ * Prompt for a unique ISBN until satisified.
+ * ===> returns the unique isbn string
  * PRE-CONDITIONS
  * 		Following must be defined prior to function call:
+ * 		    bookTitle   : the array of book title strings
+ * 		    isbn        : the array of isbn strings
+ * 		    bookCount   : the number of books in the DB
  *
  * POST-CONDITIONS
- *
+ *      This function will not modify any of the actual parameters
+ *      Returns a string representing the unique ISBN
  ******************************************************************************/
 
-string getUniqueISBN(const string bookTitle[], const string isbn[], const int bookCount) {
+string getUniqueISBN(const string bookTitle[],  // REF - array of book title strings
+                     const string isbn[],       // REF - array of book isbn strings
+                     const int bookCount) {     // REF - num of books in the database
 
-    string tempISBN;
-    bool isbnIsClone;
+    string tempISBN;    // holder for the user input
+    bool isbnIsClone;   // boolean for if the entered ISBN matches another in the isbn array
+    int isbnCloneIndex; // the array location of an identical match for the input ISBN - used to output
+                        //      information about the matching book
 
-    do {
-        int isbnCloneIndex = 0;
+    do { // while (isbnIsClone)
+        // reset to 0 as user inputs a new ISBN, must search for matches to this new input
+        isbnCloneIndex = 0;
 
+        // get input from user
         cout << "Enter ISBN: ";
         getline(cin, tempISBN);
 
+        // iterate through the isbn array and look for matches
         isbnIsClone = false;
         for (int j = 0; j < bookCount; j ++) {
             if (tempISBN == isbn[j]) {
@@ -462,6 +512,7 @@ string getUniqueISBN(const string bookTitle[], const string isbn[], const int bo
             }
         }
 
+        // output error message
         if (isbnIsClone) {
             cout << "\n***** ERROR -- DUPLICATE ISBN ENTERED! *****\n";
             cout << "Your ISBN matches the ISBN of " << bookTitle[isbnCloneIndex];

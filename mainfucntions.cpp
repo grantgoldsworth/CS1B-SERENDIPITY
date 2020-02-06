@@ -1,17 +1,21 @@
 /*******************************************
  * AUTHOR   : GRANT GOLDSWORTH
  * ID	    : 1164709
- * PROJECT  : A4
- * DUE DATE : 2/5/2020
+ * PROJECT  : A5
+ * DUE DATE : 2/10/2020
 *******************************************/
 
 #include "functions.h"
 
+/* THIS FILE CONTAINS DEFINITIONS FOR ALL OF THE MAIN MENU MODULE FUNCTIONS AND HELPERS */
+
 /******************************************************************************
  * FUNCTION - GetChoice
  * ____________________________________________________________________________
- * This function receives two integers representing a min and a max bound
- * ===> returns a character that holds an integer
+ * This function receives two integers representing a min and a max bound.
+ * It will prompt the user to enter a digit until the conditions are satisfied:
+ * it is an integer digit, and it is between the bounds
+ * ===> returns integer choice
  * PRE-CONDITIONS
  * 		Following must be defined prior to function call:
  * 			min: the integer to represent the minimum choice for a menu
@@ -20,36 +24,46 @@
  * POST-CONDITIONS
  *		This function will return a character representing the user's choice,
  *		once it has been error-checked
+ *
+ *
+ *		p.s. i was kind of indecisive about whether or not to make it return a char
+ *		or int of the choice, because I only discovered this easier method AFTER
+ *		implementing it throughout the program as a character-returning, which
+ *		was when I had the single-character input broken down into ascii and
+ *		compared that way. Replacing all of the options in like 8 switch statements
+ *		wasn't appealing to me. Maybe in another program ill fix it up, and make
+ *		it able to process larger choices than 0-9.
  ******************************************************************************/
 
-char GetChoice(int min, int max) {
-    char  input;
-    int   asciiInput;
-    bool  invalidInput;
+char GetChoice(int min, // VAL - the minimum choice bound
+               int max) // VAL - the maximum choice bound
+               {
 
-    // convert boundaries to ascii so they can be compared against non-numeric chars
-    int asciiMin = min + 48;
-    int asciiMax = max + 48;
+    string  input;
+    int   integerInput;
+    bool  invalidInput;
 
     do {
         cout << "Enter a choice [" << min << " - " << max << "]: ";
-        cin.get(input);
-        cin.ignore(1000, '\n');
+        getline(cin, input);
 
-        // convert input integer to ASCII
-        asciiInput = input - 0;
+        // convert first component of input string to integer - will be garbage
+        // if it is not an integer!
+        // try to make a way to read in all components until reach a non-digit char?? (can process 2+ digit options, like 11)
+        integerInput = (int)input[0] - 48;
 
-        // determine if input is out of bounds specified in input
-        invalidInput = (asciiInput > asciiMax || asciiInput < asciiMin);
+        invalidInput = (!isdigit(input[0]) ||
+                       (integerInput < min || integerInput > max)
+                       );
 
-        // output error message for out of bounds choice
+        // output error message for out of bounds / 'non-integer' input
         if (invalidInput) {
             cout << "*** Invalid Input - Please enter a valid choice. *** \n";
         }
 
     } while (invalidInput);
 
-    return input;
+    return input[0];
 }
 
 
@@ -57,16 +71,16 @@ char GetChoice(int min, int max) {
 /******************************************************************************
  * FUNCTION - tolowerstring
  * ____________________________________________________________________________
- * This function receives two integers representing a min and a max bound
- * ===> returns a character that holds an integer
+ * This function receives a string to convert to lowercase
+ * ===> returns a copy of the target string with alphabetical characters converted to
+ *      lowercase
  * PRE-CONDITIONS
  * 		Following must be defined prior to function call:
- * 			min: the integer to represent the minimum choice for a menu
- * 			max: the integer to represent the maximum choice for a menu
+ * 			str : the string to convert to lowercase
  *
  * POST-CONDITIONS
- *		This function will return a character representing the user's choice,
- *		once it has been error-checked
+ *		This function will not modify the actual parameter
+ *		This function will return a modified copy of the string
  ******************************************************************************/
 
 string tolowerstring(string str) {
@@ -76,7 +90,6 @@ string tolowerstring(string str) {
     }
     return str;
 }
-
 
 
 
@@ -130,6 +143,8 @@ void CashierFunction() {
         cout << "|" << setw(61) << "==[ Serendipity Booksellers ]==" << setw(33) << "|\n\n";
         cout << setw(56) << "---[ Cashier ]---";
 
+        // obtain information regarding the book to be purchased
+        // NOTE - NEEDS ERROR CHECKING ON INPUTS!
         cout << "\n\nDate: ";
         getline(cin, date);
 
@@ -191,32 +206,46 @@ void CashierFunction() {
 
 
 
-
 /******************************************************************************
  * FUNCTION - InventoryFunction
  * ____________________________________________________________________________
- * This function receives
- * ===> returns
+ * This function receives the number of books in the database, and all of the
+ * parallel arrays containing information about the books
+ * ===> returns nothing. screen output function for a menu
  * PRE-CONDITIONS
- * 		Following must be defined prior to function call:
+ * 		Following must be defined prior to function call:1
+ * 		    bookCount       : the number of books currently in the database
+ * 		        < all of the below arrays are parallel >
+ * 		    bookcount       : the current number of books in the DB; index of book to be added
+ * 		    bookTitle       : book title strings array
+ * 		    isbn            : isbn strings array
+ * 		    author          : author strings array
+ * 		    publisher       : publisher strings array
+ * 		    dateAdded       : book addition date strings array
+ * 		    qtyOnHand       : quantity ints array
+ * 		    wholesale       : wholesale price floats array
+ * 		    retail          : retail price floats array
  *
  * POST-CONDITIONS
- *
+ *      This function will potentially modify all of the actual array arguments and the
+ *      bookCount argument depending on input.
+ *      This function outputs a lot of text lol
  ******************************************************************************/
 
-void InventoryFunction(int&   bookCount,
-                       string bookTitle[],
-                       string isbn[],
-                       string author[],
-                       string publisher[],
-                       string dateAdded[],
-                       int    qtyOnHand[],
-                       double wholesale[],
-                       double retail[]) {
+void InventoryFunction(int&   bookCount,    // REF - the num of books in database
+                       string bookTitle[],  // REF - array of title strings
+                       string isbn[],       // REF - array of isbn strings
+                       string author[],     // REF - array of author strings
+                       string publisher[],  // REF - array of publisher strings
+                       string dateAdded[],  // REF - array of date addition strings
+                       int    qtyOnHand[],  // REF - array of quantity on hand ints
+                       double wholesale[],  // REF - array of wholesale price doubles
+                       double retail[]) {   // REF - array of retail price doubles
+
 
     const int MENU_INDENT = 30;     // used to format the indent of the menu
     char  choice;                   // holds the user's choice, assigned from GetChoice()
-    int   lookUpBookIndex;
+    int   lookUpBookIndex;          // target index of book found by lookUpBook()
 
     do {
         // output the header for this module
@@ -252,7 +281,9 @@ void InventoryFunction(int&   bookCount,
              * if -1, do not output information of book.
              *******************************************************/
             case '1':
+                // check to make sure DB isn't empty
                 if (bookCount != 0) {
+                    // get the index of a target book
                     lookUpBookIndex = lookUpBook(bookCount,
                                                  bookTitle,
                                                  isbn,
@@ -263,6 +294,7 @@ void InventoryFunction(int&   bookCount,
                                                  wholesale,
                                                  retail);
 
+                    // if book is found (not -1) then display information
                     if (lookUpBookIndex != -1) {
                         BookInformation(bookTitle[lookUpBookIndex],
                                         isbn[lookUpBookIndex],
@@ -284,6 +316,9 @@ void InventoryFunction(int&   bookCount,
                     system("cls");
                 }
 
+                break;
+
+            default:
                 break;
 
 
@@ -422,7 +457,7 @@ void InventoryFunction(int&   bookCount,
 /******************************************************************************
  * FUNCTION - ReportsFunction
  * ____________________________________________________________________________
- * This function receives
+ * it's a stub for now, everything inside is just a stub. all stubs. stubby.
  * ===> returns
  * PRE-CONDITIONS
  * 		Following must be defined prior to function call:
@@ -496,23 +531,32 @@ void ReportsFunction() {
 /******************************************************************************
  * FUNCTION - BookInformation
  * ____________________________________________________________________________
- * This function receives
- * ===> returns
+ * This function receives information about a single book from all of the database
+ * arrays, and outputs it in a nice display
+ * ===> returns nothing. primarily an output function
  * PRE-CONDITIONS
  * 		Following must be defined prior to function call:
+ * 		    title       : the title of the book
+ * 		    isbn        : isbn of book
+ * 		    author      : you get it now
+ * 		    publisher   :
+ * 		    date        :
+ * 		    qty         :
+ * 		    wholesale   :
+ * 		    retail      :
  *
  * POST-CONDITIONS
- *
+ *      This function will not modify the actual arguments
  ******************************************************************************/
 
-void BookInformation(string title,
-                     string isbn,
-                     string author,
-                     string publisher,
-                     string date,
-                     int    qty,
-                     double wholesale,
-                     double retail
+void BookInformation(string title,      // VAL - title of book
+                     string isbn,       // VAL - isbn of book
+                     string author,     // VAL - author of book
+                     string publisher,  // VAL - publisher of book
+                     string date,       // VAL - date of addition for the book
+                     int    qty,        // VAL - quantity on hand in the inventory
+                     double wholesale,  // VAL - wholesale price of book
+                     double retail      // VAL - retail price of book
 ) {
 
     const int MENU_SPACE = 25;

@@ -1,11 +1,30 @@
 /*******************************************
  * AUTHOR   : GRANT GOLDSWORTH
  * ID	    : 1164709
- * PROJECT  : A4
- * DUE DATE : 1/27/2020
+ * PROJECT  : A5
+ * DUE DATE : 2/10/2020
 *******************************************/
 
 #include "functions.h"
+
+/*******************************************************************************
+ * SERENDIPITY
+ * -----------------------------------------------------------------------------
+ * This is a menu driven program to simulate a management software for a bookstore.
+ * It will allow a user to navigate through various modules, including a cashier
+ * module to check out a book, an inventory module to look up, add, edit and delete books,
+ * and a reports module (that is not yet completed).
+ *
+ * Currently in stage of Chapter 8 - managing parallel arrays. All books have information
+ * stored in a series of parallel arrays passed around like a hot potato
+ *
+ * INPUT
+ *      - User choice for menu options and navigation
+ *      - information for adding a book or editing a book
+ *
+ * OUTPUT
+ *      - output text for menus and data regarding books
+ *******************************************************************************/
 
 int main() {
 
@@ -13,10 +32,9 @@ int main() {
      * CONSTANTS
      * -----------------------------------------------------------------------------
      * MENU_INDENT  : CALC -  Used to format the main menu of serendipity
-     * DBSIZE       : CALC - the number of books that will have information stored for them
-     *                          in the inventory. Controls array size for the data
      *******************************************************************************/
     const int MENU_INDENT = 30;
+    // DBSIZE is defined and declared in functions.h
 
     /*******************************************************************************
      * INVENTORY DATABASE ARRAYS
@@ -38,9 +56,18 @@ int main() {
     int  bookCount; // CALC OUT    - the number of books in the database / index of new book to be added
 
 
-
+    // in this current run, there are no books in the database yet.
     bookCount = 0;
 
+
+    /*******************************************************************************
+     * DO-WHILE LOOP - Program Main Menu
+     * -----------------------------------------------------------------------------
+     * Output the options available to the user for navigation to the main modules.
+     * This loop is essentially the life of the program - it only exits once the
+     * user specifies the exit program option. Otherwise, all submodules are accessed
+     * from within this loop.
+     *******************************************************************************/
     do { // while (choice != '4')
 
         // main menu screen output
@@ -55,16 +82,19 @@ int main() {
         cout << setw(MENU_INDENT) << " " << "[4] Exit...\n";
         cout << right;
 
+        // Obtain user's choice
         choice = GetChoice(1, 4);
         system("cls");
 
         // determine which module to navigate to based on user input
         switch (choice) {
 
+            // Module 1 - Cashier menu
             case '1':
                 CashierFunction();
                 break;
 
+            // module 2 - Inventory menu - pass the arrays as they are used in submodule
             case '2':
                 InventoryFunction(bookCount,
                                bookTitle,
@@ -77,6 +107,7 @@ int main() {
                                retail);
                 break;
 
+            // module 3 - reports menu, currently stubs
             case '3':
                 ReportsFunction();
                 break;
