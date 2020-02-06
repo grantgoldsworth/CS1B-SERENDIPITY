@@ -268,9 +268,8 @@ int searchArray(const string targetArray[],     // REF - the array to search thr
  * ===> returns nothing.
  * PRE-CONDITIONS
  * 		Following must be defined prior to function call:
- * 		    DATABASE_SIZE   : the max number of books possible in database
- * 		        < all of the below arrays are parallel >
  * 		    bookcount       : the current number of books in the DB; index of book to be added
+ * 		        < all of the below arrays are parallel >
  * 		    bookTitle       : book title strings array
  * 		    isbn            : isbn strings array
  * 		    author          : author strings array
@@ -532,31 +531,56 @@ string getUniqueISBN(const string bookTitle[],  // REF - array of book title str
 /******************************************************************************
  * FUNCTION - editBook
  * ____________________________________________________________________________
- * This function receives
- * ===> returns
+ * This function receives all of the database parallel arrays, a target index of
+ * a book to edit, and the number of books in the database. It will allow
+ * the user to edit any of the pieces of information about the target
+ * book.
+ * ===> returns nothing. changes made to array components are saved.
  * PRE-CONDITIONS
  * 		Following must be defined prior to function call:
+ * 		    bookcount       : the current number of books in the DB; index of book to be added
+ * 		        < all of the below arrays are parallel >
+ * 		    bookTitle       : book title strings array
+ * 		    isbn            : isbn strings array
+ * 		    author          : author strings array
+ * 		    publisher       : publisher strings array
+ * 		    dateAdded       : book addition date strings array
+ * 		    qtyOnHand       : quantity ints array
+ * 		    wholesale       : wholesale price floats array
+ * 		    retail          : retail price floats array
+ * 		    index           : the position of the target book in the arrays
  *
  * POST-CONDITIONS
+ *      Based on user input, this function can modify all of the actual array arguments
  *
  ******************************************************************************/
 
-void editBook(int& bookCount,
-                string bookTitle[],
-                string isbn[],
-                string author[],
-                string publisher[],
-                string dateAdded[],
-                int    qtyOnHand[],
-                double wholesale[],
-                double retail[],
-                int index) {
+void editBook(const int& bookCount, // REF - # of books in the array
+                string bookTitle[], // REF - array of title strings
+                string isbn[],      // REF - array of unique isbn strings
+                string author[],    // REF - array of author strings
+                string publisher[], // REF - array of publisher strings
+                string dateAdded[], // REF - array of date addition strings
+                int    qtyOnHand[], // REF - array of quantities
+                double wholesale[], // REF -array of wholesale prices
+                double retail[],    // REF - array of retail prices
+                int index) {        // VAL - the index of the target book to edit
 
     const int MENU_INDENT = 55;
 
-    char choice;
+    char choice;    // user navigation
 
 
+    /*****************************************************
+     * DO-WHILE LOOP - Edit Book menu
+     * While the user has not specified an exit choice,
+     * display information about the book being edited (update
+     * every time a change is made). Error check numerical
+     * inputs as well as ISBN (for uniqueness).
+     *
+     * Changes made to array components are saved as soon
+     * as they are entered.
+     *****************************************************/
     do { // while (choice != '4')
 
 
@@ -565,6 +589,7 @@ void editBook(int& bookCount,
         cout << "|" << setw(61) << "==[ Serendipity Booksellers ]==" << setw(33) << "|\n\n";
         cout << setw(56) << "--- Edit Book ---\n\n";
 
+        // output all of the information for the book being edited
         cout << left;
         cout << setfill('=') << setw(MENU_INDENT + 25) << "=" << endl;
         cout << setfill(' ');
@@ -589,31 +614,36 @@ void editBook(int& bookCount,
         // determine which module to navigate to based on user input
         switch (choice) {
 
+            // Edit title
             case '1':
                 cout << "Enter book's title: ";
                 getline(cin, bookTitle[index]);
                 break;
 
+            // edit the ISBN once a unique one is entered
             case '2':
                 isbn[index] = getUniqueISBN(bookTitle, isbn, bookCount);
-
                 break;
 
+            // edit author
             case '3':
                 cout << "Enter author: ";
                 getline(cin, author[index]);
                 break;
 
+            // edit publisher
             case '4':
                 cout << "Enter publisher: ";
                 getline(cin, publisher[index]);
                 break;
 
+            // edit the date the book was added
             case '5':
                 cout << "Enter date of addition: ";
                 getline(cin, dateAdded[index]);
                 break;
 
+            // edit the quantity of the book that is on hand, and make sure it is a positive number
             case '6':
                 cout << "Enter quantity on hand: ";
                 cin  >> qtyOnHand[index];
@@ -624,6 +654,7 @@ void editBook(int& bookCount,
                 cin.ignore(1000, '\n');
                 break;
 
+            // edit wholesale price, make sure it is a positive number
             case '7':
                 cout << "Enter wholesale price: ";
                 cin  >> wholesale[index];
@@ -634,6 +665,7 @@ void editBook(int& bookCount,
                 cin.ignore(1000, '\n');
                 break;
 
+            // edit retail price, make sure it is a positive number
             case '8':
                 cout << "Enter retail price: ";
                 cin  >> retail[index];
@@ -644,6 +676,7 @@ void editBook(int& bookCount,
                 cin.ignore(1000, '\n');
                 break;
 
+            // exit case
             case '9':
                 cout << "Changes saved. Returning to Inventory Menu...\n";
                 system("pause");
@@ -654,6 +687,7 @@ void editBook(int& bookCount,
                 break;
 
         } // end switch (choice)
+        // clear screen each time a choice is made, for neatness
         system("cls");
 
 
@@ -665,28 +699,43 @@ void editBook(int& bookCount,
 /******************************************************************************
  * FUNCTION - deleteBook
  * ____________________________________________________________________________
- * This function receives
+ * This function receives all of the database arrays, the number of books in the
+ * database, and the target book to delete. It will allow the user to
+ * view the book before deleting it, and ask for a confirmation.
  * ===> returns
  * PRE-CONDITIONS
  * 		Following must be defined prior to function call:
+ * 		    bookcount       : the current number of books in the DB; index of book to be added
+ * 		        < all of the below arrays are parallel >
+ * 		    bookTitle       : book title strings array
+ * 		    isbn            : isbn strings array
+ * 		    author          : author strings array
+ * 		    publisher       : publisher strings array
+ * 		    dateAdded       : book addition date strings array
+ * 		    qtyOnHand       : quantity ints array
+ * 		    wholesale       : wholesale price floats array
+ * 		    retail          : retail price floats array
+ * 		    index           : the position of the target book in the arrays
  *
  * POST-CONDITIONS
- *
+ *      This function will modify the actual array arguments and bookCount.
+ *      If a book is deleted, bookCount will decrease by one
  ******************************************************************************/
 
-void deleteBook(int& bookCount,
-                string bookTitle[],
-                string isbn[],
-                string author[],
-                string publisher[],
-                string dateAdded[],
-                int    qtyOnHand[],
-                double wholesale[],
-                double retail[],
+void deleteBook(int& bookCount,     // REF - # of books in the array
+                string bookTitle[], // REF - array of title strings
+                string isbn[],      // REF - array of unique isbn strings
+                string author[],    // REF - array of author strings
+                string publisher[], // REF - array of publisher strings
+                string dateAdded[], // REF - array of date addition strings
+                int    qtyOnHand[], // REF - array of quantities
+                double wholesale[], // REF -array of wholesale prices
+                double retail[],    // REF - array of retail prices
                 int index) {
 
-    char choice;
+    char choice;    // user choice for menu options
 
+    // display information about the target book
     BookInformation(bookTitle[index],
                     isbn[index],
                     author[index],
@@ -696,12 +745,17 @@ void deleteBook(int& bookCount,
                     wholesale[index],
                     retail[index]);
 
+    // output message asking for user to confirm deletion
     cout << "\nYou are about to delete this book from the database. Do you wish to continue?\n";
     cout << "[1] Yes, delete this book.\n";
     cout << "[2] No, return to the Inventory Menu.\n";
 
     choice = GetChoice(1,2);
 
+    // if user says yes, decrease bookCount and replace the target book (one to delete) with
+    // the information of the last book in the array (the one indexed by the now decreased bookCount).
+    // The copy of the replacer in the last slot of the array will not be accounted for by bookCount, or
+    // in any of the loops using bookCount.
     if (choice == '1') {
             bookCount --;
 

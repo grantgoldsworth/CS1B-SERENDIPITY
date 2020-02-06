@@ -45,7 +45,7 @@ string getUniqueISBN(const string [],
                      const string [],
                      int);
 
-void editBook(int&,
+void editBook(const int&,
               string [],
               string [],
               string [],

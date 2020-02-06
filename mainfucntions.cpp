@@ -477,8 +477,6 @@ void ReportsFunction() {
         cout << "|" << setw(61) << "==[ Serendipity Booksellers ]==" << setw(33) << "|\n\n";
         cout << setw(56) << "---  Reports  ---\n";
 
-        // create switch statement for options
-
         cout << left;
         cout << setw(MENU_INDENT) << " " << "[1] Inventory Listing\n";
         cout << setw(MENU_INDENT) << " " << "[2] Inventory Wholesale Value\n";
