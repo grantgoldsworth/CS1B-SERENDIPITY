@@ -609,7 +609,7 @@ void editBook(const int& bookCount, // REF - # of books in the array
         cout << setfill(' ');
 
         cout << right;
-        choice = GetChoice(0, 9);
+        choice = GetChoice(1, 9);
 
         // determine which module to navigate to based on user input
         switch (choice) {

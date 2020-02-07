@@ -569,8 +569,8 @@ void BookInformation(string title,      // VAL - title of book
     cout << setw(MENU_SPACE) <<"Publisher:"             << publisher << endl;
     cout << setw(MENU_SPACE) <<"Date Added:"            << date << endl;
     cout << setw(MENU_SPACE) <<"Quantity-On-Hand:"      << qty << endl;
-    cout << setw(MENU_SPACE) <<"Wholesale cost:"        << wholesale << endl;
-    cout << setw(MENU_SPACE) <<"Retail Price:"          << retail << endl;
+    cout << setw(MENU_SPACE) <<"Wholesale cost:"        << "$ " << wholesale << endl;
+    cout << setw(MENU_SPACE) <<"Retail Price:"          << "$ " << retail << endl;
 
     return;
 }
