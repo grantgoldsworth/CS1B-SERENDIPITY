@@ -20,11 +20,19 @@ using namespace std;
 const int DBSIZE = 20; // GLOBAL CONSTANT FOR PROGRAM - USED AS TESTING DATABASE SIZE
 
 // helper functions used throughout entire program
-char GetChoice(int min, int max);
+char GetChoice(int min,
+                int max);
 
 string tolowerstring(string);
 
-void BookInformation(string, string, string, string, string, int, double, double);
+void BookInformation(string,
+                     string,
+                     string,
+                     string,
+                     string,
+                     int,
+                     double,
+                     double);
 
 // main menu modules
 void CashierFunction();

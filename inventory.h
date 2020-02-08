@@ -16,11 +16,8 @@ int lookUpBook(int,
                 const string [],
                 const string [],
                 const string [],
-                const string [],
-                const string [],
-                const int    [],
-                const double [],
-                const double []);
+                const string []
+                );
 
 int searchArray(const string [],
                 const string [],

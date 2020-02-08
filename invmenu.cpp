@@ -44,11 +44,8 @@ int lookUpBook( int   bookCount,            // VAL - the # of books in the datab
                 const string bookTitle[],   // REF - the array of book title strings
                 const string isbn[],        // REF - array of isbn strings
                 const string author[],      // REF - array of author strings
-                const string publisher[],   // REF - array of publisher strings
-                const string dateAdded[],   // REF - array of dates of book addition strings
-                const int    qtyOnHand[],   // REF - array QOH's of the books
-                const double wholesale[],   // REF - array of wholesale prices of the books
-                const double retail[]) {    // REF - array of retail prices of the books
+                const string publisher[]   // REF - array of publisher strings
+                ) {
 
     string target;  // IN CALC OUT - the user input search query
     char choice;    // IN CALC     - the user's menu navigation option
@@ -299,7 +296,6 @@ void addBook(int& bookCount,
 
     char choice;
     bool changes;
-    bool isbnIsClone;
     string tempTitle        = "EMPTY";
     string tempISBN         = "EMPTY";
     string tempAuthor       = "EMPTY";
