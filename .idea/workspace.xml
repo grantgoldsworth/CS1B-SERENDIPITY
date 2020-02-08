@@ -12,12 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="036fd02e-248e-46da-bb3a-9f4c3cf046d4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/coimpile test/A5.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/SERENDIPITY.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/SERENDIPITY.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.h" beforeDir="false" afterPath="$PROJECT_DIR$/functions.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory.h" beforeDir="false" afterPath="$PROJECT_DIR$/inventory.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/invmenu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/invmenu.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainfucntions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mainfucntions.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +103,7 @@
       <workItem from="1581012715547" duration="253000" />
       <workItem from="1581051554305" duration="308000" />
       <workItem from="1581186391421" duration="17000" />
-      <workItem from="1581186579857" duration="198000" />
+      <workItem from="1581186579857" duration="916000" />
     </task>
     <servers />
   </component>

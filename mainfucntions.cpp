@@ -85,8 +85,8 @@ char GetChoice(int min, // VAL - the minimum choice bound
 
 string tolowerstring(string str) {
 
-    for (int i = 0; i < str.length(); i ++) {
-        str[i] = tolower(str[i]);
+    for (char & i : str) {
+        i = tolower(i);
     }
     return str;
 }
@@ -166,7 +166,7 @@ void CashierFunction() {
         cout << endl;
 
         // calculate the subtotal and total with taxes
-        subTotal = quantity * bookPrice;
+        subTotal = (float)quantity * bookPrice;
         total = subTotal * (1 + TAX_RATE);
 
         cout << "\nDate: " << date << endl << endl;
@@ -288,11 +288,8 @@ void InventoryFunction(int&   bookCount,    // REF - the num of books in databas
                                                  bookTitle,
                                                  isbn,
                                                  author,
-                                                 publisher,
-                                                 dateAdded,
-                                                 qtyOnHand,
-                                                 wholesale,
-                                                 retail);
+                                                 publisher
+                                                 );
 
                     // if book is found (not -1) then display information
                     if (lookUpBookIndex != -1) {
@@ -371,11 +368,8 @@ void InventoryFunction(int&   bookCount,    // REF - the num of books in databas
                                                  bookTitle,
                                                  isbn,
                                                  author,
-                                                 publisher,
-                                                 dateAdded,
-                                                 qtyOnHand,
-                                                 wholesale,
-                                                 retail);
+                                                 publisher
+                                                 );
 
                     if (lookUpBookIndex != -1) {
 
@@ -417,11 +411,8 @@ void InventoryFunction(int&   bookCount,    // REF - the num of books in databas
                                                  bookTitle,
                                                  isbn,
                                                  author,
-                                                 publisher,
-                                                 dateAdded,
-                                                 qtyOnHand,
-                                                 wholesale,
-                                                 retail);
+                                                 publisher
+                                                 );
 
                     if (lookUpBookIndex != -1) {
 
