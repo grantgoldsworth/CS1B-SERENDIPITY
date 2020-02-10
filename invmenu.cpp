@@ -431,11 +431,7 @@ void addBook(int& bookCount,
 
                     changes = false;
                 }
-                else {
-                    cout << "\n\n****** ERROR - MAXIMUM DATABASE CAPACITY REACHED - CANNOT ADD MORE BOOKS ******\n";
-                    cout << "****** DATABASE SIZE: " << DBSIZE << " --- BOOK COUNT: " << bookCount << " ******\n\n";
-                    system("pause");
-                }
+
                 break;
 
             case '0':
@@ -454,6 +450,12 @@ void addBook(int& bookCount,
 
 
     } while (choice != '0' && bookCount < DBSIZE);
+	
+	if (bookCount == DBSIZE) {
+		cout << "\n\n****** ERROR - MAXIMUM DATABASE CAPACITY REACHED - CANNOT ADD MORE BOOKS ******\n";
+		cout << "****** DATABASE SIZE: " << DBSIZE << " --- BOOK COUNT: " << bookCount << " ******\n\n";
+		system("pause"); 
+	}
 
     system("cls");
 }
