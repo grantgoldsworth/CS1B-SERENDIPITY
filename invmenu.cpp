@@ -292,7 +292,7 @@ void addBook(int& bookCount,
              double wholesale[],
              double retail[]) {
 
-    const int MENU_INDENT = 55;
+    const int MENU_INDENT = 45;
 
     char choice;
     bool changes;
