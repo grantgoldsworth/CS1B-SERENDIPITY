@@ -6,6 +6,7 @@
 *******************************************/
 
 #include <string>
+#include "bookType.h"
 using namespace std;
 
 #ifndef A4_INVENTORY_H
@@ -13,55 +14,26 @@ using namespace std;
 
 // InventoryFunction functions
 int lookUpBook(int,
-                const string [],
-                const string [],
-                const string [],
-                const string []
+               bookType []
                 );
 
-int searchArray(const string [],
-                const string [],
-                const string [],
-                const string [],
-                const string [],
+int searchDatabase(bookType [],
+                int,
                 string,
-                int);
+                char);
 
 void addBook(int&,
-                string [],
-                string [],
-                string [],
-                string [],
-                string [],
-                int    [],
-                double [],
-                double []
+             bookType []
                 );
 
-string getUniqueISBN(const string [],
-                     const string [],
+string getUniqueISBN(const bookType [],
                      int);
 
 void editBook(const int&,
-              string [],
-              string [],
-              string [],
-              string [],
-              string [],
-              int    [],
-              double [],
-              double [],
-              int);
+              bookType []
+              );
 
 void deleteBook(int&,
-                string [],
-                string [],
-                string [],
-                string [],
-                string [],
-                int    [],
-                double [],
-                double [],
-                int );
+                bookType []);
 
 #endif //A4_INVENTORY_H

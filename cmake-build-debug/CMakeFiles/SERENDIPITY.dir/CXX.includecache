@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/Grant/CS1B/CS1B-SERENDIPITY/bookType.h
+string
+-
+iostream
+-
+
+C:/Users/Grant/CS1B/CS1B-SERENDIPITY/bookTypeFunctions.cpp
+bookType.h
+C:/Users/Grant/CS1B/CS1B-SERENDIPITY/bookType.h
+string
+-
+
 C:/Users/Grant/CS1B/CS1B-SERENDIPITY/functions.h
 iostream
 -
@@ -19,12 +31,28 @@ inventory.h
 C:/Users/Grant/CS1B/CS1B-SERENDIPITY/inventory.h
 reports.h
 C:/Users/Grant/CS1B/CS1B-SERENDIPITY/reports.h
+bookType.h
+C:/Users/Grant/CS1B/CS1B-SERENDIPITY/bookType.h
 
 C:/Users/Grant/CS1B/CS1B-SERENDIPITY/inventory.h
 string
 -
+bookType.h
+C:/Users/Grant/CS1B/CS1B-SERENDIPITY/bookType.h
 
 C:/Users/Grant/CS1B/CS1B-SERENDIPITY/invmenu.cpp
+functions.h
+C:/Users/Grant/CS1B/CS1B-SERENDIPITY/functions.h
+
+C:/Users/Grant/CS1B/CS1B-SERENDIPITY/main.cpp
+functions.h
+C:/Users/Grant/CS1B/CS1B-SERENDIPITY/functions.h
+
+C:/Users/Grant/CS1B/CS1B-SERENDIPITY/mainfucntions.cpp
+functions.h
+C:/Users/Grant/CS1B/CS1B-SERENDIPITY/functions.h
+
+C:/Users/Grant/CS1B/CS1B-SERENDIPITY/reports.cpp
 functions.h
 C:/Users/Grant/CS1B/CS1B-SERENDIPITY/functions.h
 

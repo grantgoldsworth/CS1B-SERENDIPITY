@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/bookTypeFunctions.cpp" "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/bookTypeFunctions.cpp.obj"
   "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/invmenu.cpp" "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/invmenu.cpp.obj"
   "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/main.cpp" "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/main.cpp.obj"
   "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/mainfucntions.cpp" "C:/Users/Grant/CS1B/CS1B-SERENDIPITY/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.obj"

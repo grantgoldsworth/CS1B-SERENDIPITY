@@ -12,6 +12,7 @@
 
 #include "inventory.h"
 #include "reports.h"
+#include "bookType.h"
 using namespace std;
 
 #ifndef A1_FUNCTIONS_H
@@ -25,27 +26,13 @@ char GetChoice(int min,
 
 string tolowerstring(string);
 
-void BookInformation(string,
-                     string,
-                     string,
-                     string,
-                     string,
-                     int,
-                     double,
-                     double);
+void BookInformation(bookType);
 
 // main menu modules
 void CashierFunction();
 
 void InventoryFunction(int&,
-                        string [],
-                        string [],
-                        string [],
-                        string [],
-                        string [],
-                        int [],
-                        double [],
-                        double []);
+                        bookType []);
 
 void ReportsFunction();
 

@@ -210,37 +210,23 @@ void CashierFunction() {
  * FUNCTION - InventoryFunction
  * ____________________________________________________________________________
  * This function receives the number of books in the database, and all of the
- * parallel arrays containing information about the books
+ * parallel arrays containing information about the books.
+ * ---This is the main driver function for the Inventory module---
  * ===> returns nothing. screen output function for a menu
  * PRE-CONDITIONS
  * 		Following must be defined prior to function call:1
  * 		    bookCount       : the number of books currently in the database
- * 		        < all of the below arrays are parallel >
- * 		    bookcount       : the current number of books in the DB; index of book to be added
- * 		    bookTitle       : book title strings array
- * 		    isbn            : isbn strings array
- * 		    author          : author strings array
- * 		    publisher       : publisher strings array
- * 		    dateAdded       : book addition date strings array
- * 		    qtyOnHand       : quantity ints array
- * 		    wholesale       : wholesale price floats array
- * 		    retail          : retail price floats array
+ *          database        : the array of bookType structs holding info for each book
  *
  * POST-CONDITIONS
- *      This function will potentially modify all of the actual array arguments and the
- *      bookCount argument depending on input.
- *      This function outputs a lot of text lol
+ *      This function can modify all members of structs in the array
+ *      This function outputs a lot of text
  ******************************************************************************/
 
 void InventoryFunction(int&   bookCount,    // REF - the num of books in database
-                       string bookTitle[],  // REF - array of title strings
-                       string isbn[],       // REF - array of isbn strings
-                       string author[],     // REF - array of author strings
-                       string publisher[],  // REF - array of publisher strings
-                       string dateAdded[],  // REF - array of date addition strings
-                       int    qtyOnHand[],  // REF - array of quantity on hand ints
-                       double wholesale[],  // REF - array of wholesale price doubles
-                       double retail[]) {   // REF - array of retail price doubles
+                       bookType database[]  // REF - the array of bookType structs, main database
+                       )
+                       {
 
 
     const int MENU_INDENT = 30;     // used to format the indent of the menu
@@ -283,30 +269,15 @@ void InventoryFunction(int&   bookCount,    // REF - the num of books in databas
             case '1':
                 // check to make sure DB isn't empty
                 if (bookCount != 0) {
-                    // get the index of a target book
-                    lookUpBookIndex = lookUpBook(bookCount,
-                                                 bookTitle,
-                                                 isbn,
-                                                 author,
-                                                 publisher
-                                                 );
 
-                    // if book is found (not -1) then display information
-                    if (lookUpBookIndex != -1) {
-                        BookInformation(bookTitle[lookUpBookIndex],
-                                        isbn[lookUpBookIndex],
-                                        author[lookUpBookIndex],
-                                        publisher[lookUpBookIndex],
-                                        dateAdded[lookUpBookIndex],
-                                        qtyOnHand[lookUpBookIndex],
-                                        wholesale[lookUpBookIndex],
-                                        retail[lookUpBookIndex]);
-
-                        // pause screen after displaying information
+                    lookUpBookIndex = lookUpBook(bookCount, database);
+                    if (lookUpBookIndex >= 0) {
+                        BookInformation(database[lookUpBookIndex]);
                         system("pause");
-                        system("cls");
                     }
+                    system("cls");
                 }
+
                 else {
                     cout << "There are no books in the inventory. Returning to Inventory Menu...\n";
                     system("pause");
@@ -328,15 +299,7 @@ void InventoryFunction(int&   bookCount,    // REF - the num of books in databas
              *******************************************************/
             case '2':
                 if (bookCount < DBSIZE) {
-                    addBook(bookCount,
-                            bookTitle,
-                            isbn,
-                            author,
-                            publisher,
-                            dateAdded,
-                            qtyOnHand,
-                            wholesale,
-                            retail);
+                    addBook(bookCount, database);
                 }
                 else {
                     cout << "ERROR - Cannot add book! Database has maximum amount of books stored in it!\n";
@@ -363,27 +326,7 @@ void InventoryFunction(int&   bookCount,    // REF - the num of books in databas
              *******************************************************/
             case '3':
                 if (bookCount != 0) {
-
-                    lookUpBookIndex = lookUpBook(bookCount,
-                                                 bookTitle,
-                                                 isbn,
-                                                 author,
-                                                 publisher
-                                                 );
-
-                    if (lookUpBookIndex != -1) {
-
-                        editBook(bookCount,
-                                 bookTitle,
-                                 isbn,
-                                 author,
-                                 publisher,
-                                 dateAdded,
-                                 qtyOnHand,
-                                 wholesale,
-                                 retail,
-                                 lookUpBookIndex);
-                    }
+                        editBook(bookCount, database);
                 } else {
                     cout << "There are no books in the inventory. Returning to Inventory Menu...\n";
                     system("pause");
@@ -406,32 +349,13 @@ void InventoryFunction(int&   bookCount,    // REF - the num of books in databas
              *******************************************************/
             case '4':
                 if (bookCount != 0) {
-
-                    lookUpBookIndex = lookUpBook(bookCount,
-                                                 bookTitle,
-                                                 isbn,
-                                                 author,
-                                                 publisher
-                                                 );
-
-                    if (lookUpBookIndex != -1) {
-
-                        deleteBook(bookCount,
-                                 bookTitle,
-                                 isbn,
-                                 author,
-                                 publisher,
-                                 dateAdded,
-                                 qtyOnHand,
-                                 wholesale,
-                                 retail,
-                                 lookUpBookIndex);
-                    }
-                } else {
+                    deleteBook(bookCount,
+                               database);
+                }
+                else {
                     cout << "There are no books in the inventory. Returning to Inventory Menu...\n";
                     system("pause");
-                }
-
+                 }
                 system("cls");
                 break;
 
@@ -448,7 +372,8 @@ void InventoryFunction(int&   bookCount,    // REF - the num of books in databas
 /******************************************************************************
  * FUNCTION - ReportsFunction
  * ____________________________________________________________________________
- * it's a stub for now, everything inside is just a stub. all stubs. stubby.
+ * <tumbleweeds roll by this abandoned ghost town of a function>
+ * ---This is the main driver function for the reports module---
  * ===> returns
  * PRE-CONDITIONS
  * 		Following must be defined prior to function call:
@@ -525,28 +450,14 @@ void ReportsFunction() {
  * ===> returns nothing. primarily an output function
  * PRE-CONDITIONS
  * 		Following must be defined prior to function call:
- * 		    title       : the title of the book
- * 		    isbn        : isbn of book
- * 		    author      : you get it now
- * 		    publisher   :
- * 		    date        :
- * 		    qty         :
- * 		    wholesale   :
- * 		    retail      :
+ * 		    book    : the book to display info about
  *
  * POST-CONDITIONS
  *      This function will not modify the actual arguments
  ******************************************************************************/
 
-void BookInformation(string title,      // VAL - title of book
-                     string isbn,       // VAL - isbn of book
-                     string author,     // VAL - author of book
-                     string publisher,  // VAL - publisher of book
-                     string date,       // VAL - date of addition for the book
-                     int    qty,        // VAL - quantity on hand in the inventory
-                     double wholesale,  // VAL - wholesale price of book
-                     double retail      // VAL - retail price of book
-) {
+void BookInformation(const bookType book    // VAL - a bookType data structure to output info for
+                    ) {
 
     const int MENU_SPACE = 25;
 
@@ -554,14 +465,14 @@ void BookInformation(string title,      // VAL - title of book
     cout << setw(62) << "---[ Book Information ]---\n\n\n";
 
     cout << setprecision(2) << fixed << left;
-    cout << setw(MENU_SPACE) << "ISBN:"                 << isbn << endl;
-    cout << setw(MENU_SPACE) <<"Title:"                 << title << endl;
-    cout << setw(MENU_SPACE) <<"Author:"                << author << endl;
-    cout << setw(MENU_SPACE) <<"Publisher:"             << publisher << endl;
-    cout << setw(MENU_SPACE) <<"Date Added:"            << date << endl;
-    cout << setw(MENU_SPACE) <<"Quantity-On-Hand:"      << qty << endl;
-    cout << setw(MENU_SPACE) <<"Wholesale cost:"        << "$ " << wholesale << endl;
-    cout << setw(MENU_SPACE) <<"Retail Price:"          << "$ " << retail << endl;
+    cout << setw(MENU_SPACE) << "ISBN:"                 << book.isbn << endl;
+    cout << setw(MENU_SPACE) <<"Title:"                 << book.bookTitle << endl;
+    cout << setw(MENU_SPACE) <<"Author:"                << book.author << endl;
+    cout << setw(MENU_SPACE) <<"Publisher:"             << book.publisher << endl;
+    cout << setw(MENU_SPACE) <<"Date Added:"            << book.dateAdded << endl;
+    cout << setw(MENU_SPACE) <<"Quantity-On-Hand:"      << book.qtyOnHand << endl;
+    cout << setw(MENU_SPACE) <<"Wholesale cost:"        << "$ " << book.wholesale << endl;
+    cout << setw(MENU_SPACE) <<"Retail Price:"          << "$ " << book.retail << endl;
 
     return;
 }

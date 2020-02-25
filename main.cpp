@@ -15,8 +15,7 @@
  * module to check out a book, an inventory module to look up, add, edit and delete books,
  * and a reports module (that is not yet completed).
  *
- * Currently in stage of Chapter 8 - managing parallel arrays. All books have information
- * stored in a series of parallel arrays passed around like a hot potato
+ * Currently in stage of Chapter 9 - array of bookType structs
  *
  * INPUT
  *      - User choice for menu options and navigation
@@ -43,14 +42,7 @@ int main() {
      * inventory. Currently only hold (for testing) information for up to DBSIZE
      * many books.
      *******************************************************************************/
-    string bookTitle[DBSIZE];
-    string isbn[DBSIZE];
-    string author[DBSIZE];
-    string publisher[DBSIZE];
-    string dateAdded[DBSIZE];
-    int    qtyOnHand[DBSIZE];
-    double wholesale[DBSIZE];
-    double retail[DBSIZE];
+    bookType database[DBSIZE];
 
     char choice;    // IN CALC OUT - the user's input choice
     int  bookCount; // CALC OUT    - the number of books in the database / index of new book to be added
@@ -96,15 +88,7 @@ int main() {
 
             // module 2 - Inventory menu - pass the arrays as they are used in submodule
             case '2':
-                InventoryFunction(bookCount,
-                               bookTitle,
-                               isbn,
-                               author,
-                               publisher,
-                               dateAdded,
-                               qtyOnHand,
-                               wholesale,
-                               retail);
+                InventoryFunction(bookCount, database);
                 break;
 
             // module 3 - reports menu, currently stubs

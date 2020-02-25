@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/SERENDIPITY.dir/bookTypeFunctions.cpp.obj"
   "CMakeFiles/SERENDIPITY.dir/invmenu.cpp.obj"
   "CMakeFiles/SERENDIPITY.dir/main.cpp.obj"
   "CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.obj"
