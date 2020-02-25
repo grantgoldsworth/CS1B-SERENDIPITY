@@ -26,10 +26,10 @@ char GetChoice(int min,
 
 string tolowerstring(string);
 
-void BookInformation(bookType);
+void BookInformation(bookType, bool cashier = false);
 
 // main menu modules
-void CashierFunction();
+void CashierFunction(int &, bookType []);
 
 void InventoryFunction(int&,
                         bookType []);

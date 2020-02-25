@@ -270,10 +270,10 @@ int searchDatabase(bookType database[],
 
             // output a bit of info about the match
             cout << left;
-            cout << setw(14) << "Title: "     << database[j].bookTitle << endl;
-            cout << setw(14) << "ISBN: "      << database[j].isbn << endl;
-            cout << setw(14) << "Author: "    << database[j].author << endl;
-            cout << setw(14) << "Publisher: " << database[j].publisher << endl;
+            cout << setw(14) << "Title: "     << database[indexMatches[j]].bookTitle << endl;
+            cout << setw(14) << "ISBN: "      << database[indexMatches[j]].isbn << endl;
+            cout << setw(14) << "Author: "    << database[indexMatches[j]].author << endl;
+            cout << setw(14) << "Publisher: " << database[indexMatches[j]].publisher << endl;
             cout << right;
 
             // ask user if this is the one they want

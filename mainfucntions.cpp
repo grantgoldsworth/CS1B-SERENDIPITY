@@ -107,21 +107,21 @@ string tolowerstring(string str) {
  *		user input
  ******************************************************************************/
 
-void CashierFunction() {
+void CashierFunction(int& bookCount, bookType database[]) {
 
     const int   QTY_COL   = 4;       // column size for quantity in receipt
     const int   ISBN_COL  = 20;      // column size for isbn in receipt
     const int   TITLE_COL = 34;      // column size for title in receipt
     const float TAX_RATE = 0.06;    // the tax rate
 
-    string date;        // user input date -- formatted MM/DD/YY
-    int    quantity;    // user input quantity of book being purchased
-    string isbn;        // ISBN of book being purchased, contains numbers and hyphens
-    string bookTitle;   // title of book being purchased
-    float  bookPrice;   // unit price of book being purchased
-    float  subTotal;    // total before tax
-    float  total;       // total with tax included
-    char   answer;      // whether or not user wants to check out another book (y/n)
+    char answer;
+    float total;
+    float subTotal;
+    int purchaseQty;
+    int lookUpBookIndex;
+
+    bookType book;
+
 
 
     /**********************************************
@@ -141,59 +141,108 @@ void CashierFunction() {
         // output the heading for the cashier module
         cout << right;
         cout << "|" << setw(61) << "==[ Serendipity Booksellers ]==" << setw(33) << "|\n\n";
-        cout << setw(56) << "---[ Cashier ]---";
+        cout << setw(56) << "---[ Cashier ]---" << endl << endl;
 
-        // obtain information regarding the book to be purchased
-        // NOTE - NEEDS ERROR CHECKING ON INPUTS!
-        cout << "\n\nDate: ";
-        getline(cin, date);
 
-        cout << "Quantity: ";
-        cin >> quantity;
 
-        cin.ignore(1000, '\n');
 
-        cout << "ISBN: ";
-        getline(cin, isbn);
+        lookUpBookIndex = lookUpBook(bookCount, database);
 
-        cout << "Title: ";
-        getline(cin, bookTitle);
 
-        cout << "Price: ";
-        cin >> bookPrice;
 
-        cin.ignore(1000, '\n');
-        cout << endl;
+        if (lookUpBookIndex >= 0) {
 
-        // calculate the subtotal and total with taxes
-        subTotal = (float)quantity * bookPrice;
-        total = subTotal * (1 + TAX_RATE);
+            book = database[lookUpBookIndex];
+            BookInformation(book, 't');
 
-        cout << "\nDate: " << date << endl << endl;
+            if (book.qtyOnHand > 0) {
 
-        // output the data table
-        cout << left;
-        cout << setw(QTY_COL) << "Qty" << setw(ISBN_COL) << "ISBN" << setw(TITLE_COL) << "Title";
-        cout << setw(10) << "Price" << setw(10) << "Total" << endl;
+                // obtain the number of books to be purchased
+                cout << "\n\nHow many of " << book.bookTitle << " are being purchased?\n";
+                // output some eye candy
+                if (book.qtyOnHand == 1) {
+                    cout << "There is currently ";
+                }
 
-        // create the line in the cashier menu
-        cout << setfill('_') << setw(80) << '_' << endl << endl;
+                else {
+                    cout << "There are currently ";
+                }
 
-        // output the information about the book being purchased, the price, and subtotal
-        cout << setfill(' ') << setprecision(2) << fixed << left;
-        cout << setw(QTY_COL) << quantity << setw(ISBN_COL) << isbn << setw(TITLE_COL) << bookTitle;
-        cout << "$" << right << setw(6) << bookPrice << setw(4) << "$" << right;
-        cout << setw(6) << subTotal << endl << endl << endl;
+                cout << book.qtyOnHand << " in stock.\n";
+                cout << "Quantity Purchasing: ";
 
-        // output the subtotal, the tax, and final total
-        cout << left << setw(ISBN_COL)  << ' ' << setw(48) << "Subtotal: " << setw(2) << "$" << right << subTotal << endl;
-        cout << left << setw(ISBN_COL)  << ' ' << setw(48) << "Tax: " << setw(2) << "$" << right << setw(5) << subTotal * TAX_RATE   << endl;
-        cout << left << setw(ISBN_COL)  << ' ' << setw(48) << "Total: " << setw(2) << "$" << right << total << endl << endl << endl;
 
-        // ask the user if they want to check out another book
-        cout << "\nWould you like to check out another book? \n [1] Yes \n [2] No\n";
-        answer = GetChoice(1, 2);
-        system("cls");
+
+
+                do { // while ((purchaseQty > book.qtyOnHand) && (purchaseQty <= 0))
+                    cin >> purchaseQty;
+                    if (purchaseQty > book.qtyOnHand) {
+                        cout << "Cannot purchase " << purchaseQty << " copies of " << book.bookTitle << " as there are "
+                             << "only " << book.qtyOnHand << " in inventory.\n";
+                        cout << "Please enter a valid amount: ";
+                    } else if (purchaseQty <= 0) {
+                        cout << "Serendipity does not allow for the sale of negative quantities of books.\n";
+                        cout << "Please enter a valid amount: ";
+                    }
+                    cin.ignore(1000, '\n');
+
+                } while ((purchaseQty > book.qtyOnHand) || (purchaseQty <= 0));
+
+                cout << "Confirm Purchase: \n";
+                cout << " [1] Yes\n";
+                cout << " [2] No\n";
+                answer = GetChoice(1, 2);
+                cout << endl;
+
+                // IF USER ACCEPTS THE PURCHASE - -> PROCEED
+                if (answer == '1') {
+                    subTotal = purchaseQty * book.retail;
+
+                    // output the data table
+                    cout << left;
+                    cout << setw(QTY_COL) << "Qty" << setw(ISBN_COL) << "ISBN" << setw(TITLE_COL) << "Title";
+                    cout << setw(10) << "Price" << setw(10) << "Total" << endl;
+
+                    // create the line in the cashier menu+
+                    cout << setfill('_') << setw(80) << '_' << endl << endl;
+
+                    // output the information about the book being purchased, the price, and subtotal
+                    cout << setfill(' ') << setprecision(2) << fixed << left;
+                    cout << setw(QTY_COL) << purchaseQty << setw(ISBN_COL) << book.isbn << setw(TITLE_COL)
+                         << book.bookTitle;
+                    cout << "$" << right << setw(6) << book.retail << setw(4) << "$" << right;
+                    cout << setw(6) << subTotal << endl << endl << endl;
+
+                    // output the subtotal, the tax, and final total
+                    cout << left << setw(ISBN_COL) << ' ' << setw(48) << "Subtotal: " << setw(2) << "$" << right
+                         << subTotal
+                         << endl;
+                    cout << left << setw(ISBN_COL) << ' ' << setw(48) << "Tax: " << setw(2) << "$" << right << setw(5)
+                         << subTotal * TAX_RATE << endl;
+                    cout << left << setw(ISBN_COL) << ' ' << setw(48) << "Total: " << setw(2) << "$" << right
+                         << subTotal * (1 + TAX_RATE) << endl
+                         << endl << endl;
+
+                    database[lookUpBookIndex].qtyOnHand -= purchaseQty;
+                } // end if (answer == '1') -- continued on else below
+                else {
+                    // IF USER DECLINED CONFIRMING PURCHASE
+                    cout << "Purchase cancelled.\n";
+                }
+
+
+            } // end if (book.qtyOnHand > 0) -- continued on else below
+            else {
+                cout << "There are no copies of " << book.bookTitle
+                     << " in the inventory currently. Can not complete transaction.\n";
+            }
+
+            // ask the user if they want to check out another book
+            cout << "\nWould you like to check out another book? \n [1] Yes \n [2] No\n";
+            answer = GetChoice(1, 2);
+            system("cls");
+
+        } // end if (lookUpBookIndex >= 0)
 
     } while (answer != '2');
 
@@ -456,7 +505,8 @@ void ReportsFunction() {
  *      This function will not modify the actual arguments
  ******************************************************************************/
 
-void BookInformation(const bookType book    // VAL - a bookType data structure to output info for
+void BookInformation(const bookType book,    // VAL - a bookType data structure to output info for
+                     bool cashier            //       't' - in cashier, do not display wholesale
                     ) {
 
     const int MENU_SPACE = 25;
@@ -471,7 +521,9 @@ void BookInformation(const bookType book    // VAL - a bookType data structure t
     cout << setw(MENU_SPACE) <<"Publisher:"             << book.publisher << endl;
     cout << setw(MENU_SPACE) <<"Date Added:"            << book.dateAdded << endl;
     cout << setw(MENU_SPACE) <<"Quantity-On-Hand:"      << book.qtyOnHand << endl;
-    cout << setw(MENU_SPACE) <<"Wholesale cost:"        << "$ " << book.wholesale << endl;
+    if (!cashier) {
+        cout << setw(MENU_SPACE) << "Wholesale cost:" << "$ " << book.wholesale << endl;
+    }
     cout << setw(MENU_SPACE) <<"Retail Price:"          << "$ " << book.retail << endl;
 
     return;

@@ -83,7 +83,7 @@ int main() {
 
             // Module 1 - Cashier menu
             case '1':
-                CashierFunction();
+                CashierFunction(bookCount, database);
                 break;
 
             // module 2 - Inventory menu - pass the arrays as they are used in submodule
