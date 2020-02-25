@@ -462,8 +462,8 @@ void addBook(int& bookCount,
                 if (bookCount < DBSIZE) {
                     // could have just done database[bookCount] = temporary BUUUUT
                     // we have to use these setters so here we are :|
-                    database[bookCount] = temporary;
-                    /*
+                    // database[bookCount] = temporary;
+
                     SetBookTitle(database[bookCount], temporary.bookTitle);
                     SetAuthor(database[bookCount], temporary.author);
                     SetPublisher(database[bookCount], temporary.publisher);
@@ -472,7 +472,7 @@ void addBook(int& bookCount,
                     SetRetail(database[bookCount], temporary.retail);
                     SetWholesale(database[bookCount], temporary.wholesale);
                     SetQtyOnHand(database[bookCount], temporary.qtyOnHand);
-                    */
+
                     bookCount++;
 
                     // reset placeholders to default values for next book entry
@@ -758,6 +758,10 @@ void editBook(const int& bookCount, // REF - # of books in the array
     } // end if (index >= 0)
     system("cls");
 }
+
+
+
+
 
 /******************************************************************************
  * FUNCTION - deleteBook
