@@ -819,13 +819,13 @@ void deleteBook(int& bookCount,     // REF - # of books in the array
         if (choice == '1') {
             bookCount--;
 
-            database[index].bookTitle = database[bookCount].bookTitle;
-            database[index].author = database[bookCount].author;
-            database[index].publisher = database[bookCount].publisher;
-            database[index].dateAdded = database[bookCount].dateAdded;
-            database[index].qtyOnHand = database[bookCount].qtyOnHand;
-            database[index].wholesale = database[bookCount].wholesale;
-            database[index].retail = database[bookCount].retail;
+            SetBookTitle(database[index], database[bookCount].bookTitle);
+            SetAuthor(database[index], database[bookCount].author);
+            SetPublisher(database[index], database[bookCount].publisher);
+            SetDateAdded(database[index], database[bookCount].dateAdded);
+            SetQtyOnHand(database[index], database[bookCount].qtyOnHand);
+            SetWholesale(database[index], database[bookCount].wholesale);
+            SetRetail(database[index], database[bookCount].retail);
         }
     } // end (if index >= 0)
     system("cls");
