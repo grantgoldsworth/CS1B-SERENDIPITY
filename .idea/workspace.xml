@@ -13,7 +13,11 @@
   <component name="ChangeListManager">
     <list default="true" id="036fd02e-248e-46da-bb3a-9f4c3cf046d4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/invmenu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/invmenu.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/invmenu.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/invmenu.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/objects.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/SERENDIPITY.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/SERENDIPITY.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainfucntions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mainfucntions.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +115,9 @@
       <workItem from="1581962582370" duration="644000" />
       <workItem from="1582394993100" duration="1218000" />
       <workItem from="1582592458477" duration="10696000" />
-      <workItem from="1582655851757" duration="5070000" />
+      <workItem from="1582655851757" duration="6159000" />
+      <workItem from="1582757660946" duration="927000" />
+      <workItem from="1582768990213" duration="167000" />
     </task>
     <servers />
   </component>
@@ -166,10 +172,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="681" y="261" width="540" height="524" key="StructurePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1582593059241" />
-    <state x="625" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1582655863449">
+    <state x="625" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1582768990053">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="625" y="365" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582655863449" />
+    <state x="625" y="365" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582768990053" />
     <state x="625" y="365" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1580774512207" />
     <state x="2545" y="365" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1580076943671" />
     <state x="656" y="118" width="607" height="804" key="find.popup" timestamp="1580085270288">
