@@ -1,28 +1,31 @@
 /*******************************************
  * AUTHOR   : GRANT GOLDSWORTH
  * ID	    : 1164709
- * PROJECT  : A5
- * DUE DATE : 2/10/2020
+ * PROJECT  : A19
+ * DUE DATE : 4/27/2020
 *******************************************/
 
 #include "functions.h"
 
 /*******************************************************************************
- * SERENDIPITY
+ * A19- SERENDIPITY POINTERS EDITION
  * -----------------------------------------------------------------------------
  * This is a menu driven program to simulate a management software for a bookstore.
  * It will allow a user to navigate through various modules, including a cashier
  * module to check out a book, an inventory module to look up, add, edit and delete books,
  * and a reports module (that is not yet completed).
  *
- * Currently in stage of Chapter 9 - array of bookType structs
- *
  * INPUT
- *      - User choice for menu options and navigation
- *      - information for adding a book or editing a book
- *
+ *      menu navigation choices from user
+ *      data for books
+ *      input information for a cashier transaction
  * OUTPUT
- *      - output text for menus and data regarding books
+ *      menus for input
+ *      book information
+ *
+ * -----------------------------------------------------------------------------
+ * ALGORITHM
+ *  1 Cre
  *******************************************************************************/
 
 int main() {
@@ -36,19 +39,18 @@ int main() {
     // DBSIZE is defined and declared in functions.h
 
     /*******************************************************************************
-     * INVENTORY DATABASE ARRAYS
+     * VARIABLES
      * -----------------------------------------------------------------------------
-     * Parallel arrays to be used to manage the database of books under Serendipity's
-     * inventory. Currently only hold (for testing) information for up to DBSIZE
-     * many books.
+     * database     : array of bookType pointers, acts as main book database
+     * choice       : user input choice
+     * bookCount    : the number of books in the database; index od next available slot
      *******************************************************************************/
-    bookType database[DBSIZE];
+    bookType* database[DBSIZE] = {nullptr};
 
-    char choice;    // IN CALC OUT - the user's input choice
-    int  bookCount; // CALC OUT    - the number of books in the database / index of new book to be added
+    char choice;
+    int  bookCount;
 
 
-    // in this current run, there are no books in the database yet.
     bookCount = 0;
 
 
@@ -71,7 +73,7 @@ int main() {
         cout << setw(MENU_INDENT) << " " << "[1] Cashier Module\n";
         cout << setw(MENU_INDENT) << " " << "[2] Inventory Database Module\n";
         cout << setw(MENU_INDENT) << " " << "[3] Report Module\n";
-        cout << setw(MENU_INDENT) << " " << "[4] Exit...\n";
+        cout << setw(MENU_INDENT) << " " << "[4] Exit\n";
         cout << right;
 
         // Obtain user's choice
@@ -83,7 +85,15 @@ int main() {
 
             // Module 1 - Cashier menu
             case '1':
-                CashierFunction(bookCount, database);
+                // only allow purchase if there are books in the database to purchase.
+                if (bookCount > 0) {
+                    CashierFunction(bookCount, database);
+                }
+                else {
+                    system("cls");
+                    cout << "No books in database, can not create transaction.\n";
+                    system("pause");
+                }
                 break;
 
             // module 2 - Inventory menu - pass the arrays as they are used in submodule
@@ -93,7 +103,7 @@ int main() {
 
             // module 3 - reports menu, currently stubs
             case '3':
-                ReportsFunction();
+                ReportsFunction(bookCount, database);
                 break;
 
             default:

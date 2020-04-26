@@ -6,28 +6,135 @@
 *******************************************/
 
 #include "functions.h"
+#include <cmath>
 
 /* CONTAINS ALL OF THE SOURCE CODE FOR FUNCTIONS USED IN THE REPORTS MENU */
 
 /******************************************************************************
  * FUNCTION - repListing
  * ____________________________________________________________________________
- * This function receives
- * ===> returns
+ * This function receives the bookCount and the database of bookType pointers.
+ * It will print a reports listing of all the books and allow the user to tab
+ * through the listings, displaying 10 books per page.
+ * ===> returns nothing.
  * PRE-CONDITIONS
  * 		Following must be defined prior to function call:
+ * 		    bookCount   : the number of book entries in the database array, next available slot
+ * 		    database    : array of bookType pointers
  *
  * POST-CONDITIONS
- *
+ *      output
+ *      contents of array are not modified
+ *      bookCount is not modified
  ******************************************************************************/
 
-void repListing() {
-    cout << "Welcome to the reports listing menu!\n";
-    cout << "There's nothing here! Go back to Reports menu.\n\n";
-    system("pause");
-    system("cls");
+void repListing(int& bookCount, bookType *database[]) {
 
-    return;
+    time_t theTime = time(nullptr); // for displaying the time
+    int page = 0;                   // the current page being displayed, set of ten books
+    int maxPages = 1;               // the maximum number of pages, default to 1 (empty listing)
+    int escStat = 0;                // holds bit key of GetKeyState for the escape key, used to exit menu
+    bool quit = false;              // if user hits escape, then quit is set to true
+
+
+    // set the max pages so that there are ten books per page maximum
+    if (bookCount != 0) {
+        maxPages = ceil(bookCount / 10.0);
+    }
+
+    char userChoice;
+
+
+        do { // while (!quit)
+
+            cout << "|" << setw(61) << "==[ Serendipity Booksellers ]==" << setw(33) << "|\n\n";
+            cout << setw(58) << "--- REPORTS LISTING ---" << endl << endl;
+            cout << "DATE AND TIME: " << setw(25) << ctime(&theTime) << endl;
+            cout << "|\t  PAGE" << setw(3) << page + 1 << "  of" << setw(3) << maxPages << "\t|\t" << " DATABASE SIZE:"
+                 << setw(3) << DBSIZE
+                 << "\t|\t" << "CURRENT BOOK COUNT:" << setw(3) << bookCount << "\t\t|\n\n";
+
+            /*
+            cout << "         1         2         3         4         5         6         7         8         9         0         1" << endl;
+            cout << "12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890" << endl;
+            */
+
+            cout << left;
+            cout << setw(28) << "TITLE" << setw(11) << "ISBN" << setw(16) << "AUTHOR" << setw(15) << "PUBLISHER"
+                 << setw(11)
+                 << "DATE ADDED"
+                 << setw(8) << "QTY O/H" << setw(15) << "WHOLESALE COST" << setw(13) << "RETAIL PRICE" << endl;
+            cout
+                    << "--------------------------- ---------- --------------- -------------- ---------- ------- -------------- ------------"
+                    << endl;
+            for (int i = page * 10; i < 10 + page * 10 ; i++) {
+                if (i < bookCount) {
+                    cout << setw(28) << database[i]->bookTitle.substr(0, 27) << setw(11) << database[i]->isbn
+                         << setw(16)
+                         << database[i]->author.substr(0, 15)
+                         << setw(15) << database[i]->publisher.substr(0, 14) << setw(11) << database[i]->dateAdded
+                         << right
+                         << setw(7) << database[i]->qtyOnHand
+                         << setprecision(2) << fixed << "      $" << setfill('.') << setw(8) << database[i]->wholesale
+                         << "   $"
+                         << setfill(' ') << setw(8) << database[i]->retail
+                         << left << endl << endl;
+                    cout << endl;
+                }
+            }
+
+            cout << right;
+            cout << "[PgDn]: Next Page    [PgUp] Prev Page    [F5] Enter Page    [Esc] Exit\n";
+            system("pause");
+            if(GetKeyState(VK_ESCAPE) < 0) {
+                // esc is down
+                quit = true;
+            }
+
+            if(GetKeyState(VK_PRIOR) < 0) {
+                if (page != 0) {
+                    page --;
+                }
+                else {
+                    // else: rubber band to the end
+                    page = maxPages - 1;
+                }
+            }
+
+            if(GetKeyState(VK_NEXT) < 0) {
+                // pages is 0 - indexed so check the adjusted value
+                if (page + 1 < maxPages) {
+                    page ++;
+                }
+                else {
+                    // else: rubber band to the beginning
+                    page = 0;
+                }
+            }
+            if(GetKeyState(VK_F5) < 0) {
+                cout << "Enter Page [1 - " << maxPages << "]: ";
+                if (!(cin >> page)) {
+                    if (cin.fail()) {
+                        page = 0;
+                        cin.clear();
+                        cin.ignore(100, '\n');
+                    }
+                } // end integer error check
+                if (page - 1 >= maxPages) {
+                    page = maxPages - 1;
+                }
+                else if (page - 1 <= 0) {
+                    page = 0;
+                }
+                else {
+                    page = page - 1;
+                }
+            } // end if (F5)
+
+            system("cls");
+        } while (!quit); // end menu do-while
+    //cin.ignore(100, '\n');
+
 }
 
 /******************************************************************************
@@ -42,13 +149,8 @@ void repListing() {
  *
  ******************************************************************************/
 
-void repCost() {
-    cout << "Welcome to the reports cost menu!\n";
-    cout << "There's nothing here! Go back to Reports menu.\n\n";
-    system("pause");
-    system("cls");
+void repCost(int& bookCount, bookType *database[]) {
 
-    return;
 }
 
 /******************************************************************************
@@ -63,13 +165,109 @@ void repCost() {
  *
  ******************************************************************************/
 
-void repWholesale() {
-    cout << "Welcome to the reports wholesale menu!\n";
-    cout << "There's nothing here! Go back to Reports menu.\n\n";
-    system("pause");
-    system("cls");
+void repWholesale(int& bookCount, bookType *database[]) {
+    time_t theTime = time(nullptr); // for displaying the time
+    int page = 0;                   // the current page being displayed, set of ten books
+    int maxPages = 1;               // the maximum number of pages, default to 1 (empty listing)
+    int escStat = 0;                // holds bit key of GetKeyState for the escape key, used to exit menu
+    bool quit = false;              // if user hits escape, then quit is set to true
 
-    return;
+
+    // set the max pages so that there are ten books per page maximum
+    if (bookCount != 0) {
+        maxPages = ceil(bookCount / 10.0);
+    }
+
+    char userChoice;
+
+
+    do { // while (!quit)
+
+        cout << "|" << setw(61) << "==[ Serendipity Booksellers ]==" << setw(33) << "|\n\n";
+        cout << setw(56) << "--- WHOLESALE LISTING ---" << endl << endl;
+        cout << "DATE AND TIME: " << setw(25) << ctime(&theTime) << endl;
+        cout << "|\t  PAGE" << setw(3) << page + 1 << "  of" << setw(3) << maxPages << "\t|\t" << " DATABASE SIZE:"
+             << setw(3) << DBSIZE
+             << "\t|\t" << "CURRENT BOOK COUNT:" << setw(3) << bookCount << "\t\t|\n\n";
+
+        /*
+        cout << "         1         2         3         4         5         6         7         8         9         0         1" << endl;
+        cout << "12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890" << endl;
+        */
+
+        cout << left;
+        cout << setw(50) << "TITLE" << setw(11) << "ISBN" << setw(25) << "AUTHOR" << setw(15)
+             << "QTY O/H" << setw(15) << "WHOLESALE COST" << endl;
+        cout
+                << "--------------------------- ---------- --------------- -------------- ---------- ------- -------------- ------------"
+                << endl;
+        for (int i = page * 10; i < 10 + page * 10 ; i++) {
+            if (i < bookCount) {
+                cout << setw(28) << database[i]->bookTitle.substr(0, 27) << setw(11) << database[i]->isbn
+                     << setw(16)
+                     << database[i]->author.substr(0, 15)
+                     << setw(15) << database[i]->publisher.substr(0, 14) << setw(11) << database[i]->dateAdded
+                     << right
+                     << setw(7) << database[i]->qtyOnHand
+                     << setprecision(2) << fixed << "      $" << setfill('.') << setw(8) << database[i]->wholesale
+                     << "   $"
+                     << setfill(' ') << setw(8) << database[i]->retail
+                     << left << endl << endl;
+                cout << endl;
+            }
+        }
+
+        cout << right;
+        cout << "[PgDn]: Next Page    [PgUp] Prev Page    [F5] Enter Page    [Esc] Exit\n";
+        system("pause");
+        if(GetKeyState(VK_ESCAPE) < 0) {
+            // esc is down
+            quit = true;
+        }
+
+        if(GetKeyState(VK_PRIOR) < 0) {
+            if (page != 0) {
+                page --;
+            }
+            else {
+                // else: rubber band to the end
+                page = maxPages - 1;
+            }
+        }
+
+        if(GetKeyState(VK_NEXT) < 0) {
+            // pages is 0 - indexed so check the adjusted value
+            if (page + 1 < maxPages) {
+                page ++;
+            }
+            else {
+                // else: rubber band to the beginning
+                page = 0;
+            }
+        }
+        if(GetKeyState(VK_F5) < 0) {
+            cout << "Enter Page [1 - " << maxPages << "]: ";
+            if (!(cin >> page)) {
+                if (cin.fail()) {
+                    page = 0;
+                    cin.clear();
+                    cin.ignore(100, '\n');
+                }
+            } // end integer error check
+            if (page - 1 >= maxPages) {
+                page = maxPages - 1;
+            }
+            else if (page - 1 <= 0) {
+                page = 0;
+            }
+            else {
+                page = page - 1;
+            }
+        } // end if (F5)
+
+        system("cls");
+    } while (!quit); // end menu do-while
+
 }
 
 /******************************************************************************
@@ -90,7 +288,6 @@ void repRetail() {
     system("pause");
     system("cls");
 
-    return;
 }
 
 /******************************************************************************
@@ -111,7 +308,6 @@ void repAge() {
     system("pause");
     system("cls");
 
-    return;
 }
 
 /******************************************************************************
@@ -132,5 +328,4 @@ void repQty() {
     system("pause");
     system("cls");
 
-    return;
 }

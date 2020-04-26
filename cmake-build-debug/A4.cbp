@@ -80,9 +80,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Grant/CS1B/CS1B-SERENDIPITY/bookType.h">
-			<Option target="SERENDIPITY"/>
-		</Unit>
 		<Unit filename="C:/Users/Grant/CS1B/CS1B-SERENDIPITY/bookTypeFunctions.cpp">
 			<Option target="SERENDIPITY"/>
 		</Unit>

@@ -13,11 +13,25 @@
   <component name="ChangeListManager">
     <list default="true" id="036fd02e-248e-46da-bb3a-9f4c3cf046d4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/invmenu.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/invmenu.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/objects.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/SERENDIPITY.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/SERENDIPITY.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookType.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookTypeFunctions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/bookTypeFunctions.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/linklibs.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/linklibs.rsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.h" beforeDir="false" afterPath="$PROJECT_DIR$/functions.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory.h" beforeDir="false" afterPath="$PROJECT_DIR$/inventory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/invmenu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/invmenu.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainfucntions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mainfucntions.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/reports.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports.h" beforeDir="false" afterPath="$PROJECT_DIR$/reports.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,26 +45,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="C:\Users\Grant\CS1B\CS1B-A4\.idea" />
-      </set>
-    </option>
-  </component>
   <component name="ProjectId" id="1Wx2CIFeKsR8ZkcrwP58CnIDZ3T" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -60,23 +67,11 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunManager">
-    <configuration name="SERENDIPITY" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="A4" TARGET_NAME="SERENDIPITY" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="A4" RUN_TARGET_NAME="SERENDIPITY">
+    <configuration name="SERENDIPITY" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="A4" TARGET_NAME="SERENDIPITY" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="A4" RUN_TARGET_NAME="SERENDIPITY">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -117,21 +112,30 @@
       <workItem from="1582592458477" duration="10696000" />
       <workItem from="1582655851757" duration="6159000" />
       <workItem from="1582757660946" duration="927000" />
-      <workItem from="1582768990213" duration="167000" />
+      <workItem from="1582768990213" duration="432000" />
+      <workItem from="1583077453941" duration="1144000" />
+      <workItem from="1583164362806" duration="659000" />
+      <workItem from="1583679243875" duration="1085000" />
+      <workItem from="1587829105216" duration="14645000" />
+      <workItem from="1587916332862" duration="3961000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580084390561">
+    <state x="703" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587830073243">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1580084390561" />
+    <state x="703" y="322" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1587830073243" />
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587920321146">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1587920321146" />
     <state x="739" y="263" key="FileChooserDialogImpl" timestamp="1580172782851">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -172,19 +176,19 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="681" y="261" width="540" height="524" key="StructurePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1582593059241" />
-    <state x="625" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1582768990053">
+    <state x="625" y="365" key="com.intellij.ide.util.TipDialog" timestamp="1583679247468">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="625" y="365" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582768990053" />
+    <state x="625" y="365" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583679247468" />
     <state x="625" y="365" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1580774512207" />
     <state x="2545" y="365" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1580076943671" />
     <state x="656" y="118" width="607" height="804" key="find.popup" timestamp="1580085270288">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="118" width="607" height="804" key="find.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1580085270288" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1580084433797">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1587919171764">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1580084433797" />
+    <state x="616" y="240" key="run.anything.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1587919171764" />
   </component>
 </project>

@@ -9,6 +9,7 @@
 #include <iomanip>
 #include <windows.h>
 #include <string>
+#include <time.h>
 
 #include "inventory.h"
 #include "reports.h"
@@ -26,15 +27,16 @@ char GetChoice(int min,
 
 string tolowerstring(string);
 
-void BookInformation(bookType, bool cashier = false);
+void BookInformation(const bookType*, bool cashier = false);
 
 // main menu modules
-void CashierFunction(int &, bookType []);
+void CashierFunction(int &, bookType* []);
 
 void InventoryFunction(int&,
-                        bookType []);
+                        bookType* []);
 
-void ReportsFunction();
+void ReportsFunction(int&,
+                     bookType* []);
 
 
 

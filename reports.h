@@ -5,15 +5,17 @@
  * DUE DATE : 2/10/2020
 *******************************************/
 
+#include "bookType.h"
+
 #ifndef A4_REPORTS_H
 #define A4_REPORTS_H
 
 // ReportsFunction functions
-void repListing();
+void repListing(int&, bookType* []);
 
-void repCost();
+void repCost(int& bookCount, bookType *database[]);
 
-void repWholesale();
+void repWholesale(int& bookCount, bookType *database[]);
 
 void repRetail();
 

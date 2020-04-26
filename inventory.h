@@ -14,26 +14,26 @@ using namespace std;
 
 // InventoryFunction functions
 int lookUpBook(int,
-               bookType []
+               bookType* []
                 );
 
-int searchDatabase(bookType [],
+int searchDatabase(bookType* [],
                 int,
                 string,
                 char);
 
 void addBook(int&,
-             bookType []
+             bookType* []
                 );
 
 string getUniqueISBN(const bookType [],
                      int);
 
 void editBook(const int&,
-              bookType []
+              bookType* []
               );
 
 void deleteBook(int&,
-                bookType []);
+                bookType* []);
 
 #endif //A4_INVENTORY_H

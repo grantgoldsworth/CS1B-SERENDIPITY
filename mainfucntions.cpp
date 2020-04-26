@@ -107,7 +107,7 @@ string tolowerstring(string str) {
  *		user input
  ******************************************************************************/
 
-void CashierFunction(int& bookCount, bookType database[]) {
+void CashierFunction(int& bookCount, bookType *database[]) {
 
     const int   QTY_COL   = 4;       // column size for quantity in receipt
     const int   ISBN_COL  = 20;      // column size for isbn in receipt
@@ -120,7 +120,7 @@ void CashierFunction(int& bookCount, bookType database[]) {
     int purchaseQty;
     int lookUpBookIndex;
 
-    bookType book;
+    bookType* book;
 
 
 
@@ -131,7 +131,7 @@ void CashierFunction(int& bookCount, bookType database[]) {
      * user if they would like to check out another
     **********************************************/
 
-    do { // while (answer != 'N')
+    do { // while (answer != 'N' && lookUpBookIndex >= 0)
 
         /**********************************************
          * INPUT - obtain information from user about
@@ -155,12 +155,12 @@ void CashierFunction(int& bookCount, bookType database[]) {
             book = database[lookUpBookIndex];
             BookInformation(book, 't');
 
-            if (book.qtyOnHand > 0) {
+            if (book->qtyOnHand > 0) {
 
                 // obtain the number of books to be purchased
-                cout << "\n\nHow many of " << book.bookTitle << " are being purchased?\n";
+                cout << "\n\nHow many of " << book->bookTitle << " are being purchased?\n";
                 // output some eye candy
-                if (book.qtyOnHand == 1) {
+                if (book->qtyOnHand == 1) {
                     cout << "There is currently ";
                 }
 
@@ -168,7 +168,7 @@ void CashierFunction(int& bookCount, bookType database[]) {
                     cout << "There are currently ";
                 }
 
-                cout << book.qtyOnHand << " in stock.\n";
+                cout << book->qtyOnHand << " in stock.\n";
                 cout << "Quantity Purchasing: ";
 
 
@@ -176,9 +176,9 @@ void CashierFunction(int& bookCount, bookType database[]) {
 
                 do { // while ((purchaseQty > book.qtyOnHand) && (purchaseQty <= 0))
                     cin >> purchaseQty;
-                    if (purchaseQty > book.qtyOnHand) {
-                        cout << "Cannot purchase " << purchaseQty << " copies of " << book.bookTitle << " as there are "
-                             << "only " << book.qtyOnHand << " in inventory.\n";
+                    if (purchaseQty > book->qtyOnHand) {
+                        cout << "Cannot purchase " << purchaseQty << " copies of " << book->bookTitle << " as there are "
+                             << "only " << book->qtyOnHand << " in inventory.\n";
                         cout << "Please enter a valid amount: ";
                     } else if (purchaseQty < 0) {
                         cout << "Serendipity does not allow for the sale of negative quantities of books.\n";
@@ -186,13 +186,13 @@ void CashierFunction(int& bookCount, bookType database[]) {
                     }
                     cin.ignore(1000, '\n');
 
-                } while ((purchaseQty > book.qtyOnHand) || (purchaseQty < 0));
+                } while ((purchaseQty > book->qtyOnHand) || (purchaseQty < 0));
 
 
 
 
 
-                subTotal = purchaseQty * book.retail;
+                subTotal = purchaseQty * book->retail;
 
                 // output the data table
                 cout << left;
@@ -204,9 +204,9 @@ void CashierFunction(int& bookCount, bookType database[]) {
 
                 // output the information about the book being purchased, the price, and subtotal
                 cout << setfill(' ') << setprecision(2) << fixed << left;
-                cout << setw(QTY_COL) << purchaseQty << setw(ISBN_COL) << book.isbn << setw(TITLE_COL)
-                     << book.bookTitle;
-                cout << "$" << right << setw(6) << book.retail << setw(4) << "$" << right;
+                cout << setw(QTY_COL) << purchaseQty << setw(ISBN_COL) << book->isbn << setw(TITLE_COL)
+                     << book->bookTitle;
+                cout << "$" << right << setw(6) << book->retail << setw(4) << "$" << right;
                 cout << setw(6) << subTotal << endl << endl << endl;
 
                 // output the subtotal, the tax, and final total
@@ -229,8 +229,8 @@ void CashierFunction(int& bookCount, bookType database[]) {
 
                 // IF USER ACCEPTS THE PURCHASE - -> PROCEED
                 if (answer == '1') {
-                    cout << "\nPurchase of " << purchaseQty << " copies of " << book.bookTitle << " completed.\n\n";
-                    database[lookUpBookIndex].qtyOnHand -= purchaseQty;
+                    cout << "\nPurchase of " << purchaseQty << " copies of " << book->bookTitle << " completed.\n\n";
+                    database[lookUpBookIndex]->qtyOnHand -= purchaseQty;
                 } // end if (answer == '1') -- continued on else below
 
                 else {
@@ -241,7 +241,7 @@ void CashierFunction(int& bookCount, bookType database[]) {
 
             } // end if (book.qtyOnHand > 0) -- continued on else below
             else {
-                cout << "There are no copies of " << book.bookTitle
+                cout << "There are no copies of " << book->bookTitle
                      << " in the inventory currently. Can not complete transaction.\n";
             }
 
@@ -252,7 +252,7 @@ void CashierFunction(int& bookCount, bookType database[]) {
 
         } // end if (lookUpBookIndex >= 0)
 
-    } while (answer != '2');
+    } while (answer != '2' && lookUpBookIndex >= 0);
 
     cout << "\n\nThank you for shopping at Serendipity!\n";
     system("pause");
@@ -281,7 +281,7 @@ void CashierFunction(int& bookCount, bookType database[]) {
  ******************************************************************************/
 
 void InventoryFunction(int&   bookCount,    // REF - the num of books in database
-                       bookType database[]  // REF - the array of bookType structs, main database
+                       bookType *database[]  // REF - the array of bookType structs, main database
                        )
                        {
 
@@ -439,7 +439,7 @@ void InventoryFunction(int&   bookCount,    // REF - the num of books in databas
  *
  ******************************************************************************/
 
-void ReportsFunction() {
+void ReportsFunction(int& bookCount, bookType* database[]) {
 
     const int MENU_INDENT = 30;     // used to format the indent of the menu
     char  choice;                   // holds the user's choice, assigned from GetChoice()
@@ -465,11 +465,12 @@ void ReportsFunction() {
 
         switch (choice) {
             case '1':
-                repListing();
+                repListing(bookCount, database);
+                system("cls");
                 break;
 
             case '2':
-                repWholesale();
+                repWholesale(bookCount, database);
                 break;
 
             case '3':
@@ -481,7 +482,7 @@ void ReportsFunction() {
                 break;
 
             case '5':
-                repCost();
+                repCost(bookCount, database);
                 break;
 
             case '6':
@@ -513,7 +514,7 @@ void ReportsFunction() {
  *      This function will not modify the actual arguments
  ******************************************************************************/
 
-void BookInformation(const bookType book,    // VAL - a bookType data structure to output info for
+void BookInformation(const bookType* book,    // VAL - a bookType data structure to output info for
                      bool cashier            //       't' - in cashier, do not display wholesale
                     ) {
 
@@ -523,16 +524,16 @@ void BookInformation(const bookType book,    // VAL - a bookType data structure 
     cout << setw(62) << "---[ Book Information ]---\n\n\n";
 
     cout << setprecision(2) << fixed << left;
-    cout << setw(MENU_SPACE) << "ISBN:"                 << book.isbn << endl;
-    cout << setw(MENU_SPACE) <<"Title:"                 << book.bookTitle << endl;
-    cout << setw(MENU_SPACE) <<"Author:"                << book.author << endl;
-    cout << setw(MENU_SPACE) <<"Publisher:"             << book.publisher << endl;
-    cout << setw(MENU_SPACE) <<"Date Added:"            << book.dateAdded << endl;
-    cout << setw(MENU_SPACE) <<"Quantity-On-Hand:"      << book.qtyOnHand << endl;
+    cout << setw(MENU_SPACE) << "ISBN:"                 << book->isbn << endl;
+    cout << setw(MENU_SPACE) <<"Title:"                 << book->bookTitle << endl;
+    cout << setw(MENU_SPACE) <<"Author:"                << book->author << endl;
+    cout << setw(MENU_SPACE) <<"Publisher:"             << book->publisher << endl;
+    cout << setw(MENU_SPACE) <<"Date Added:"            << book->dateAdded << endl;
+    cout << setw(MENU_SPACE) <<"Quantity-On-Hand:"      << book->qtyOnHand << endl;
     if (!cashier) {
-        cout << setw(MENU_SPACE) << "Wholesale cost:" << "$ " << book.wholesale << endl;
+        cout << setw(MENU_SPACE) << "Wholesale cost:" << "$ " << book->wholesale << endl;
     }
-    cout << setw(MENU_SPACE) <<"Retail Price:"          << "$ " << book.retail << endl;
+    cout << setw(MENU_SPACE) <<"Retail Price:"          << "$ " << book->retail << endl;
 
     return;
 }
