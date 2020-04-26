@@ -101,7 +101,7 @@ int lookUpBook(int bookCount,            // VAL - the # of books in the database
             index = searchDatabase(database, bookCount, target, 'p');
             break;
 
-        /* DEFAULT - idk just break. how would you even get here though lol? */
+
         default:
             break;
     } // end switch (choice)
@@ -147,6 +147,8 @@ int searchDatabase(bookType* database[],
     int matchCount = 0;     // the number of matches for the target query
     char choice;            // user navigation / selection choice holder
     string databaseTarget;
+    int selection = 0;
+    bool quit = false;
 
     // convert target to lowercase for case insensitive searching
     target = tolowerstring(target);
@@ -255,7 +257,7 @@ int searchDatabase(bookType* database[],
 
     // if there are matches, iterate through them all and ask the user if it is the one they were looking for
     if (matchCount != 0) {
-        cout << "There were " << matchCount << " matches for the search query " << target << endl;
+
 
         j = 0;
 
@@ -263,9 +265,12 @@ int searchDatabase(bookType* database[],
         // display a bit of info for each query match and ask user if it is the one they were lookin for.
         do { // while (choice != '1' && j < matchCount)
             system("cls");
+            cout << "There were " << matchCount << " matches for the search query " << target << endl << endl;
+            /*
             cout << "Match [" << j + 1 << " / " << matchCount << "]\n\n";
 
             // output a bit of info about the match
+
             cout << left;
             cout << setw(14) << "Title: "     << database[indexMatches[j]]->bookTitle << endl;
             cout << setw(14) << "ISBN: "      << database[indexMatches[j]]->isbn << endl;
@@ -273,28 +278,94 @@ int searchDatabase(bookType* database[],
             cout << setw(14) << "Publisher: " << database[indexMatches[j]]->publisher << endl;
             cout << right;
 
+             */
+
+            cout << left;
+            cout << "    " << setw(30) << "Title" << setw(12) << "ISBN" << setw(30) << "Author" << setw(30) << "Publisher" << endl;
+            cout << "    " << "------------------------------ ------------ ------------------------------ ------------------------------\n";
+            for (int i = 0; i < matchCount; i ++) {
+                if (i == selection) {
+                    cout << "[X] ";
+                }
+                else {
+                    cout << "[ ] ";
+                }
+                cout << setw(30) << database[indexMatches[i]]->bookTitle.substr(0, 28)
+                     << setw(12) << database[indexMatches[i]]->isbn
+                     << setw(30) << database[indexMatches[i]]->author.substr(0, 28)
+                     << setw(20) << database[indexMatches[i]]->publisher.substr(0, 28)
+                     << endl;
+            }
+            cout << right << endl;
+
+            cout << "[PgUp] Scroll Up    [PgDn] Scroll Down    [Enter] Select    [Esc] Cancel Search\n";
+            system("pause");
+
+            // if page up
+            if (GetKeyState(VK_PRIOR) < 0) {
+                if (selection == 0) {
+                    // rubber band
+                    selection = matchCount - 1;
+                }
+                else {
+                    selection --;
+                }
+            }
+
+            // if page down
+            if (GetKeyState(VK_NEXT) < 0) {
+                if (selection == matchCount - 1) {
+                    // rubber band to beginning
+                    selection = 0;
+                }
+                else {
+                    selection ++;
+                }
+            }
+
+            // escape
+            if (GetKeyState(VK_ESCAPE) < 0) {
+                quit = true;
+            }
+
+            // enter - select this book
+            if (GetKeyState(VK_RETURN) < 0) {
+                index = indexMatches[selection];
+                quit = true;
+            }
+
+
+
             // ask user if this is the one they want
+            /*
             cout << "\nIs this the book you were looking for? \n";
             cout << "[1] Yes\n";
             cout << "[2] No\n";
             choice = GetChoice(1, 2);
             system("cls");
+             */
+
 
             // if user selects 'Yes', assign the database-array index of the match to the return value of this function
+            /*
             if (choice == '1') {
                 index = indexMatches[j];
             }
+             */
 
-            // increment j to process next match in the match list
-            j ++;
+
 
             // if the user has toggled through all of the matches, output a sorry message
+            /*
+            // increment j to process next match in the match list
+            j ++;
             if (choice == '2' && j == matchCount) {
                 cout << "The book you are looking for was not found.\n";
                 system("pause");
             }
+             */
 
-        } while (choice != '1' && j < matchCount);
+        } while (!quit);
 
 
 
@@ -826,8 +897,6 @@ void deleteBook(int& bookCount,     // REF - # of books in the array
             SetRetail(database[index], database[bookCount]->retail);
 
             // delete the dynamic book in the now unaccounted for slot and reset pointer
-            cout << "attempting delete...\n";
-            system("pause");
             delete database[bookCount];
             database[bookCount] = nullptr;
         }
