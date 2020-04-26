@@ -813,8 +813,7 @@ void deleteBook(int& bookCount,     // REF - # of books in the array
 
         // if user says yes, decrease bookCount and replace the target book (one to delete) with
         // the information of the last book in the array (the one indexed by the now decreased bookCount).
-        // The copy of the replacer in the last slot of the array will not be accounted for by bookCount, or
-        // in any of the loops using bookCount.
+        // The copy of the replacer in the last slot of the array is deleted
         if (choice == '1') {
             bookCount--;
 
@@ -825,6 +824,10 @@ void deleteBook(int& bookCount,     // REF - # of books in the array
             SetQtyOnHand(database[index], database[bookCount]->qtyOnHand);
             SetWholesale(database[index], database[bookCount]->wholesale);
             SetRetail(database[index], database[bookCount]->retail);
+
+            // delete the dynamic book in the now unaccounted for slot and reset pointer
+            delete database[bookCount + 1];
+            database[bookCount + 1] = nullptr;
         }
     } // end (if index >= 0)
     system("cls");

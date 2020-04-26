@@ -17,7 +17,7 @@ void repCost(int& bookCount, bookType *database[]);
 
 void repWholesale(int& bookCount, bookType *database[]);
 
-void repRetail();
+void repRetail(int&, bookType* []);
 
 void repAge();
 
