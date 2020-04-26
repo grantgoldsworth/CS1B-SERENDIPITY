@@ -826,8 +826,10 @@ void deleteBook(int& bookCount,     // REF - # of books in the array
             SetRetail(database[index], database[bookCount]->retail);
 
             // delete the dynamic book in the now unaccounted for slot and reset pointer
-            delete database[bookCount + 1];
-            database[bookCount + 1] = nullptr;
+            cout << "attempting delete...\n";
+            system("pause");
+            delete database[bookCount];
+            database[bookCount] = nullptr;
         }
     } // end (if index >= 0)
     system("cls");
