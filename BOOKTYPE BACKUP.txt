@@ -23,21 +23,21 @@ struct bookType {
     float  retail;
 };
 
-void SetBookTitle(bookType*, string);
+void SetBookTitle(bookType&, string);
 
-void SetISBN(bookType*, string);
+void SetISBN(bookType&, string);
 
-void SetAuthor(bookType*, string);
+void SetAuthor(bookType&, string);
 
-void SetPublisher(bookType*, string);
+void SetPublisher(bookType&, string);
 
-void SetDateAdded(bookType*, string);
+void SetDateAdded(bookType&, string);
 
-void SetQtyOnHand(bookType*, int);
+void SetQtyOnHand(bookType&, int);
 
-void SetWholesale(bookType*, float);
+void SetWholesale(bookType&, float);
 
-void SetRetail(bookType*, float);
+void SetRetail(bookType&, float);
 
 
 #endif //A4_BOOKTYPE_H
