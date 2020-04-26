@@ -12,8 +12,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="036fd02e-248e-46da-bb3a-9f4c3cf046d4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/A19.exe" beforeDir="false" afterPath="$PROJECT_DIR$/A19.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/invmenu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/invmenu.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookType.h.gch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookTypeFunctions.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.h.gch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainfucntions.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports.h.gch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports.o" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +104,7 @@
       <workItem from="1583679243875" duration="1085000" />
       <workItem from="1587829105216" duration="14645000" />
       <workItem from="1587916332862" duration="3961000" />
-      <workItem from="1587920377982" duration="4644000" />
+      <workItem from="1587920377982" duration="5412000" />
     </task>
     <servers />
   </component>
