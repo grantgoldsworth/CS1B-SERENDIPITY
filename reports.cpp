@@ -190,7 +190,9 @@ void repListing(int& bookCount, bookType *database[]) {
  ******************************************************************************/
 
 void repCost(int& bookCount, bookType *database[]) {
-
+    cout << "repCost module - currently empty\n";
+    system("pause");
+    system("cls");
 }
 
 /******************************************************************************
@@ -286,7 +288,7 @@ void repWholesale(int& bookCount, bookType *database[]) {
 
         // user navigation key
         cout << right;
-        cout << "[PgDn]: Next Page    [PgUp] Prev Page    [F5] Enter Page    [Esc] Exit\n";
+        cout << "[PgDn/Enter]: Next Page    [PgUp] Prev Page    [F5] Enter Page    [Esc] Exit\n";
         system("pause");
 
         /****************************************************************
@@ -399,7 +401,7 @@ void repRetail(int& bookCount, bookType* database[]) {
     }
 
     for (int i = 0; i < bookCount; i ++) {
-        totalWholesale += database[i]->wholesale * database[i]->qtyOnHand;
+        totalWholesale += database[i]->retail * database[i]->qtyOnHand;
     }
 
 
@@ -456,7 +458,7 @@ void repRetail(int& bookCount, bookType* database[]) {
         }
 
         cout << right;
-        cout << "[PgDn]: Next Page    [PgUp] Prev Page    [F5] Enter Page    [Esc] Exit\n";
+        cout << "[PgDn/Enter]: Next Page    [PgUp] Prev Page    [F5] Enter Page    [Esc] Exit\n";
         system("pause");
 
 
