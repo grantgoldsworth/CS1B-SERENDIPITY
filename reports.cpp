@@ -98,7 +98,7 @@ void repListing(int& bookCount, bookType *database[]) {
             }
 
             cout << right;
-            cout << "[PgDn]: Next Page    [PgUp] Prev Page    [F5] Enter Page    [Esc] Exit\n";
+            cout << "[PgDn/Enter]: Next Page    [PgUp] Prev Page    [F5] Enter Page    [Esc] Exit\n";
             system("pause");
 
 
@@ -133,8 +133,8 @@ void repListing(int& bookCount, bookType *database[]) {
                 }
             }
 
-            // PAGE DOWN KEY - NEXT PAGE
-            if(GetKeyState(VK_NEXT) < 0) {
+            // PAGE DOWN KEY OR ENTER - NEXT PAGE
+            if(GetKeyState(VK_NEXT) < 0 || GetKeyState(VK_RETURN) < 0) {
                 // pages is 0 - indexed so check the adjusted value
                 if (page + 1 < maxPages) {
                     page ++;
@@ -320,8 +320,8 @@ void repWholesale(int& bookCount, bookType *database[]) {
             }
         }
 
-        // PAGE DOWN KEY - NEXT PAGE
-        if(GetKeyState(VK_NEXT) < 0) {
+        // PAGE DOWN KEY OR ENTER - NEXT PAGE
+        if(GetKeyState(VK_NEXT) < 0 || GetKeyState(VK_RETURN) < 0) {
             // pages is 0 - indexed so check the adjusted value
             if (page + 1 < maxPages) {
                 page ++;
@@ -491,8 +491,8 @@ void repRetail(int& bookCount, bookType* database[]) {
             }
         }
 
-        // PAGE DOWN KEY - NEXT PAGE
-        if(GetKeyState(VK_NEXT) < 0) {
+        // PAGE DOWN KEY OR ENTER - NEXT PAGE
+        if(GetKeyState(VK_NEXT) < 0 || GetKeyState(VK_RETURN) < 0) {
             // pages is 0 - indexed so check the adjusted value
             if (page + 1 < maxPages) {
                 page ++;
