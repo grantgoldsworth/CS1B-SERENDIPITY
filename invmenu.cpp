@@ -1,8 +1,8 @@
 /*******************************************
  * AUTHOR   : GRANT GOLDSWORTH
  * ID	    : 1164709
- * PROJECT  : A5
- * DUE DATE : 2/10/2020
+ * PROJECT  : A23
+ * DUE DATE : 5/6/2020
 *******************************************/
 
 #include "functions.h"
@@ -143,9 +143,8 @@ int searchDatabase(bookType* database[],
     int    indexMatches[bookCount]; // array of database index locations of the matches found
 
     int index = -1;         // index location of the final match of the search in DB arrays. Unfound by default
-    int j;                  // Loop Control Variable for outputing matches loop
     int matchCount = 0;     // the number of matches for the target query
-    char choice;            // user navigation / selection choice holder
+
     string databaseTarget;
     int selection = 0;
     bool quit = false;
@@ -163,7 +162,7 @@ int searchDatabase(bookType* database[],
         case 't':
             for (int i = 0; i < bookCount; i ++) {
 
-                databaseTarget = database[i]->bookTitle;
+                databaseTarget = database[i]->getBookTitle();
 
                 if (tolowerstring(databaseTarget).find(target) != string::npos) {
                     matchesArray[matchCount]  = databaseTarget;
@@ -184,7 +183,7 @@ int searchDatabase(bookType* database[],
         case 'a':
             for (int i = 0; i < bookCount; i ++) {
 
-                databaseTarget = database[i]->author;
+                databaseTarget = database[i]->getAuthor();
 
                 if (tolowerstring(databaseTarget).find(target) != string::npos) {
                     matchesArray[matchCount]  = databaseTarget;
@@ -205,7 +204,7 @@ int searchDatabase(bookType* database[],
         case 'i':
             for (int i = 0; i < bookCount; i ++) {
 
-                databaseTarget = database[i]->isbn;
+                databaseTarget = database[i]->getISBN();
 
                 if (tolowerstring(databaseTarget).find(target) != string::npos) {
                     matchesArray[matchCount]  = databaseTarget;
@@ -226,7 +225,7 @@ int searchDatabase(bookType* database[],
         case 'p':
             for (int i = 0; i < bookCount; i ++) {
 
-                databaseTarget = database[i]->publisher;
+                databaseTarget = database[i]->getPublisher();
 
                 if (tolowerstring(databaseTarget).find(target) != string::npos) {
                     matchesArray[matchCount]  = databaseTarget;
@@ -259,41 +258,29 @@ int searchDatabase(bookType* database[],
     if (matchCount != 0) {
 
 
-        j = 0;
-
         // while the user has not selected a match, and the list has not run out,
         // display a bit of info for each query match and ask user if it is the one they were lookin for.
         do { // while (choice != '1' && j < matchCount)
             system("cls");
-            cout << "There were " << matchCount << " matches for the search query " << target << endl << endl;
-            /*
-            cout << "Match [" << j + 1 << " / " << matchCount << "]\n\n";
+            cout << "There were " << matchCount << " matches for the search query <" << target  << ">" << endl << endl;
 
             // output a bit of info about the match
 
-            cout << left;
-            cout << setw(14) << "Title: "     << database[indexMatches[j]]->bookTitle << endl;
-            cout << setw(14) << "ISBN: "      << database[indexMatches[j]]->isbn << endl;
-            cout << setw(14) << "Author: "    << database[indexMatches[j]]->author << endl;
-            cout << setw(14) << "Publisher: " << database[indexMatches[j]]->publisher << endl;
-            cout << right;
-
-             */
 
             cout << left;
-            cout << "    " << setw(30) << "Title" << setw(12) << "ISBN" << setw(30) << "Author" << setw(30) << "Publisher" << endl;
-            cout << "    " << "------------------------------ ------------ ------------------------------ ------------------------------\n";
+            cout << "    " << setw(30) << "Title" << setw(15) << "ISBN" << setw(30) << "Author" << setw(30) << "Publisher" << endl;
+            cout << "    " << "----------------------------- -------------- ----------------------------- ------------------------------\n";
             for (int i = 0; i < matchCount; i ++) {
                 if (i == selection) {
-                    cout << "[X] ";
+                    cout << " -> ";
                 }
                 else {
-                    cout << "[ ] ";
+                    cout << "    ";
                 }
-                cout << setw(30) << database[indexMatches[i]]->bookTitle.substr(0, 28)
-                     << setw(12) << database[indexMatches[i]]->isbn
-                     << setw(30) << database[indexMatches[i]]->author.substr(0, 28)
-                     << setw(20) << database[indexMatches[i]]->publisher.substr(0, 28)
+                cout << setw(30) << database[indexMatches[i]]->getBookTitle().substr(0, 28)
+                     << setw(15) << database[indexMatches[i]]->getISBN()
+                     << setw(30) << database[indexMatches[i]]->getAuthor().substr(0, 28)
+                     << setw(20) << database[indexMatches[i]]->getPublisher().substr(0, 28)
                      << endl;
             }
             cout << right << endl;
@@ -333,37 +320,6 @@ int searchDatabase(bookType* database[],
                 index = indexMatches[selection];
                 quit = true;
             }
-
-
-
-            // ask user if this is the one they want
-            /*
-            cout << "\nIs this the book you were looking for? \n";
-            cout << "[1] Yes\n";
-            cout << "[2] No\n";
-            choice = GetChoice(1, 2);
-            system("cls");
-             */
-
-
-            // if user selects 'Yes', assign the database-array index of the match to the return value of this function
-            /*
-            if (choice == '1') {
-                index = indexMatches[j];
-            }
-             */
-
-
-
-            // if the user has toggled through all of the matches, output a sorry message
-            /*
-            // increment j to process next match in the match list
-            j ++;
-            if (choice == '2' && j == matchCount) {
-                cout << "The book you are looking for was not found.\n";
-                system("pause");
-            }
-             */
 
         } while (!quit);
 
@@ -415,17 +371,15 @@ void addBook(int& bookCount,
 
     char choice;
     bool changes;
-    bookType* temporary = nullptr;
-    temporary = new bookType;
 
-    temporary->bookTitle = "EMPTY";
-    temporary->isbn      = "EMPTY";
-    temporary->publisher = "EMPTY";
-    temporary->author    = "EMPTY";
-    temporary->dateAdded = "EMPTY";
-    temporary->qtyOnHand = 0;
-    temporary->retail    = 0.0f;
-    temporary->wholesale = 0.0f;
+    string tempTitle    = "EMPTY";
+    string tempISBN     = "EMPTY";
+    string tempAuthor   = "EMPTY";
+    string tempPub      = "EMPTY";
+    string tempDate     = "EMPTY";
+    int    tempQOH      = 0;
+    float  tempWhole    = 0.0;
+    float  tempRet      = 0.0;
 
     changes = false;
 
@@ -443,15 +397,15 @@ void addBook(int& bookCount,
         cout << left;
         cout << setfill('=') << setw(MENU_INDENT + 25) << "=" << endl;
         cout << setfill(' ');
-        cout << setw(MENU_INDENT) << "[1] Enter book title"                 << "| --  " << temporary->bookTitle  << endl;
-        cout << setw(MENU_INDENT) << "[2] Enter ISBN"                       << "| --  " << temporary->isbn       << endl;
-        cout << setw(MENU_INDENT) << "[3] Enter author"                     << "| --  " << temporary->author     << endl;
-        cout << setw(MENU_INDENT) << "[4] Enter publisher"                  << "| --  " << temporary->publisher  << endl;
-        cout << setw(MENU_INDENT) << "[5] Enter date added (MM/DD/YYYY)"    << "| --  " << temporary->dateAdded  << endl;
-        cout << setw(MENU_INDENT) << "[6] Enter quantity on hand"           << "| --  " << temporary->qtyOnHand  << endl;
+        cout << setw(MENU_INDENT) << "[1] Enter book title"                 << "| --  " << tempTitle    << endl;
+        cout << setw(MENU_INDENT) << "[2] Enter ISBN"                       << "| --  " << tempISBN     << endl;
+        cout << setw(MENU_INDENT) << "[3] Enter author"                     << "| --  " << tempAuthor   << endl;
+        cout << setw(MENU_INDENT) << "[4] Enter publisher"                  << "| --  " << tempPub      << endl;
+        cout << setw(MENU_INDENT) << "[5] Enter date added (MM/DD/YYYY)"    << "| --  " << tempDate     << endl;
+        cout << setw(MENU_INDENT) << "[6] Enter quantity on hand"           << "| --  " << tempQOH      << endl;
         cout << setprecision(2) << fixed;
-        cout << setw(MENU_INDENT) << "[7] Enter wholesale cost"             << "| --$ " << temporary->wholesale  << endl;
-        cout << setw(MENU_INDENT) << "[8] Enter retail price"               << "| --$ " << temporary->retail     << endl;
+        cout << setw(MENU_INDENT) << "[7] Enter wholesale cost"             << "| --$ " << tempWhole    << endl;
+        cout << setw(MENU_INDENT) << "[8] Enter retail price"               << "| --$ " << tempRet      << endl;
         cout.unsetf(ios_base::floatfield);
         cout << setprecision(6);
         cout << "[9] Save book to database\n";
@@ -467,39 +421,39 @@ void addBook(int& bookCount,
 
             case '1':
                 cout << "Enter book's title: ";
-                getline(cin, temporary->bookTitle);
+                getline(cin, tempTitle);
                 changes = true;
                 break;
 
             case '2':
-                temporary->isbn = getUniqueISBN(*database, bookCount);
+                tempISBN = getUniqueISBN(database, bookCount);
                 changes = true;
                 break;
 
             case '3':
                 cout << "Enter author: ";
-                getline(cin, temporary->author);
+                getline(cin, tempAuthor);
                 changes = true;
                 break;
 
             case '4':
                 cout << "Enter publisher: ";
-                getline(cin, temporary->publisher);
+                getline(cin, tempPub);
                 changes = true;
                 break;
 
             case '5':
                 cout << "Enter date of addition: ";
-                getline(cin, temporary->dateAdded);
+                getline(cin, tempDate);
                 changes = true;
                 break;
 
             case '6':
                 cout << "Enter quantity on hand: ";
-                cin  >> temporary->qtyOnHand;
-                while (temporary->qtyOnHand < 0) {
+                cin  >> tempQOH;
+                while (tempQOH < 0) {
                     cout << "Error - enter valid quantity: ";
-                    cin  >> temporary->qtyOnHand;
+                    cin  >> tempQOH;
                 }
                 changes = true;
                 cin.ignore(1000, '\n');
@@ -507,10 +461,10 @@ void addBook(int& bookCount,
 
             case '7':
                 cout << "Enter wholesale price: ";
-                cin  >> temporary->wholesale;
-                while (temporary->wholesale < 0) {
+                cin  >> tempWhole;
+                while (tempWhole < 0) {
                     cout << "Error - enter valid quantity: ";
-                    cin  >> temporary->wholesale;
+                    cin  >> tempWhole;
                 }
                 changes = true;
                 cin.ignore(1000, '\n');
@@ -518,10 +472,10 @@ void addBook(int& bookCount,
 
             case '8':
                 cout << "Enter retail price: ";
-                cin  >> temporary->retail;
-                while (temporary->retail < 0) {
+                cin  >> tempRet;
+                while (tempRet < 0) {
                     cout << "Error - enter valid quantity: ";
-                    cin  >> temporary->retail;
+                    cin  >> tempRet;
                 }
                 changes = true;
                 cin.ignore(1000, '\n');
@@ -530,28 +484,18 @@ void addBook(int& bookCount,
             case '9':
                 if (bookCount < DBSIZE) {
 
-                    database[bookCount] = new bookType;
-
-                    SetBookTitle(database[bookCount], temporary->bookTitle);
-                    SetAuthor(database[bookCount], temporary->author);
-                    SetPublisher(database[bookCount], temporary->publisher);
-                    SetISBN(database[bookCount], temporary->isbn);
-                    SetDateAdded(database[bookCount], temporary->dateAdded);
-                    SetRetail(database[bookCount], temporary->retail);
-                    SetWholesale(database[bookCount], temporary->wholesale);
-                    SetQtyOnHand(database[bookCount], temporary->qtyOnHand);
-
+                    database[bookCount] = new bookType(tempTitle, tempISBN, tempAuthor, tempPub, tempDate, tempQOH, tempWhole, tempRet);
                     bookCount++;
 
                     // reset placeholders to default values for next book entry
-                    temporary->bookTitle = "EMPTY";
-                    temporary->isbn      = "EMPTY";
-                    temporary->publisher = "EMPTY";
-                    temporary->author    = "EMPTY";
-                    temporary->dateAdded = "EMPTY";
-                    temporary->qtyOnHand = 0;
-                    temporary->retail    = 0.0f;
-                    temporary->wholesale = 0.0f;
+                    tempTitle   = "EMPTY";
+                    tempISBN    = "EMPTY";
+                    tempAuthor  = "EMPTY";
+                    tempPub     = "EMPTY";
+                    tempDate    = "EMPTY";
+                    tempQOH     = 0;
+                    tempWhole   = 0.0f;
+                    tempRet     = 0.0f;
 
                     changes = false;
                 }
@@ -582,8 +526,6 @@ void addBook(int& bookCount,
 	}
 
     system("cls");
-	delete temporary;
-	temporary = nullptr;
 }
 
 
@@ -607,7 +549,7 @@ void addBook(int& bookCount,
  *      Returns a string representing the unique ISBN
  ******************************************************************************/
 
-string getUniqueISBN(const bookType database[],       // REF - array of book isbn strings
+string getUniqueISBN(bookType *database[],       // REF - array of book isbn strings
                      const int bookCount) {     // REF - num of books in the database
 
     string tempISBN;    // holder for the user input
@@ -626,7 +568,7 @@ string getUniqueISBN(const bookType database[],       // REF - array of book isb
         // iterate through the isbn array and look for matches
         isbnIsClone = false;
         for (int j = 0; j < bookCount; j ++) {
-            if (tempISBN == database[j].isbn) {
+            if (tempISBN == database[j]->getISBN()) {
                 isbnIsClone = true;
                 isbnCloneIndex = j;
             }
@@ -635,7 +577,7 @@ string getUniqueISBN(const bookType database[],       // REF - array of book isb
         // output error message
         if (isbnIsClone) {
             cout << "\n***** ERROR -- DUPLICATE ISBN ENTERED! *****\n";
-            cout << "Your ISBN matches the ISBN of " << database[isbnCloneIndex].bookTitle;
+            cout << "Your ISBN matches the ISBN of " << database[isbnCloneIndex]->getBookTitle();
             cout << " (" << tempISBN << ")\n";
             cout << "Please enter a unique ISBN.\n";
         }
@@ -703,16 +645,16 @@ void editBook(const int& bookCount, // REF - # of books in the array
             cout << left;
             cout << setfill('=') << setw(MENU_INDENT + 25) << "=" << endl;
             cout << setfill(' ');
-            cout << setw(MENU_INDENT) << "[1] Enter book title" << "| --  " <<              database[index]->bookTitle << endl;
-            cout << setw(MENU_INDENT) << "[2] Enter ISBN" << "| --  " <<                    database[index]->isbn << endl;
-            cout << setw(MENU_INDENT) << "[3] Enter author" << "| --  " <<                  database[index]->author << endl;
-            cout << setw(MENU_INDENT) << "[4] Enter publisher" << "| --  " <<               database[index]->publisher << endl;
-            cout << setw(MENU_INDENT) << "[5] Enter date added (MM/DD/YYYY)" << "| --  " << database[index]->dateAdded
+            cout << setw(MENU_INDENT) << "[1] Enter book title" << "| --  " <<              database[index]->getBookTitle() << endl;
+            cout << setw(MENU_INDENT) << "[2] Enter ISBN" << "| --  " <<                    database[index]->getISBN() << endl;
+            cout << setw(MENU_INDENT) << "[3] Enter author" << "| --  " <<                  database[index]->getAuthor() << endl;
+            cout << setw(MENU_INDENT) << "[4] Enter publisher" << "| --  " <<               database[index]->getPublisher() << endl;
+            cout << setw(MENU_INDENT) << "[5] Enter date added (MM/DD/YYYY)" << "| --  " << database[index]->getDateAdded()
                  << endl;
-            cout << setw(MENU_INDENT) << "[6] Enter quantity on hand" << "| --  " <<        database[index]->qtyOnHand << endl;
+            cout << setw(MENU_INDENT) << "[6] Enter quantity on hand" << "| --  " <<        database[index]->getQtyOnHand() << endl;
             cout << setprecision(2) << fixed;
-            cout << setw(MENU_INDENT) << "[7] Enter wholesale cost" << "| --$ " <<          database[index]->wholesale << endl;
-            cout << setw(MENU_INDENT) << "[8] Enter retail price" << "| --$ " <<            database[index]->retail << endl;
+            cout << setw(MENU_INDENT) << "[7] Enter wholesale cost" << "| --$ " <<          database[index]->getWholesale() << endl;
+            cout << setw(MENU_INDENT) << "[8] Enter retail price" << "| --$ " <<            database[index]->getRetail() << endl;
             cout.unsetf(ios_base::floatfield);
             cout << setprecision(6);
             cout << "[9] Save and return to inventory menu\n";
@@ -729,15 +671,15 @@ void editBook(const int& bookCount, // REF - # of books in the array
                 case '1':
                     cout << "Enter book's title: ";
                     getline(cin, strTemp);
-                    SetBookTitle(database[index], strTemp);
+                    database[index]->setBookTitle(strTemp);
                     break;
 
 
 
                     // edit the ISBN once a unique one is entered
                 case '2':
-                    strTemp = getUniqueISBN(*database, bookCount);
-                    SetISBN(database[index], strTemp);
+                    strTemp = getUniqueISBN(database, bookCount);
+                    database[index]->setISBN(strTemp);
                     break;
 
 
@@ -746,7 +688,7 @@ void editBook(const int& bookCount, // REF - # of books in the array
                 case '3':
                     cout << "Enter author: ";
                     getline(cin, strTemp);
-                    SetAuthor(database[index], strTemp);
+                    database[index]->setAuthor(strTemp);
                     break;
 
 
@@ -755,7 +697,7 @@ void editBook(const int& bookCount, // REF - # of books in the array
                 case '4':
                     cout << "Enter publisher: ";
                     getline(cin, strTemp);
-                    SetPublisher(database[index], strTemp);
+                    database[index]->setPublisher(strTemp);
                     break;
 
 
@@ -764,7 +706,7 @@ void editBook(const int& bookCount, // REF - # of books in the array
                 case '5':
                     cout << "Enter date of addition: ";
                     getline(cin, strTemp);
-                    SetDateAdded(database[index], strTemp);
+                    database[index]->setDateAdded(strTemp);
                     break;
 
 
@@ -778,7 +720,7 @@ void editBook(const int& bookCount, // REF - # of books in the array
                         cin >> intTemp;
                     }
                     cin.ignore(1000, '\n');
-                    SetQtyOnHand(database[index], intTemp);
+                    database[index]->setQtyOnHand(intTemp);
                     break;
 
 
@@ -792,7 +734,7 @@ void editBook(const int& bookCount, // REF - # of books in the array
                         cin >> fltTemp;
                     }
                     cin.ignore(1000, '\n');
-                    SetWholesale(database[index], fltTemp);
+                    database[index]->setWholesale(fltTemp);
                     break;
 
 
@@ -806,7 +748,7 @@ void editBook(const int& bookCount, // REF - # of books in the array
                         cin >> fltTemp;
                     }
                     cin.ignore(1000, '\n');
-                    SetRetail(database[index], fltTemp);
+                    database[index]->setRetail(fltTemp);
                     break;
 
                     // exit case
@@ -888,6 +830,7 @@ void deleteBook(int& bookCount,     // REF - # of books in the array
         if (choice == '1') {
             bookCount--;
 
+            /*
             SetBookTitle(database[index], database[bookCount]->bookTitle);
             SetAuthor(database[index], database[bookCount]->author);
             SetPublisher(database[index], database[bookCount]->publisher);
@@ -895,6 +838,8 @@ void deleteBook(int& bookCount,     // REF - # of books in the array
             SetQtyOnHand(database[index], database[bookCount]->qtyOnHand);
             SetWholesale(database[index], database[bookCount]->wholesale);
             SetRetail(database[index], database[bookCount]->retail);
+             */
+            *database[index] = *database[bookCount];
 
             // delete the dynamic book in the now unaccounted for slot and reset pointer
             delete database[bookCount];

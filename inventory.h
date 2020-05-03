@@ -1,10 +1,9 @@
 /*******************************************
  * AUTHOR   : GRANT GOLDSWORTH
  * ID	    : 1164709
- * PROJECT  : A5
- * DUE DATE : 2/10/2020
+ * PROJECT  : A23
+ * DUE DATE : 5/6/2020
 *******************************************/
-
 #include <string>
 #include "bookType.h"
 using namespace std;
@@ -26,7 +25,7 @@ void addBook(int&,
              bookType* []
                 );
 
-string getUniqueISBN(const bookType [],
+string getUniqueISBN(bookType* [],
                      int);
 
 void editBook(const int&,

@@ -1,8 +1,8 @@
 /*******************************************
  * AUTHOR   : GRANT GOLDSWORTH
  * ID	    : 1164709
- * PROJECT  : A19
- * DUE DATE : 4/27/2020
+ * PROJECT  : A23
+ * DUE DATE : 5/6/2020
 *******************************************/
 
 #include "functions.h"
@@ -48,7 +48,7 @@ int main() {
     bookType* database[DBSIZE] = {nullptr};
 
     char choice;
-    int  bookCount;
+    int  bookCount; // make static in next serendipity
 
 
     bookCount = 0;

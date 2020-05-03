@@ -1,8 +1,8 @@
 /*******************************************
  * AUTHOR   : GRANT GOLDSWORTH
  * ID	    : 1164709
- * PROJECT  : A5
- * DUE DATE : 2/10/2020
+ * PROJECT  : A23
+ * DUE DATE : 5/6/2020
 *******************************************/
 
 #include "functions.h"
@@ -63,12 +63,12 @@ void repListing(int& bookCount, bookType *database[]) {
 
 
             cout << left;
-            cout << setw(28) << "TITLE" << setw(11) << "ISBN" << setw(16) << "AUTHOR" << setw(15) << "PUBLISHER"
+            cout << setw(28) << "TITLE" << setw(15) << "ISBN" << setw(16) << "AUTHOR" << setw(15) << "PUBLISHER"
                  << setw(11)
                  << "DATE ADDED"
                  << setw(8) << "QTY O/H" << setw(15) << "WHOLESALE COST" << setw(13) << "RETAIL PRICE" << endl;
             cout
-                    << "--------------------------- ---------- --------------- -------------- ---------- ------- -------------- ------------"
+                    << "--------------------------- -------------- --------------- -------------- ---------- ------- -------------- ------------"
                     << endl;
 
 
@@ -83,15 +83,15 @@ void repListing(int& bookCount, bookType *database[]) {
 
             for (int i = page * 10; i < 10 + page * 10 ; i++) {
                 if (i < bookCount) {
-                    cout << setw(28) << database[i]->bookTitle.substr(0, 27) << setw(11) << database[i]->isbn
+                    cout << setw(28) << database[i]->getBookTitle().substr(0, 27) << setw(15) << database[i]->getISBN()
                          << setw(16)
-                         << database[i]->author.substr(0, 15)
-                         << setw(15) << database[i]->publisher.substr(0, 14) << setw(11) << database[i]->dateAdded
+                         << database[i]->getAuthor().substr(0, 15)
+                         << setw(15) << database[i]->getPublisher().substr(0, 14) << setw(11) << database[i]->getDateAdded()
                          << right
-                         << setw(7) << database[i]->qtyOnHand
-                         << setprecision(2) << fixed << "      $" << setfill('.') << setw(8) << database[i]->wholesale
+                         << setw(7) << database[i]->getQtyOnHand()
+                         << setprecision(2) << fixed << "      $" << setfill('.') << setw(8) << database[i]->getWholesale()
                          << "   $"
-                         << setfill(' ') << setw(9) << database[i]->retail
+                         << setfill(' ') << setw(9) << database[i]->getRetail()
                          << left << endl << endl;
                     cout << endl;
                 }
@@ -231,7 +231,7 @@ void repWholesale(int& bookCount, bookType *database[]) {
 
     // calculate the total inventory wholesale
     for (int i = 0; i < bookCount; i ++) {
-        totalWholesale += database[i]->wholesale * database[i]->qtyOnHand;
+        totalWholesale += database[i]->getWholesale() * database[i]->getQtyOnHand();
     }
 
 
@@ -271,11 +271,11 @@ void repWholesale(int& bookCount, bookType *database[]) {
 
         for (int i = page * 10; i < 10 + page * 10 ; i++) {
             if (i < bookCount) {
-                cout << setw(50) << database[i]->bookTitle.substr(0, 44)
-                     << setw(25) << database[i]->isbn
+                cout << setw(50) << database[i]->getBookTitle().substr(0, 44)
+                     << setw(25) << database[i]->getISBN()
                      << right
-                     << setw(7) << database[i]->qtyOnHand
-                     << setprecision(2) << fixed << setw(19) << "$" << setfill('.') << setw(13) << database[i]->wholesale << setfill(' ')
+                     << setw(7) << database[i]->getQtyOnHand()
+                     << setprecision(2) << fixed << setw(19) << "$" << setfill('.') << setw(13) << database[i]->getWholesale() << setfill(' ')
                      << left << endl << endl;
 
             }
@@ -401,7 +401,7 @@ void repRetail(int& bookCount, bookType* database[]) {
     }
 
     for (int i = 0; i < bookCount; i ++) {
-        totalWholesale += database[i]->retail * database[i]->qtyOnHand;
+        totalWholesale += database[i]->getRetail() * database[i]->getQtyOnHand();
     }
 
 
@@ -441,11 +441,11 @@ void repRetail(int& bookCount, bookType* database[]) {
 
         for (int i = page * 10; i < 10 + page * 10 ; i++) {
             if (i < bookCount) {
-                cout << setw(50) << database[i]->bookTitle.substr(0, 44)
-                     << setw(25) << database[i]->isbn
+                cout << setw(50) << database[i]->getBookTitle().substr(0, 44)
+                     << setw(25) << database[i]->getISBN()
                      << right
-                     << setw(7) << database[i]->qtyOnHand
-                     << setprecision(2) << fixed << setw(19) << "$" << setfill('.') << setw(13) << database[i]->retail << setfill(' ')
+                     << setw(7) << database[i]->getQtyOnHand()
+                     << setprecision(2) << fixed << setw(19) << "$" << setfill('.') << setw(13) << database[i]->getRetail() << setfill(' ')
                      << left << endl << endl;
 
             }
