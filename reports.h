@@ -21,6 +21,8 @@ void repRetail(int&, bookType* []);
 
 void repAge();
 
-void repQty();
+void repQty(int&, bookType* []);
+
+void sortBookTypeArray(const int&, bookType* []);
 
 #endif //A4_REPORTS_H

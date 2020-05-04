@@ -24,6 +24,8 @@ private:
 
 public:
 
+    //static int bookCount;
+
     /****** CONSTRUCTORS ******/
 
     bookType();

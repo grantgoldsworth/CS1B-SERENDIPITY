@@ -474,7 +474,7 @@ void ReportsFunction(int& bookCount, bookType* database[]) {
                 break;
 
             case '4':
-                repQty();
+                repQty(bookCount, database);
                 break;
 
             case '5':

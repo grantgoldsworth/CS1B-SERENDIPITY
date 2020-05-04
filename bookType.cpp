@@ -7,6 +7,8 @@
 
 #include "bookType.h"
 
+//int bookCount = 0;
+
 /****** CONSTRUCTORS ******/
 
 /******************************************************************************
@@ -454,7 +456,7 @@ float bookType::getRetail() const {
  ******************************************************************************/
 
 bookType::~bookType() {
-    cout << "Destructing " << bookTitle << " - ISBN " << isbn << "...\n";
+    //cout << "Destructing " << bookTitle << " - ISBN " << isbn << "...\n";
 }
 
 
@@ -496,6 +498,15 @@ bool bookType::operator<(const bookType &otherBook) const {
  ******************************************************************************/
 
 bool bookType::operator<=(const bookType &otherBook) const {
+    /*
+    cout << "comparing " << qtyOnHand << " <= " << otherBook.getQtyOnHand() << "...\n";
+    if (qtyOnHand <= otherBook.getQtyOnHand()) {
+        cout << "True\n";
+    }
+    else {
+        cout << "False\n";
+    }
+    */
     return qtyOnHand <= otherBook.getQtyOnHand();
 }
 

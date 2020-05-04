@@ -568,10 +568,209 @@ void repAge() {
  *
  ******************************************************************************/
 
-void repQty() {
-    cout << "Welcome to the reports Quantity menu!\n";
-    cout << "There's nothing here! Go back to Reports menu.\n\n";
-    system("pause");
+void repQty(int& bookCount, bookType* database[]) {
+    time_t theTime = time(nullptr); // for displaying the time
+    int page = 0;                   // the current page being displayed, set of ten books
+    int maxPages = 1;               // the maximum number of pages, default to 1 (empty listing)
+    int escStat = 0;                // holds bit key of GetKeyState for the escape key, used to exit menu
+    bool quit = false;              // if user hits escape, then quit is set to true
+    float totalWholesale = 0;       // total wholesale price of all books (qtyOnHand * wholesalePrice)
+    char userChoice;
+
+    bookType* sortedDB[DBSIZE] = {nullptr};
+
+
+    // set the max pages so that there are ten books per page maximum
+    if (bookCount != 0) {
+        maxPages = ceil(bookCount / 10.0);
+    }
+
+    for (int i = 0; i < bookCount; i ++) {
+        // deep copy a new sorted array each time function repQty is called
+        sortedDB[i] = new bookType(*database[i]);
+        //cout << sortedDB[i]->getBookTitle() << "  " << sortedDB[i]->getQtyOnHand() << endl;
+    }
+
+    sortBookTypeArray(bookCount, sortedDB);
+    //cout << endl;
+    /*
+    for (auto i : sortedDB) {
+        cout << i->getBookTitle() << "   " << i->getQtyOnHand() << endl;
+    }
+     */
+
+    /****************************************************************
+     * DO-WHILE
+     * Main display loop, prints a table with header and book information.
+     * Only prints ten books at a time per page
+     * User can navigate through the pages using Page Up/Page Down keys,
+     * enter a page using F5, or leave this listing using Escape
+     ****************************************************************/
+
+    do { // while (!quit)
+
+        cout << "|" << setw(61) << "==[ Serendipity Booksellers ]==" << setw(33) << "|\n\n";
+        cout << setw(60) << "--- QUANTITY LISTING ---" << endl << endl;
+        cout << "DATE AND TIME: " << setw(25) << ctime(&theTime) << endl;
+        cout << "|\t  PAGE" << setw(3) << page + 1 << "  of" << setw(3) << maxPages << "\t|\t" << " DATABASE SIZE:"
+             << setw(3) << DBSIZE
+             << "\t|\t" << "CURRENT BOOK COUNT:" << setw(3) << bookCount << "\t\t|\n\n";
+
+
+
+        cout << left;
+        cout << setw(50) << "TITLE" << setw(25) << "ISBN" << setw(25) << "QTY O/H" << setw(15) << endl;
+        cout << "-----------------------------------------------   ----------               -------\n";
+
+        /****************************************************************
+         * FOR LOOP
+         * Loop through the database, ten books at a time, the set depends
+         * on the current "page". Only prints if there are books available
+         * to print (if 15 books, 10 on first page, 5 on second)
+         * Output book title, isbn, QOH
+         ****************************************************************/
+
+        for (int i = page * 10; i < 10 + page * 10 ; i++) {
+            if (i < bookCount) {
+                        // book title column
+                cout << setw(50) << sortedDB[i]->getBookTitle().substr(0, 44)
+                        // book ISBN column
+                     << setw(25) << sortedDB[i]->getISBN()
+                        // right align QOH column
+                     << right
+                     << setw(7) << sortedDB[i]->getQtyOnHand()
+                     << left << endl << endl;
+
+            }
+        }
+
+        cout << right;
+        cout << "[PgDn/Enter]: Next Page    [PgUp] Prev Page    [F5] Enter Page    [Esc] Exit\n";
+        system("pause");
+
+
+        /****************************************************************
+        * KEY PRESSES
+        * If the user hits ESC, the program will exit the reports listing
+        * and return to the reports menu.
+        * If the user hits Page Up, the "page" will be decremented, unless
+        * it is already 0 in which it will rubber-band back to the last page.
+        * If the user hits Page Down, the "page" will be incremented, unless
+        * it is already at the max page, in which it will rubber band back
+        * to the first page.
+        * If the user hits F5, the program will wait for a page number input
+        * and check it against bounds, defaulting to max or min if above
+        * or below, respectively.
+        ****************************************************************/
+
+        // ESCAPE KEY
+        if(GetKeyState(VK_ESCAPE) < 0) {
+            // esc is down
+            quit = true;
+        }
+
+        // PAGE UP KEY - PREV PAGE
+        if(GetKeyState(VK_PRIOR) < 0) {
+            if (page != 0) {
+                page --;
+            }
+            else {
+                // else: rubber band to the end
+                page = maxPages - 1;
+            }
+        }
+
+        // PAGE DOWN KEY OR ENTER - NEXT PAGE
+        if(GetKeyState(VK_NEXT) < 0 || GetKeyState(VK_RETURN) < 0) {
+            // pages is 0 - indexed so check the adjusted value
+            if (page + 1 < maxPages) {
+                page ++;
+            }
+            else {
+                // else: rubber band to the beginning
+                page = 0;
+            }
+        }
+
+        // F5 KEY - INPUT PAGE
+        if(GetKeyState(VK_F5) < 0) {
+            cout << "Enter Page [1 - " << maxPages << "]: ";
+            if (!(cin >> page)) {
+                if (cin.fail()) {
+                    page = 0;
+                    cin.clear();
+                    cin.ignore(100, '\n');
+                }
+            } // end integer error check
+            // if page input is greater than max, set to max page
+            // page is displayed as 1 base, but processed as 0 base for array. Adjusted accordingly.
+            if (page - 1 >= maxPages) {
+                page = maxPages - 1;
+            }
+                // if page input is less than 0, set to first page
+            else if (page - 1 <= 0) {
+                page = 0;
+            }
+
+                // page is valid, adjust to be 0 based
+            else {
+                page = page - 1;
+            }
+        } // end if (F5)
+
+        system("cls");
+    } while (!quit); // end menu do-while
+
+    // delete the temporary sorted DB
+    for (auto i : sortedDB) {
+        delete i;
+        i = nullptr;
+    }
     system("cls");
 
+}
+
+
+
+
+/******************************************************************************
+ * FUNCTION - sortBookTypeArray
+ * ____________________________________________________________________________
+ * This function receives an int as the bookCount, and the array of bookType pointers.
+ * It will sort the array based on the books' quantity on hand
+ * ===> returns nothing.
+ * PRE-CONDITIONS
+ * 		Following must be defined prior to function call:
+ * 		    int for bookCount
+ * 		    the array of bookType pointers
+ *
+ * POST-CONDITIONS
+ *      the passed pointer array will be sorted based on the quantity on hand
+ *      attributes of the books
+ ******************************************************************************/
+
+void sortBookTypeArray(const int& bookCount, bookType* database[]) {
+    bookType* temp;
+    int smallestIndex = 0;
+
+
+    for (int i = 0; i < bookCount; i ++) {
+        smallestIndex = i;
+
+        // inner loop: compare the unsorted segment of array
+        for (int j = i + 1; j < bookCount; j ++) {
+            if (*database[j] >= *database[smallestIndex]) {
+                smallestIndex = j;
+            }
+
+        } // end inner loop - for (int j = i + 1; i < bookCount; j ++)
+
+        // perform the swap
+        temp = database[smallestIndex];
+        database[smallestIndex] = database[i];
+        database[i] = temp;
+
+    } // end main loop - for(int i = 0; i < bookCount; i ++)
+
+    temp = nullptr;
 }
