@@ -579,5 +579,85 @@ bool bookType::operator!=(const bookType &otherBook) const {
 
 
 
+/******************************************************************************
+ * FUNCTION - operator<< (friend)
+ * ____________________________________________________________________________
+ * stream inserstion operator overload for bookType. Outputs some (not all) information
+ * about the book - title, author, isbn, publisher, and date added.
+ *
+ * to output all specifics, use the getters and implement formatting
+ * ===> returns ostream reference
+ *
+ * PRE-CONDITIONS
+ *  The following must be defined before function call:
+ *      ostream : the output stream controller object
+ *      book    : bookType instance
+ *
+ * POST-CONDITIONS
+ *      contents of book instance are not modified
+ *      content is inserted to the output stream
+ ******************************************************************************/
+
+ostream &operator<<(ostream &os, const bookType &book) {
+
+    os << book.getBookTitle() << ", by " << book.getAuthor() << " " << book.getISBN() << " pub. " << book.getPublisher() << ". Added " << book.getDateAdded();
+
+    return os;
+}
+
+
+
+
+/******************************************************************************
+ * FUNCTION - operator>> (friend)
+ * ____________________________________________________________________________
+ * stream extraction overload for bookType. Prompts for input of all attributes
+ * of bookType.
+ * ===> returns istream reference
+ *
+ * PRE-CONDITIONS
+ *  The following must be defined before function call:
+ *      istream : stream extraction controller object
+ *      book    : bookType instance
+ *
+ * POST-CONDITIONS
+ *      content is extracted from the input stream
+ *      contents of bookType instance are modified
+ ******************************************************************************/
+
+istream &operator>>(istream &is, bookType &book) {
+
+    cout << "Title:        ";
+    getline(is, book.bookTitle);
+
+    cout << "Author:       ";
+    getline(is, book.author);
+
+    cout << "Publisher:    ";
+    getline(is, book.publisher);
+
+    cout << "Date Added:   ";
+    getline(is, book.dateAdded);
+
+    cout << "ISBN:         ";
+    getline(is, book.isbn);
+
+    cout << "Quantity OH:  ";
+    is >> book.qtyOnHand;
+
+    cout << "Wholesale:  $ ";
+    is >> book.wholesale;
+
+    cout << "Retail:     $ ";
+    is >> book.retail;
+
+    is.ignore(100, '\n');
+
+    return is;
+}
+
+
+
+
 
 

@@ -47,6 +47,8 @@ int main() {
      *******************************************************************************/
     bookType* database[DBSIZE] = {nullptr};
 
+    bookType* testingBook = nullptr;
+
     char choice;
     int  bookCount; // make static in next serendipity
 
@@ -74,10 +76,11 @@ int main() {
         cout << setw(MENU_INDENT) << " " << "[2] Inventory Database Module\n";
         cout << setw(MENU_INDENT) << " " << "[3] Report Module\n";
         cout << setw(MENU_INDENT) << " " << "[4] Exit\n";
+        cout << setw(MENU_INDENT) << " " << "[0] TEST STREAM OVERLOAD OPERATORS\n";
         cout << right;
 
         // Obtain user's choice
-        choice = GetChoice(1, 4);
+        choice = GetChoice(0, 4);
         system("cls");
 
         // determine which module to navigate to based on user input
@@ -105,6 +108,21 @@ int main() {
             case '3':
                 ReportsFunction(bookCount, database);
                 break;
+
+            case '0':
+                system("cls");
+
+                testingBook = new bookType;
+
+                cout << "\t\t****** TESTING BOOKTYPE INSERTION AND EXTRACTION OVERLOADS ******\n\n";
+                cout << "Enter information for a new book:\n";
+                cin >> *testingBook;
+                cout << "\n\nContents: \n";
+                cout << *testingBook << endl;
+                system("pause");
+                delete testingBook;
+                testingBook = nullptr;
+                system("cls");
 
             default:
                 break;

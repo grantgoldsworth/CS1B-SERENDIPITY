@@ -12,6 +12,10 @@ using namespace std;
 #define A4_BOOKTYPE_H
 
 class bookType {
+
+    friend ostream& operator<<(ostream&, const bookType&);
+    friend istream& operator>>(istream&, bookType&);
+
 private:
     string bookTitle;
     string isbn;
