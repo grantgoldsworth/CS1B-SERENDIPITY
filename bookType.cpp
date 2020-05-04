@@ -82,6 +82,7 @@ bookType::bookType(string t, string i, string a, string p, string dA, int qoh, f
  ******************************************************************************/
 
 bookType::bookType(const bookType& otherBook) {
+    /*
     bookTitle   = otherBook.getBookTitle();
     isbn        = otherBook.getISBN();
     author      = otherBook.getAuthor();
@@ -90,6 +91,8 @@ bookType::bookType(const bookType& otherBook) {
     qtyOnHand   = otherBook.getQtyOnHand();
     wholesale   = otherBook.getWholesale();
     retail      = otherBook.getRetail();
+     */
+    *this = otherBook;
 }
 
 
