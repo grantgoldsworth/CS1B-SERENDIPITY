@@ -30,7 +30,22 @@ private:
     static int bookCount;
 
 public:
-
+    /***********************************************
+     * compareCode
+     * Used to determine what attributes to compare
+     * in overloaded boolean operators
+     *
+     *  0   bookTitle
+     *  1   isbn
+     *  2   author
+     *  3   publisher
+     *  4   dateAdded
+     *  5   qtyOnHand
+     *  6   wholesale
+     *  7   retail
+     *
+     ***********************************************/
+    static int compareCode;
 
 
     /****** CONSTRUCTORS ******/
@@ -93,6 +108,13 @@ public:
     //Postcondition: Returns true if the quantity of this book
     // is less than the quantity of
     // otherBook, otherwise it returns false.
+
+    bool operator>(const bookType &otherBook) const;
+    //Overload the greater than operator.
+    //Postcondition: Returns true if the quantity of this book
+    // is greater than the quantity of
+    // otherBook, otherwise it returns false.
+
 
     bool operator<=(const bookType& otherBook) const;
     //Overload the less than or equal to operator.

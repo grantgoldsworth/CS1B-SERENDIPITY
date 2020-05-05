@@ -589,7 +589,9 @@ void repQty(bookType* database[]) {
         maxPages = ceil(bookCount / 10.0);
     }
 
-    selectionSort(database, bookCount);
+    // sort books by quantity on hand
+    bookType::compareCode = 5;
+    selectionSort(database, bookCount, 'd');
 
 
     /****************************************************************

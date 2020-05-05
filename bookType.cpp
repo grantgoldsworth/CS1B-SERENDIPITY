@@ -8,6 +8,24 @@
 #include "bookType.h"
 int bookType::bookCount = 0;
 
+
+/***********************************************
+ * compareCode
+ * Used to determine what attributes to compare
+ * in overloaded boolean operators
+ *
+ *  0   bookTitle
+ *  1   isbn
+ *  2   author
+ *  3   publisher
+ *  4   dateAdded
+ *  5   qtyOnHand
+ *  6   wholesale
+ *  7   retail
+ *
+ ***********************************************/
+int bookType::compareCode = 0;
+
 /****** CONSTRUCTORS ******/
 
 /******************************************************************************
@@ -94,7 +112,9 @@ bookType::bookType(const bookType& otherBook) {
     retail      = otherBook.getRetail();
      */
     *this = otherBook;
-    bookCount ++; // unsure if this is appropriate in the copy constructor
+    cout << "COPY CONSRUCTOR\n";
+    system("pause");
+    //bookCount ++; // unsure if this is appropriate in the copy constructor
 }
 
 
@@ -483,7 +503,7 @@ int bookType::getBookCount() {
  ******************************************************************************/
 
 bookType::~bookType() {
-    //cout << "Destructing " << bookTitle << " - ISBN " << isbn << "...\n";
+    cout << "Destructing " << bookTitle << " - ISBN " << isbn << "...\n";
     bookCount --;
 }
 
@@ -505,7 +525,110 @@ bookType::~bookType() {
  ******************************************************************************/
 
 bool bookType::operator<(const bookType &otherBook) const {
-    return qtyOnHand < otherBook.getQtyOnHand();
+
+    bool result = false;
+
+    switch (compareCode) {
+        case 0:
+            result = bookTitle  < otherBook.getBookTitle();
+            break;
+
+        case 1:
+            result = isbn       < otherBook.getISBN();
+            break;
+
+        case 2:
+            result = author     < otherBook.getAuthor();
+            break;
+
+        case 3:
+            result = publisher  < otherBook.getPublisher();
+            break;
+
+        case 4:
+            result = dateAdded  < otherBook.getDateAdded();
+            break;
+
+        case 5:
+            result =  qtyOnHand < otherBook.getQtyOnHand();
+            break;
+
+        case 6:
+            result = wholesale  < otherBook.getWholesale();
+            break;
+
+        case 7:
+            result = retail     < otherBook.getRetail();
+            break;
+
+        default:
+            break;
+
+    }
+
+    return result;
+}
+
+
+
+
+/******************************************************************************
+ * FUNCTION - bookType::
+ * ____________________________________________________________________________
+ * This function receives
+ * ===> returns nothing.
+ *
+ * PRE-CONDITIONS
+ *  The following must be defined before function call:
+ *
+ *
+ * POST-CONDITIONS
+ *
+ ******************************************************************************/
+
+bool bookType::operator>(const bookType &otherBook) const {
+
+    bool result = false;
+
+    switch (compareCode) {
+        case 0:
+            result = bookTitle  > otherBook.getBookTitle();
+            break;
+
+        case 1:
+            result = isbn       > otherBook.getISBN();
+            break;
+
+        case 2:
+            result = author     > otherBook.getAuthor();
+            break;
+
+        case 3:
+            result = publisher  > otherBook.getPublisher();
+            break;
+
+        case 4:
+            result = dateAdded  > otherBook.getDateAdded();
+            break;
+
+        case 5:
+            result =  qtyOnHand > otherBook.getQtyOnHand();
+            break;
+
+        case 6:
+            result = wholesale  > otherBook.getWholesale();
+            break;
+
+        case 7:
+            result = retail     > otherBook.getRetail();
+            break;
+
+        default:
+            break;
+
+    }
+
+    return result;
 }
 
 
@@ -526,7 +649,48 @@ bool bookType::operator<(const bookType &otherBook) const {
  ******************************************************************************/
 
 bool bookType::operator<=(const bookType &otherBook) const {
-    return qtyOnHand <= otherBook.getQtyOnHand();
+
+    bool result = false;
+
+    switch (compareCode) {
+        case 0:
+            result = bookTitle  <= otherBook.getBookTitle();
+            break;
+
+        case 1:
+            result = isbn       <= otherBook.getISBN();
+            break;
+
+        case 2:
+            result = author     <= otherBook.getAuthor();
+            break;
+
+        case 3:
+            result = publisher  <= otherBook.getPublisher();
+            break;
+
+        case 4:
+            result = dateAdded  <= otherBook.getDateAdded();
+            break;
+
+        case 5:
+            result =  qtyOnHand <= otherBook.getQtyOnHand();
+            break;
+
+        case 6:
+            result = wholesale  <= otherBook.getWholesale();
+            break;
+
+        case 7:
+            result = retail     <= otherBook.getRetail();
+            break;
+
+        default:
+            break;
+
+    }
+
+    return result;
 }
 
 
@@ -547,7 +711,48 @@ bool bookType::operator<=(const bookType &otherBook) const {
  ******************************************************************************/
 
 bool bookType::operator>=(const bookType &otherBook) const {
-    return qtyOnHand >= otherBook.getQtyOnHand();
+
+    bool result = false;
+
+    switch (compareCode) {
+        case 0:
+            result = bookTitle  >= otherBook.getBookTitle();
+            break;
+
+        case 1:
+            result = isbn       >= otherBook.getISBN();
+            break;
+
+        case 2:
+            result = author     >= otherBook.getAuthor();
+            break;
+
+        case 3:
+            result = publisher  >= otherBook.getPublisher();
+            break;
+
+        case 4:
+            result = dateAdded  >= otherBook.getDateAdded();
+            break;
+
+        case 5:
+            result =  qtyOnHand >= otherBook.getQtyOnHand();
+            break;
+
+        case 6:
+            result = wholesale  >= otherBook.getWholesale();
+            break;
+
+        case 7:
+            result = retail     >= otherBook.getRetail();
+            break;
+
+        default:
+            break;
+
+    }
+
+    return result;
 }
 
 
@@ -568,7 +773,48 @@ bool bookType::operator>=(const bookType &otherBook) const {
  ******************************************************************************/
 
 bool bookType::operator==(const bookType &otherBook) const {
-    return qtyOnHand == otherBook.getQtyOnHand();
+
+    bool result = false;
+
+    switch (compareCode) {
+        case 0:
+            result = bookTitle  == otherBook.getBookTitle();
+            break;
+
+        case 1:
+            result = isbn       == otherBook.getISBN();
+            break;
+
+        case 2:
+            result = author     == otherBook.getAuthor();
+            break;
+
+        case 3:
+            result = publisher  == otherBook.getPublisher();
+            break;
+
+        case 4:
+            result = dateAdded  == otherBook.getDateAdded();
+            break;
+
+        case 5:
+            result =  qtyOnHand == otherBook.getQtyOnHand();
+            break;
+
+        case 6:
+            result = wholesale  == otherBook.getWholesale();
+            break;
+
+        case 7:
+            result = retail     == otherBook.getRetail();
+            break;
+
+        default:
+            break;
+
+    }
+
+    return result;
 }
 
 
@@ -589,7 +835,48 @@ bool bookType::operator==(const bookType &otherBook) const {
  ******************************************************************************/
 
 bool bookType::operator!=(const bookType &otherBook) const {
-    return qtyOnHand != otherBook.getQtyOnHand();
+
+    bool result = false;
+
+    switch (compareCode) {
+        case 0:
+            result = bookTitle  != otherBook.getBookTitle();
+            break;
+
+        case 1:
+            result = isbn       != otherBook.getISBN();
+            break;
+
+        case 2:
+            result = author     != otherBook.getAuthor();
+            break;
+
+        case 3:
+            result = publisher  != otherBook.getPublisher();
+            break;
+
+        case 4:
+            result = dateAdded  != otherBook.getDateAdded();
+            break;
+
+        case 5:
+            result =  qtyOnHand != otherBook.getQtyOnHand();
+            break;
+
+        case 6:
+            result = wholesale  != otherBook.getWholesale();
+            break;
+
+        case 7:
+            result = retail     != otherBook.getRetail();
+            break;
+
+        default:
+            break;
+
+    }
+
+    return result;
 }
 
 

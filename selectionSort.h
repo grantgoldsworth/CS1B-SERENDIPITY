@@ -24,31 +24,47 @@
  *      operator defined for the comparison in the class
  ******************************************************************************/
 
-template <class Type>
-void selectionSort(Type* list[], int length) {
-    Type* temp;
+template <class U>
+void selectionSort(U *list, const int length, char style = 'a'){
+
+    int index;
     int smallestIndex;
+    int location;
+    U   temp;
+    unsigned long long int l = length;
 
+    switch (tolower(style)) {
 
-    for (int i = 0; i < length; i ++) {
-        smallestIndex = i;
-
-        // inner loop: compare the unsorted segment of array
-        for (int j = i + 1; j < length; j ++) {
-            if (*list[j] >= *list[smallestIndex]) {
-                smallestIndex = j;
+        // ascending sort
+        case 'a':
+        for (index = 0; index < length; index++) {
+            //step a
+            smallestIndex = index;
+            for (location = index + 1; location < length; location++) {
+                if (*list[location] < *list[smallestIndex])
+                    smallestIndex = location;
             }
+            //step b
+            temp = list[smallestIndex];
+            list[smallestIndex] = list[index];
+            list[index] = temp;
+        }
 
-        } // end inner loop - for (int j = i + 1; i < bookCount; j ++)
-
-        // perform the swap
-        temp = list[smallestIndex];
-        list[smallestIndex] = list[i];
-        list[i] = temp;
-
-    } // end main loop - for(int i = 0; i < bookCount; i ++)
-
-    temp = nullptr;
+        // descending sort
+        case 'd':
+            for (index = 0; index < length; index++) {
+                //step a
+                smallestIndex = index;
+                for (location = index + 1; location < length; location++) {
+                    if (*list[location] > *list[smallestIndex])
+                        smallestIndex = location;
+                }
+                //step b
+                temp = list[smallestIndex];
+                list[smallestIndex] = list[index];
+                list[index] = temp;
+            }
+    }
 }
 
 #endif //A4_SELECTIONSORT_H
