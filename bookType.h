@@ -6,6 +6,7 @@
 *******************************************/
 
 #include <iostream>
+#include "selectionSort.h"
 using namespace std;
 
 #ifndef A4_BOOKTYPE_H
@@ -26,9 +27,11 @@ private:
     float  wholesale;
     float  retail;
 
+    static int bookCount;
+
 public:
 
-    //static int bookCount;
+
 
     /****** CONSTRUCTORS ******/
 
@@ -78,6 +81,8 @@ public:
     float getWholesale() const;
 
     float getRetail() const;
+
+    static int getBookCount();
 
     // destructor
     ~bookType();

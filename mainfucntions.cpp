@@ -107,7 +107,7 @@ string tolowerstring(string str) {
  *		user input
  ******************************************************************************/
 
-void CashierFunction(int& bookCount, bookType *database[]) {
+void CashierFunction(bookType *database[]) {
 
     const int   QTY_COL   = 4;       // column size for quantity in receipt
     const int   ISBN_COL  = 20;      // column size for isbn in receipt
@@ -118,6 +118,8 @@ void CashierFunction(int& bookCount, bookType *database[]) {
     float subTotal;
     int purchaseQty;
     int lookUpBookIndex;
+
+    int bookCount = bookType::getBookCount();
 
     bookType* book;
 
@@ -143,9 +145,7 @@ void CashierFunction(int& bookCount, bookType *database[]) {
         cout << setw(56) << "---[ Cashier ]---" << endl << endl;
 
 
-
-
-        lookUpBookIndex = lookUpBook(bookCount, database);
+        lookUpBookIndex = lookUpBook(database);
 
 
 
@@ -229,7 +229,7 @@ void CashierFunction(int& bookCount, bookType *database[]) {
                 // IF USER ACCEPTS THE PURCHASE - -> PROCEED
                 if (answer == '1') {
                     cout << "\nPurchase of " << purchaseQty << " copies of " << book->getBookTitle() << " completed.\n\n";
-                    database[lookUpBookIndex]->setQtyOnHand(database[lookUpBookIndex]->getQtyOnHand() - 1);
+                    database[lookUpBookIndex]->setQtyOnHand(database[lookUpBookIndex]->getQtyOnHand() - purchaseQty);
                 } // end if (answer == '1') -- continued on else below
 
                 else {
@@ -250,6 +250,7 @@ void CashierFunction(int& bookCount, bookType *database[]) {
             system("cls");
 
         } // end if (lookUpBookIndex >= 0)
+        // ESCAPE KEY
 
     } while (answer != '2' && lookUpBookIndex >= 0);
 
@@ -278,22 +279,26 @@ void CashierFunction(int& bookCount, bookType *database[]) {
  *      This function outputs a lot of text
  ******************************************************************************/
 
-void InventoryFunction(int&   bookCount,    // REF - the num of books in database
-                       bookType *database[]  // REF - the array of bookType structs, main database
-                       )
+void InventoryFunction(bookType *database[]  // REF - the array of bookType structs, main database
+                        )
                        {
 
 
     const int MENU_INDENT = 30;     // used to format the indent of the menu
     char  choice;                   // holds the user's choice, assigned from GetChoice()
     int   lookUpBookIndex;          // target index of book found by lookUpBook()
+    int   bookCount;
+    bool  quit = false;
 
     do {
+
+        // update the bookCount with every menu action to track additions/deletions
+        bookCount = bookType::getBookCount();
+
         // output the header for this module
         cout << right;
         cout << "|" << setw(61) << "==[ Serendipity Booksellers ]==" << setw(33) << "|\n\n";
         cout << setw(56) << "--- Inventory ---\n";
-
 
         cout << left;
         cout << setw(MENU_INDENT) << " " << "[1] Look up a book\n";
@@ -325,7 +330,7 @@ void InventoryFunction(int&   bookCount,    // REF - the num of books in databas
                 // check to make sure DB isn't empty
                 if (bookCount != 0) {
 
-                    lookUpBookIndex = lookUpBook(bookCount, database);
+                    lookUpBookIndex = lookUpBook(database);
                     if (lookUpBookIndex >= 0) {
                         BookInformation(database[lookUpBookIndex]);
                         system("pause");
@@ -354,7 +359,7 @@ void InventoryFunction(int&   bookCount,    // REF - the num of books in databas
              *******************************************************/
             case '2':
                 if (bookCount < DBSIZE) {
-                    addBook(bookCount, database);
+                    addBook(database);
                 }
                 else {
                     cout << "ERROR - Cannot add book! Database has maximum amount of books stored in it!\n";
@@ -381,7 +386,7 @@ void InventoryFunction(int&   bookCount,    // REF - the num of books in databas
              *******************************************************/
             case '3':
                 if (bookCount != 0) {
-                        editBook(bookCount, database);
+                        editBook(database);
                 } else {
                     cout << "There are no books in the inventory. Returning to Inventory Menu...\n";
                     system("pause");
@@ -404,8 +409,7 @@ void InventoryFunction(int&   bookCount,    // REF - the num of books in databas
              *******************************************************/
             case '4':
                 if (bookCount != 0) {
-                    deleteBook(bookCount,
-                               database);
+                    deleteBook(database);
                 }
                 else {
                     cout << "There are no books in the inventory. Returning to Inventory Menu...\n";
@@ -416,8 +420,12 @@ void InventoryFunction(int&   bookCount,    // REF - the num of books in databas
 
 
         } // end switch(choice)
-
-    } while (choice != '5');
+        // ESCAPE KEY
+        if(GetKeyState(VK_ESCAPE) < 0) {
+            // esc is down
+            quit = true;
+        }
+    } while (choice != '5' && !quit);
 }
 
 
@@ -435,10 +443,11 @@ void InventoryFunction(int&   bookCount,    // REF - the num of books in databas
  *
  ******************************************************************************/
 
-void ReportsFunction(int& bookCount, bookType* database[]) {
+void ReportsFunction(bookType* database[]) {
 
     const int MENU_INDENT = 30;     // used to format the indent of the menu
     char  choice;                   // holds the user's choice, assigned from GetChoice()
+    bool quit = false;
 
     do {
         // output the header for this module
@@ -461,24 +470,24 @@ void ReportsFunction(int& bookCount, bookType* database[]) {
 
         switch (choice) {
             case '1':
-                repListing(bookCount, database);
+                repListing(database);
                 system("cls");
                 break;
 
             case '2':
-                repWholesale(bookCount, database);
+                repWholesale(database);
                 break;
 
             case '3':
-                repRetail(bookCount, database);
+                repRetail(database);
                 break;
 
             case '4':
-                repQty(bookCount, database);
+                repQty(database);
                 break;
 
             case '5':
-                repCost(bookCount, database);
+                repCost(database);
                 break;
 
             case '6':
@@ -489,8 +498,12 @@ void ReportsFunction(int& bookCount, bookType* database[]) {
                 break;
         }
 
-
-    } while (choice != '7');
+        // ESCAPE KEY
+        if(GetKeyState(VK_ESCAPE) < 0) {
+            // esc is down
+            quit = true;
+        }
+    } while (choice != '7' && !quit);
 }
 
 

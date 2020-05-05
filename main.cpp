@@ -49,11 +49,12 @@ int main() {
 
     bookType* testingBook = nullptr;
 
+    int bookCount;
     char choice;
-    int  bookCount; // make static in next serendipity
+    //int  bookCount; // make static in next serendipity
 
 
-    bookCount = 0;
+    //bookCount = 0;
 
 
     /*******************************************************************************
@@ -65,6 +66,8 @@ int main() {
      * from within this loop.
      *******************************************************************************/
     do { // while (choice != '4')
+
+        bookCount = bookType::getBookCount();
 
         // main menu screen output
         cout << right;
@@ -89,8 +92,8 @@ int main() {
             // Module 1 - Cashier menu
             case '1':
                 // only allow purchase if there are books in the database to purchase.
-                if (bookCount > 0) {
-                    CashierFunction(bookCount, database);
+                if (bookType::getBookCount() > 0) {
+                    CashierFunction(database);
                 }
                 else {
                     system("cls");
@@ -101,12 +104,12 @@ int main() {
 
             // module 2 - Inventory menu - pass the arrays as they are used in submodule
             case '2':
-                InventoryFunction(bookCount, database);
+                InventoryFunction(database);
                 break;
 
             // module 3 - reports menu, currently stubs
             case '3':
-                ReportsFunction(bookCount, database);
+                ReportsFunction(database);
                 break;
 
             case '0':

@@ -6,8 +6,7 @@
 *******************************************/
 
 #include "bookType.h"
-
-//int bookCount = 0;
+int bookType::bookCount = 0;
 
 /****** CONSTRUCTORS ******/
 
@@ -33,6 +32,7 @@ bookType::bookType() {
     qtyOnHand   = 0;
     wholesale   = 0.0;
     retail      = 0.0;
+    bookCount ++;
 }
 
 
@@ -62,6 +62,7 @@ bookType::bookType(string t, string i, string a, string p, string dA, int qoh, f
     qtyOnHand   = qoh;
     wholesale   = w;
     retail      = r;
+    bookCount ++;
 }
 
 
@@ -93,6 +94,7 @@ bookType::bookType(const bookType& otherBook) {
     retail      = otherBook.getRetail();
      */
     *this = otherBook;
+    bookCount ++; // unsure if this is appropriate in the copy constructor
 }
 
 
@@ -445,6 +447,28 @@ float bookType::getRetail() const {
 
 
 /******************************************************************************
+ * FUNCTION - bookType::getBookCount()
+ * ____________________________________________________________________________
+ * This function takes no arguments. It will return the value of bookCount to the
+ * calling function.
+ * ===> returns an int
+ *
+ * PRE-CONDITIONS
+ *  The following must be defined before function call:
+ *
+ *
+ *
+ * POST-CONDITIONS
+ *      an int with value of static bookCount is returned
+ ******************************************************************************/
+
+int bookType::getBookCount() {
+    return bookCount;
+}
+
+
+
+/******************************************************************************
  * FUNCTION - bookType::
  * ____________________________________________________________________________
  * This function receives
@@ -460,6 +484,7 @@ float bookType::getRetail() const {
 
 bookType::~bookType() {
     //cout << "Destructing " << bookTitle << " - ISBN " << isbn << "...\n";
+    bookCount --;
 }
 
 
@@ -501,15 +526,6 @@ bool bookType::operator<(const bookType &otherBook) const {
  ******************************************************************************/
 
 bool bookType::operator<=(const bookType &otherBook) const {
-    /*
-    cout << "comparing " << qtyOnHand << " <= " << otherBook.getQtyOnHand() << "...\n";
-    if (qtyOnHand <= otherBook.getQtyOnHand()) {
-        cout << "True\n";
-    }
-    else {
-        cout << "False\n";
-    }
-    */
     return qtyOnHand <= otherBook.getQtyOnHand();
 }
 

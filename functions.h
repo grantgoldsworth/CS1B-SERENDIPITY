@@ -30,13 +30,11 @@ string tolowerstring(string);
 void BookInformation(const bookType*, bool cashier = false);
 
 // main menu modules
-void CashierFunction(int &, bookType* []);
+void CashierFunction(bookType* []);
 
-void InventoryFunction(int&,
-                        bookType* []);
+void InventoryFunction(bookType* []);
 
-void ReportsFunction(int&,
-                     bookType* []);
+void ReportsFunction(bookType* []);
 
 
 

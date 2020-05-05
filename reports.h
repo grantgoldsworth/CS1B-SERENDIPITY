@@ -11,18 +11,18 @@
 #define A4_REPORTS_H
 
 // ReportsFunction functions
-void repListing(int&, bookType* []);
+void repListing(bookType* []);
 
-void repCost(int& bookCount, bookType *database[]);
+void repCost(bookType *database[]);
 
-void repWholesale(int& bookCount, bookType *database[]);
+void repWholesale(bookType *database[]);
 
-void repRetail(int&, bookType* []);
+void repRetail(bookType* []);
 
 void repAge();
 
-void repQty(int&, bookType* []);
+void repQty(bookType* []);
 
-void sortBookTypeArray(const int&, bookType* []);
+void sortBookTypeArray(bookType* []);
 
 #endif //A4_REPORTS_H

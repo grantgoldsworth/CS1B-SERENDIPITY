@@ -40,9 +40,7 @@
  *      Plenty of output, though. :)
  ******************************************************************************/
 
-int lookUpBook(int bookCount,            // VAL - the # of books in the database
-               bookType *database[]
-                ) {
+int lookUpBook(bookType *database[]) {
 
     string target;  // IN CALC OUT - the user input search query
     char choice;    // IN CALC     - the user's menu navigation option
@@ -61,6 +59,12 @@ int lookUpBook(int bookCount,            // VAL - the # of books in the database
     // obtain user choice
     choice = GetChoice(1, 5);
 
+    // ESCAPE KEY - QUIT
+    if(GetKeyState(VK_ESCAPE) < 0) {
+        // esc is down
+        choice = '5';
+    }
+
     /******************************************************
      * SWITCH - What To Search Through
      * based on user choice from menu above, search for a book
@@ -74,7 +78,7 @@ int lookUpBook(int bookCount,            // VAL - the # of books in the database
         case '1':
             cout << "\nEnter title to search for: ";
             getline(cin, target);
-            index = searchDatabase(database, bookCount, target, 't');
+            index = searchDatabase(database, target, 't');
             break;
 
 
@@ -82,7 +86,7 @@ int lookUpBook(int bookCount,            // VAL - the # of books in the database
         case '2':
             cout << "\nEnter author to search for: ";
             getline(cin, target);
-            index = searchDatabase(database, bookCount, target, 'a');
+            index = searchDatabase(database, target, 'a');
             break;
 
 
@@ -90,7 +94,7 @@ int lookUpBook(int bookCount,            // VAL - the # of books in the database
         case '3':
             cout << "\nEnter ISBN to search for: ";
             getline(cin, target);
-            index = searchDatabase(database, bookCount, target, 'i');
+            index = searchDatabase(database, target, 'i');
             break;
 
 
@@ -98,7 +102,7 @@ int lookUpBook(int bookCount,            // VAL - the # of books in the database
         case '4':
             cout << "\nEnter publisher to search for: ";
             getline(cin, target);
-            index = searchDatabase(database, bookCount, target, 'p');
+            index = searchDatabase(database, target, 'p');
             break;
 
 
@@ -135,9 +139,11 @@ int lookUpBook(int bookCount,            // VAL - the # of books in the database
  ******************************************************************************/
 
 int searchDatabase(bookType* database[],
-                const int bookCount,
                 string target,
                 char flag) {
+
+
+    int bookCount = bookType::getBookCount();
 
     string matchesArray[bookCount]; // array of substring matches for the target query
     int    indexMatches[bookCount]; // array of database index locations of the matches found
@@ -151,6 +157,8 @@ int searchDatabase(bookType* database[],
 
     // convert target to lowercase for case insensitive searching
     target = tolowerstring(target);
+    // ESCAPE KEY
+
 
     switch (tolower(flag)) {
         /******************************************************************************
@@ -364,8 +372,7 @@ int searchDatabase(bookType* database[],
  *      chooses to save changes to an addition
  ******************************************************************************/
 
-void addBook(int& bookCount,
-             bookType* database[]) {
+void addBook(bookType* database[]) {
 
     const int MENU_INDENT = 45;
 
@@ -381,10 +388,12 @@ void addBook(int& bookCount,
     float  tempWhole    = 0.0;
     float  tempRet      = 0.0;
 
+    int bookCount;
     changes = false;
 
-    do { // while (choice != '4')
+    do { // while (choice != '0')
 
+        bookCount = bookType::getBookCount();
 
         // main menu screen output
         cout << right;
@@ -426,7 +435,7 @@ void addBook(int& bookCount,
                 break;
 
             case '2':
-                tempISBN = getUniqueISBN(database, bookCount);
+                tempISBN = getUniqueISBN(database);
                 changes = true;
                 break;
 
@@ -484,8 +493,9 @@ void addBook(int& bookCount,
             case '9':
                 if (bookCount < DBSIZE) {
 
+                    // bookCount IS INCREMENTED BY CALLING THE BOOKTYPE CONSTRUCTOR HERE!!!!
                     database[bookCount] = new bookType(tempTitle, tempISBN, tempAuthor, tempPub, tempDate, tempQOH, tempWhole, tempRet);
-                    bookCount++;
+
 
                     // reset placeholders to default values for next book entry
                     tempTitle   = "EMPTY";
@@ -519,7 +529,7 @@ void addBook(int& bookCount,
 
     } while (choice != '0' && bookCount < DBSIZE);
 	
-	if (bookCount == DBSIZE) {
+	if (bookType::getBookCount() == DBSIZE) {
 		cout << "\n\n****** ERROR - MAXIMUM DATABASE CAPACITY REACHED - CANNOT ADD MORE BOOKS ******\n";
 		cout << "****** DATABASE SIZE: " << DBSIZE << " --- BOOK COUNT: " << bookCount << " ******\n\n";
 		system("pause"); 
@@ -549,13 +559,14 @@ void addBook(int& bookCount,
  *      Returns a string representing the unique ISBN
  ******************************************************************************/
 
-string getUniqueISBN(bookType *database[],       // REF - array of book isbn strings
-                     const int bookCount) {     // REF - num of books in the database
+string getUniqueISBN(bookType *database[]) {
 
     string tempISBN;    // holder for the user input
     bool isbnIsClone;   // boolean for if the entered ISBN matches another in the isbn array
     int isbnCloneIndex; // the array location of an identical match for the input ISBN - used to output
                         //      information about the matching book
+
+    int bookCount = bookType::getBookCount();
 
     do { // while (isbnIsClone)
         // reset to 0 as user inputs a new ISBN, must search for matches to this new input
@@ -607,13 +618,12 @@ string getUniqueISBN(bookType *database[],       // REF - array of book isbn str
  *      Based on user input, this function can modify all of the actual array arguments
  ******************************************************************************/
 
-void editBook(const int& bookCount, // REF - # of books in the array
-              bookType* database[]   // REF - the array of bookType structs, main database
+void editBook(bookType* database[]   // REF - the array of bookType structs, main database
               ) {
 
     const int MENU_INDENT = 55;
 
-    int index = lookUpBook(bookCount, database);
+    int index = lookUpBook(database);
 
     char choice;    // user navigation
     string strTemp; // holder for user string inputs
@@ -678,7 +688,7 @@ void editBook(const int& bookCount, // REF - # of books in the array
 
                     // edit the ISBN once a unique one is entered
                 case '2':
-                    strTemp = getUniqueISBN(database, bookCount);
+                    strTemp = getUniqueISBN(database);
                     database[index]->setISBN(strTemp);
                     break;
 
@@ -801,13 +811,13 @@ void editBook(const int& bookCount, // REF - # of books in the array
  *      If a book is deleted, bookCount will decrease by one
  ******************************************************************************/
 
-void deleteBook(int& bookCount,     // REF - # of books in the array
-                bookType* database []) {
+void deleteBook(bookType* database []) {
 
     char choice;    // user choice for menu options
-
     int index;
-    index = lookUpBook(bookCount, database);
+    int bookCount = bookType::getBookCount();
+
+    index = lookUpBook(database);
 
     // if lookUpBook does not return -1 (for not found), then proceed
     if (index >= 0) {
@@ -828,7 +838,9 @@ void deleteBook(int& bookCount,     // REF - # of books in the array
         // the information of the last book in the array (the one indexed by the now decreased bookCount).
         // The copy of the replacer in the last slot of the array is deleted
         if (choice == '1') {
-            bookCount--;
+
+            // decrement this copy variable of bookType static bookCount so the deletion can still work
+            bookCount --;
 
             /*
             SetBookTitle(database[index], database[bookCount]->bookTitle);

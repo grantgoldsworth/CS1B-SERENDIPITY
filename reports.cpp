@@ -28,13 +28,15 @@
  *      bookCount is not modified
  ******************************************************************************/
 
-void repListing(int& bookCount, bookType *database[]) {
+void repListing(bookType *database[]) {
 
     time_t theTime = time(nullptr); // for displaying the time
     int page = 0;                   // the current page being displayed, set of ten books
     int maxPages = 1;               // the maximum number of pages, default to 1 (empty listing)
     int escStat = 0;                // holds bit key of GetKeyState for the escape key, used to exit menu
     bool quit = false;              // if user hits escape, then quit is set to true
+
+    const int bookCount = bookType::getBookCount();
 
 
     // set the max pages so that there are ten books per page maximum
@@ -189,7 +191,7 @@ void repListing(int& bookCount, bookType *database[]) {
  *
  ******************************************************************************/
 
-void repCost(int& bookCount, bookType *database[]) {
+void repCost(bookType *database[]) {
     cout << "repCost module - currently empty\n";
     system("pause");
     system("cls");
@@ -214,7 +216,7 @@ void repCost(int& bookCount, bookType *database[]) {
  *      bookCount is not modified
  ******************************************************************************/
 
-void repWholesale(int& bookCount, bookType *database[]) {
+void repWholesale(bookType *database[]) {
     time_t theTime = time(nullptr); // for displaying the time
     int page = 0;                   // the current page being displayed, set of ten books
     int maxPages = 1;               // the maximum number of pages, default to 1 (empty listing)
@@ -222,6 +224,8 @@ void repWholesale(int& bookCount, bookType *database[]) {
     bool quit = false;              // if user hits escape, then quit is set to true
     float totalWholesale = 0;       // total wholesale price of all books (qtyOnHand * wholesalePrice)
     char userChoice;                // user navigation
+
+    const int bookCount = bookType::getBookCount();
 
 
     // set the max pages so that there are ten books per page maximum
@@ -385,7 +389,7 @@ void repWholesale(int& bookCount, bookType *database[]) {
  *      bookCount is not modified
  ******************************************************************************/
 
-void repRetail(int& bookCount, bookType* database[]) {
+void repRetail(bookType* database[]) {
     time_t theTime = time(nullptr); // for displaying the time
     int page = 0;                   // the current page being displayed, set of ten books
     int maxPages = 1;               // the maximum number of pages, default to 1 (empty listing)
@@ -394,6 +398,7 @@ void repRetail(int& bookCount, bookType* database[]) {
     float totalWholesale = 0;       // total wholesale price of all books (qtyOnHand * wholesalePrice)
     char userChoice;
 
+    const int bookCount = bookType::getBookCount();
 
     // set the max pages so that there are ten books per page maximum
     if (bookCount != 0) {
@@ -568,7 +573,7 @@ void repAge() {
  *
  ******************************************************************************/
 
-void repQty(int& bookCount, bookType* database[]) {
+void repQty(bookType* database[]) {
     time_t theTime = time(nullptr); // for displaying the time
     int page = 0;                   // the current page being displayed, set of ten books
     int maxPages = 1;               // the maximum number of pages, default to 1 (empty listing)
@@ -577,27 +582,15 @@ void repQty(int& bookCount, bookType* database[]) {
     float totalWholesale = 0;       // total wholesale price of all books (qtyOnHand * wholesalePrice)
     char userChoice;
 
-    bookType* sortedDB[DBSIZE] = {nullptr};
-
+    const int bookCount = bookType::getBookCount();
 
     // set the max pages so that there are ten books per page maximum
     if (bookCount != 0) {
         maxPages = ceil(bookCount / 10.0);
     }
 
-    for (int i = 0; i < bookCount; i ++) {
-        // deep copy a new sorted array each time function repQty is called
-        sortedDB[i] = new bookType(*database[i]);
-        //cout << sortedDB[i]->getBookTitle() << "  " << sortedDB[i]->getQtyOnHand() << endl;
-    }
+    selectionSort(database, bookCount);
 
-    sortBookTypeArray(bookCount, sortedDB);
-    //cout << endl;
-    /*
-    for (auto i : sortedDB) {
-        cout << i->getBookTitle() << "   " << i->getQtyOnHand() << endl;
-    }
-     */
 
     /****************************************************************
      * DO-WHILE
@@ -633,12 +626,12 @@ void repQty(int& bookCount, bookType* database[]) {
         for (int i = page * 10; i < 10 + page * 10 ; i++) {
             if (i < bookCount) {
                         // book title column
-                cout << setw(50) << sortedDB[i]->getBookTitle().substr(0, 44)
+                cout << setw(50) << database[i]->getBookTitle().substr(0, 44)
                         // book ISBN column
-                     << setw(25) << sortedDB[i]->getISBN()
+                     << setw(25) << database[i]->getISBN()
                         // right align QOH column
                      << right
-                     << setw(7) << sortedDB[i]->getQtyOnHand()
+                     << setw(7) << database[i]->getQtyOnHand()
                      << left << endl << endl;
 
             }
@@ -721,56 +714,9 @@ void repQty(int& bookCount, bookType* database[]) {
         system("cls");
     } while (!quit); // end menu do-while
 
-    // delete the temporary sorted DB
-    for (auto i : sortedDB) {
-        delete i;
-        i = nullptr;
-    }
     system("cls");
 
 }
 
 
 
-
-/******************************************************************************
- * FUNCTION - sortBookTypeArray
- * ____________________________________________________________________________
- * This function receives an int as the bookCount, and the array of bookType pointers.
- * It will sort the array based on the books' quantity on hand
- * ===> returns nothing.
- * PRE-CONDITIONS
- * 		Following must be defined prior to function call:
- * 		    int for bookCount
- * 		    the array of bookType pointers
- *
- * POST-CONDITIONS
- *      the passed pointer array will be sorted based on the quantity on hand
- *      attributes of the books
- ******************************************************************************/
-
-void sortBookTypeArray(const int& bookCount, bookType* database[]) {
-    bookType* temp;
-    int smallestIndex = 0;
-
-
-    for (int i = 0; i < bookCount; i ++) {
-        smallestIndex = i;
-
-        // inner loop: compare the unsorted segment of array
-        for (int j = i + 1; j < bookCount; j ++) {
-            if (*database[j] >= *database[smallestIndex]) {
-                smallestIndex = j;
-            }
-
-        } // end inner loop - for (int j = i + 1; i < bookCount; j ++)
-
-        // perform the swap
-        temp = database[smallestIndex];
-        database[smallestIndex] = database[i];
-        database[i] = temp;
-
-    } // end main loop - for(int i = 0; i < bookCount; i ++)
-
-    temp = nullptr;
-}
