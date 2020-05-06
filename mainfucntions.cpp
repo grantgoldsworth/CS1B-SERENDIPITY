@@ -498,12 +498,8 @@ void ReportsFunction(bookType* database[]) {
                 break;
         }
 
-        // ESCAPE KEY
-        if(GetKeyState(VK_ESCAPE) < 0) {
-            // esc is down
-            quit = true;
-        }
-    } while (choice != '7' && !quit);
+
+    } while (choice != '7');
 }
 
 
