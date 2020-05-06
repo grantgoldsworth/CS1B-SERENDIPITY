@@ -57,7 +57,7 @@ bookType::bookType() {
 
 
 /******************************************************************************
- * FUNCTION - professorType::professorType(string, string, string, string, string
+ * FUNCTION - bookType::bookType(string, string, string, string, string
  *                                          int, float, float)
  * ____________________________________________________________________________
  * Uber constructor. Takes arguments for all members of bookType and sets them
@@ -140,6 +140,7 @@ bookType::bookType(const bookType& otherBook) {
  *  The following must be defined before function call:
  *      <parameters>
  *      an instance of bookType must be declared
+ *      instance of bookType class is defined
  *
  * POST-CONDITIONS
  *      attribute bookTitle of bookType instance is modified
@@ -153,17 +154,18 @@ void bookType::setBookTitle(string newTitle) {
 
 
 /******************************************************************************
- * FUNCTION - bookType::
+ * FUNCTION - bookType::setISBN
  * ____________________________________________________________________________
- * This function receives
+ * This function receives a string and sets it as the value of attribute isbn
  * ===> returns nothing.
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      newISBN : a string
+ *      instance of bookType class is defined
  *
  * POST-CONDITIONS
- *
+ *      isbn is set to value of newISBN
  ******************************************************************************/
 
 void bookType::setISBN(string newISBN) {
@@ -174,17 +176,18 @@ void bookType::setISBN(string newISBN) {
 
 
 /******************************************************************************
- * FUNCTION - bookType::
+ * FUNCTION - bookType::setAuthor
  * ____________________________________________________________________________
- * This function receives
+ * This function receives a string and sets it as the value of attribute author
  * ===> returns nothing.
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      newAuthor   : a string
+ *      instance of bookType class is defined
  *
  * POST-CONDITIONS
- *
+ *      author is set to value of newAuthor
  ******************************************************************************/
 
 void bookType::setAuthor(string newAuthor) {
@@ -195,17 +198,18 @@ void bookType::setAuthor(string newAuthor) {
 
 
 /******************************************************************************
- * FUNCTION - bookType::
+ * FUNCTION - bookType::setPublisher
  * ____________________________________________________________________________
- * This function receives
+ * This function receives a string and sets it as the value of attribute publisher
  * ===> returns nothing.
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      newPublisher   : a string
+ *      instance of bookType class is defined
  *
  * POST-CONDITIONS
- *
+ *      publisher is set to value of newPublisher
  ******************************************************************************/
 
 void bookType::setPublisher(string newPub) {
@@ -216,17 +220,18 @@ void bookType::setPublisher(string newPub) {
 
 
 /******************************************************************************
- * FUNCTION - bookType::
+ * FUNCTION - bookType::setDateAdded
  * ____________________________________________________________________________
- * This function receives
+ * This function receives a string and sets it as the value of attribute dateAdded
  * ===> returns nothing.
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      newDate   : a string
+ *      instance of bookType class is defined
  *
  * POST-CONDITIONS
- *
+ *      dateAdded is set to value of newDate
  ******************************************************************************/
 
 void bookType::setDateAdded(string newDate) {
@@ -237,17 +242,18 @@ void bookType::setDateAdded(string newDate) {
 
 
 /******************************************************************************
- * FUNCTION - bookType::
+ * FUNCTION - bookType::setQtyOnHand
  * ____________________________________________________________________________
- * This function receives
+ * This function receives and int and sets it as the value of qtyOnHand
  * ===> returns nothing.
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      newQOH  : an int
+ *      instance of bookType class is defined
  *
  * POST-CONDITIONS
- *
+ *      qtyOnHand is set to value of newQOH
  ******************************************************************************/
 
 void bookType::setQtyOnHand(int newQOH) {
@@ -258,17 +264,18 @@ void bookType::setQtyOnHand(int newQOH) {
 
 
 /******************************************************************************
- * FUNCTION - bookType::
+ * FUNCTION - bookType::setWholesale
  * ____________________________________________________________________________
- * This function receives
+ * This function receives a float and sets it as the value of wholesale
  * ===> returns nothing.
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      newWholesale  : a float
+ *      instance of bookType class is defined
  *
  * POST-CONDITIONS
- *
+ *      wholesale is set to value of newWholesale
  ******************************************************************************/
 
 void bookType::setWholesale(float newWholesale) {
@@ -279,17 +286,18 @@ void bookType::setWholesale(float newWholesale) {
 
 
 /******************************************************************************
- * FUNCTION - bookType::
+ * FUNCTION - bookType::setRetail
  * ____________________________________________________________________________
- * This function receives
+ * This function receives a float and sets it as the value of attribute retail
  * ===> returns nothing.
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      newRetail   : a float
+ *      instance of bookType class is defined
  *
  * POST-CONDITIONS
- *
+ *      retail is set to value of newRetail
  ******************************************************************************/
 
 void bookType::setRetail(float newRetail) {
@@ -300,17 +308,19 @@ void bookType::setRetail(float newRetail) {
 /****** GETTERS ******/
 
 /******************************************************************************
- * FUNCTION - bookType::
+ * FUNCTION - bookType::getBookTitle()
  * ____________________________________________________________________________
- * This function receives
- * ===> returns nothing.
+ * This function receives nothing. It will return a string with the value
+ * of attribute bookTitle.
+ * ===> returns a string
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      instance of bookType class is defined
  *
  * POST-CONDITIONS
- *
+ *      instance of bookType class is not modified
+ *      a string is returned to the calling function
  ******************************************************************************/
 
 string bookType::getBookTitle() const {
@@ -321,17 +331,19 @@ string bookType::getBookTitle() const {
 
 
 /******************************************************************************
- * FUNCTION - bookType::
+ * FUNCTION - bookType::getISBN()
  * ____________________________________________________________________________
- * This function receives
- * ===> returns nothing.
+ * This function receives nothing. It will return a string with the value
+ * of attribute isbn.
+ * ===> returns a string
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      instance of bookType class is defined
  *
  * POST-CONDITIONS
- *
+ *      instance of bookType class is not modified
+ *      a string is returned to the calling function
  ******************************************************************************/
 
 string bookType::getISBN() const {
@@ -342,17 +354,19 @@ string bookType::getISBN() const {
 
 
 /******************************************************************************
- * FUNCTION - bookType::
+ * FUNCTION - bookType::getAuthor()
  * ____________________________________________________________________________
- * This function receives
- * ===> returns nothing.
+ * This function receives nothing. It will return a string with the value
+ * of attribute author.
+ * ===> returns a string
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      instance of bookType class is defined
  *
  * POST-CONDITIONS
- *
+ *      instance of bookType class is not modified
+ *      a string is returned to the calling function
  ******************************************************************************/
 
 string bookType::getAuthor() const {
@@ -363,17 +377,19 @@ string bookType::getAuthor() const {
 
 
 /******************************************************************************
- * FUNCTION - bookType::
+ * FUNCTION - bookType::getPublisher()
  * ____________________________________________________________________________
- * This function receives
- * ===> returns nothing.
+ * This function receives nothing. It will return a string with the value
+ * of attribute publisher.
+ * ===> returns a string
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      instance of bookType class is defined
  *
  * POST-CONDITIONS
- *
+ *      instance of bookType class is not modified
+ *      a string is returned to the calling function
  ******************************************************************************/
 
 string bookType::getPublisher() const {
@@ -384,17 +400,19 @@ string bookType::getPublisher() const {
 
 
 /******************************************************************************
- * FUNCTION - bookType::
+ * FUNCTION - bookType::getDateAdded()
  * ____________________________________________________________________________
- * This function receives
- * ===> returns nothing.
+ * This function receives nothing. It will return a string with the value
+ * of attribute dateAdded.
+ * ===> returns a string
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      instance of bookType class is defined
  *
  * POST-CONDITIONS
- *
+ *      instance of bookType class is not modified
+ *      a string is returned to the calling function
  ******************************************************************************/
 
 string bookType::getDateAdded() const {
@@ -405,17 +423,19 @@ string bookType::getDateAdded() const {
 
 
 /******************************************************************************
- * FUNCTION - bookType::
+ * FUNCTION - bookType::getQtyOnHand()
  * ____________________________________________________________________________
- * This function receives
- * ===> returns nothing.
+ * This function receives nothing. It will return an int with the value
+ * of attribute qtyOnHand.
+ * ===> returns an int
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      instance of bookType class is defined
  *
  * POST-CONDITIONS
- *
+ *      instance of bookType class is not modified
+ *      an int is returned to the calling function
  ******************************************************************************/
 int bookType::getQtyOnHand() const {
     return qtyOnHand;
@@ -425,17 +445,19 @@ int bookType::getQtyOnHand() const {
 
 
 /******************************************************************************
- * FUNCTION - bookType::
+ * FUNCTION - bookType::getWholesale()
  * ____________________________________________________________________________
- * This function receives
- * ===> returns nothing.
+ * This function receives nothing. It will return a float with the value
+ * of attribute wholesale.
+ * ===> returns a float
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      instance of bookType class is defined
  *
  * POST-CONDITIONS
- *
+ *      instance of bookType class is not modified
+ *      a float is returned to the calling function
  ******************************************************************************/
 
 float bookType::getWholesale() const {
@@ -446,17 +468,19 @@ float bookType::getWholesale() const {
 
 
 /******************************************************************************
- * FUNCTION - bookType::
+ * FUNCTION - bookType::getBookTitle()
  * ____________________________________________________________________________
- * This function receives
- * ===> returns nothing.
+ * This function receives nothing. It will return a float with the value
+ * of attribute retail.
+ * ===> returns a string
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      instance of bookType class is defined
  *
  * POST-CONDITIONS
- *
+ *      instance of bookType class is not modified
+ *      a float is returned to the calling function
  ******************************************************************************/
 
 float bookType::getRetail() const {
@@ -469,13 +493,13 @@ float bookType::getRetail() const {
 /******************************************************************************
  * FUNCTION - bookType::getBookCount()
  * ____________________________________________________________________________
- * This function takes no arguments. It will return the value of bookCount to the
+ * This function takes no arguments. It will return the value of static bookCount to the
  * calling function.
  * ===> returns an int
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      an instance of bookType is defined
  *
  *
  * POST-CONDITIONS
@@ -491,15 +515,18 @@ int bookType::getBookCount() {
 /******************************************************************************
  * FUNCTION - bookType::
  * ____________________________________________________________________________
- * This function receives
+ * Default destructor overload. Destroys the instance of bookType and also
+ * decrements the bookCount.
  * ===> returns nothing.
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
+ *      instance of bookType is defined
  *
  *
  * POST-CONDITIONS
- *
+ *      instance of bookType is deleted
+ *      bookCount is decremented
  ******************************************************************************/
 
 bookType::~bookType() {
@@ -511,17 +538,21 @@ bookType::~bookType() {
 
 
 /******************************************************************************
- * FUNCTION - bookType::
+ * FUNCTION - bookType::operator<
  * ____________________________________________________________________________
- * This function receives
- * ===> returns nothing.
+ * Less than boolean operator overload. Based on static attribute compareCode,
+ * this function will compare a specific attribute of parent/left operand
+ * with parameter/right operand
+ * ===> returns a bool.
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      instance of bookType is defined
+ *      otherBook   : other instance to compare with
  *
  * POST-CONDITIONS
- *
+ *      instances of bookType are not modified
+ *      a bool is returned to the calling statement
  ******************************************************************************/
 
 bool bookType::operator<(const bookType &otherBook) const {
@@ -573,17 +604,21 @@ bool bookType::operator<(const bookType &otherBook) const {
 
 
 /******************************************************************************
- * FUNCTION - bookType::
+ * FUNCTION - bookType::operator>
  * ____________________________________________________________________________
- * This function receives
- * ===> returns nothing.
+ * Greater than boolean operator overload. Based on static attribute compareCode,
+ * this function will compare a specific attribute of parent/left operand
+ * with parameter/right operand
+ * ===> returns a bool.
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      instance of bookType is defined
+ *      otherBook   : other instance to compare with
  *
  * POST-CONDITIONS
- *
+ *      instances of bookType are not modified
+ *      a bool is returned to the calling statement
  ******************************************************************************/
 
 bool bookType::operator>(const bookType &otherBook) const {
@@ -635,17 +670,21 @@ bool bookType::operator>(const bookType &otherBook) const {
 
 
 /******************************************************************************
- * FUNCTION - bookType::
+ * FUNCTION - bookType::operator<=
  * ____________________________________________________________________________
- * This function receives
- * ===> returns nothing.
+ * Less than or equal to boolean operator overload. Based on static attribute compareCode,
+ * this function will compare a specific attribute of parent/left operand
+ * with parameter/right operand
+ * ===> returns a bool.
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      instance of bookType is defined
+ *      otherBook   : other instance to compare with
  *
  * POST-CONDITIONS
- *
+ *      instances of bookType are not modified
+ *      a bool is returned to the calling statement
  ******************************************************************************/
 
 bool bookType::operator<=(const bookType &otherBook) const {
@@ -697,17 +736,21 @@ bool bookType::operator<=(const bookType &otherBook) const {
 
 
 /******************************************************************************
- * FUNCTION - bookType::
+ * FUNCTION - bookType::operator>=
  * ____________________________________________________________________________
- * This function receives
- * ===> returns nothing.
+ * Greater than or equal to boolean operator overload. Based on static attribute compareCode,
+ * this function will compare a specific attribute of parent/left operand
+ * with parameter/right operand
+ * ===> returns a bool.
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      instance of bookType is defined
+ *      otherBook   : other instance to compare with
  *
  * POST-CONDITIONS
- *
+ *      instances of bookType are not modified
+ *      a bool is returned to the calling statement
  ******************************************************************************/
 
 bool bookType::operator>=(const bookType &otherBook) const {
@@ -759,17 +802,21 @@ bool bookType::operator>=(const bookType &otherBook) const {
 
 
 /******************************************************************************
- * FUNCTION - bookType::
+ * FUNCTION - bookType::operator==
  * ____________________________________________________________________________
- * This function receives
- * ===> returns nothing.
+ * Equality boolean operator overload. Based on static attribute compareCode,
+ * this function will compare a specific attribute of parent/left operand
+ * with parameter/right operand
+ * ===> returns a bool.
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      instance of bookType is defined
+ *      otherBook   : other instance to compare with
  *
  * POST-CONDITIONS
- *
+ *      instances of bookType are not modified
+ *      a bool is returned to the calling statement
  ******************************************************************************/
 
 bool bookType::operator==(const bookType &otherBook) const {
@@ -821,17 +868,21 @@ bool bookType::operator==(const bookType &otherBook) const {
 
 
 /******************************************************************************
- * FUNCTION - bookType::
+ * FUNCTION - bookType::operator!=
  * ____________________________________________________________________________
- * This function receives
- * ===> returns nothing.
+ * Not equal boolean operator overload. Based on static attribute compareCode,
+ * this function will compare a specific attribute of parent/left operand
+ * with parameter/right operand
+ * ===> returns a bool.
  *
  * PRE-CONDITIONS
  *  The following must be defined before function call:
- *
+ *      instance of bookType is defined
+ *      otherBook   : other instance to compare with
  *
  * POST-CONDITIONS
- *
+ *      instances of bookType are not modified
+ *      a bool is returned to the calling statement
  ******************************************************************************/
 
 bool bookType::operator!=(const bookType &otherBook) const {
@@ -898,7 +949,7 @@ bool bookType::operator!=(const bookType &otherBook) const {
  *
  * POST-CONDITIONS
  *      contents of book instance are not modified
- *      content is inserted to the output stream
+ *      os stream object is returned to calling function
  ******************************************************************************/
 
 ostream &operator<<(ostream &os, const bookType &book) {
@@ -926,6 +977,7 @@ ostream &operator<<(ostream &os, const bookType &book) {
  * POST-CONDITIONS
  *      content is extracted from the input stream
  *      contents of bookType instance are modified
+ *      istream object is returned to calling function
  ******************************************************************************/
 
 istream &operator>>(istream &is, bookType &book) {
