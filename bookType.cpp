@@ -954,7 +954,8 @@ bool bookType::operator!=(const bookType &otherBook) const {
 
 ostream &operator<<(ostream &os, const bookType &book) {
 
-    os << book.getBookTitle() << ", by " << book.getAuthor() << " " << book.getISBN() << " pub. " << book.getPublisher() << ". Added " << book.getDateAdded();
+    os << book.getAuthor() << ". " << book.getBookTitle() << " " << book.getISBN() <<  ". Added " << book.getDateAdded() << " " << book.getQtyOnHand() << " on hand at wholesale "
+       << book.getWholesale() << ", retail " << book.getRetail();
 
     return os;
 }
