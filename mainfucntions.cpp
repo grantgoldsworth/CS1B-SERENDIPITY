@@ -204,7 +204,7 @@ void CashierFunction(bookType *database[]) {
                 // output the information about the book being purchased, the price, and subtotal
                 cout << setfill(' ') << setprecision(2) << fixed << left;
                 cout << setw(QTY_COL) << purchaseQty << setw(ISBN_COL) << book->getISBN() << setw(TITLE_COL)
-                     << book->getBookTitle();
+                     << book->getBookTitle().substr(0,32);
                 cout << "$" << right << setw(6) << book->getRetail() << setw(4) << "$" << right;
                 cout << setw(6) << subTotal << endl << endl << endl;
 
