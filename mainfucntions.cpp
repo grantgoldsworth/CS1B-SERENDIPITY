@@ -205,16 +205,16 @@ void CashierFunction(bookType *database[]) {
                 cout << setfill(' ') << setprecision(2) << fixed << left;
                 cout << setw(QTY_COL) << purchaseQty << setw(ISBN_COL) << book->getISBN() << setw(TITLE_COL)
                      << book->getBookTitle().substr(0,32);
-                cout << "$" << right << setw(6) << book->getRetail() << setw(4) << "$" << right;
+                cout << "$" << right << setw(6) << book->getRetail() << setw(5) << "$ " << right;
                 cout << setw(6) << subTotal << endl << endl << endl;
 
                 // output the subtotal, the tax, and final total
-                cout << left << setw(ISBN_COL) << ' ' << setw(48) << "Subtotal: " << setw(2) << "$" << right
+                cout << left << setw(ISBN_COL) << ' ' << setw(48) << "Subtotal: " << setw(2) << "$" << right << setw(6)
                      << subTotal
                      << endl;
-                cout << left << setw(ISBN_COL) << ' ' << setw(48) << "Tax: " << setw(2) << "$" << right << setw(5)
+                cout << left << setw(ISBN_COL) << ' ' << setw(48) << "Tax: " << setw(2) << "$" << right << setw(6)
                      << subTotal * TAX_RATE << endl;
-                cout << left << setw(ISBN_COL) << ' ' << setw(48) << "Total: " << setw(2) << "$" << right
+                cout << left << setw(ISBN_COL) << ' ' << setw(48) << "Total: " << setw(2) << "$" << right << setw(6)
                      << subTotal * (1 + TAX_RATE) << endl
                      << endl << endl;
 
