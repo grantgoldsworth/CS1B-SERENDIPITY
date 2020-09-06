@@ -6,26 +6,25 @@
 *******************************************/
 #include <string>
 #include "bookType.h"
+#include "unorderedLinkedList.h"
 using namespace std;
 
 #ifndef A4_INVENTORY_H
 #define A4_INVENTORY_H
 
 // InventoryFunction functions
-int lookUpBook(bookType* []
-                );
+int lookUpBook(unorderedLinkedList<bookType>&);
 
-int searchDatabase(bookType* [],
+int searchDatabase(unorderedLinkedList<bookType>&,
                 string,
                 char);
 
-void addBook(bookType* []);
+void addBook(unorderedLinkedList<bookType>&);
 
-string getUniqueISBN(bookType* []);
+string getUniqueISBN(unorderedLinkedList<bookType>&);
 
-void editBook(bookType* []
-              );
+void editBook(unorderedLinkedList<bookType>&);
 
-void deleteBook(bookType* []);
+void deleteBook(unorderedLinkedList<bookType>&);
 
 #endif //A4_INVENTORY_H

@@ -14,6 +14,7 @@
 #include "inventory.h"
 #include "reports.h"
 #include "bookType.h"
+#include "unorderedLinkedList.h"
 using namespace std;
 
 #ifndef A1_FUNCTIONS_H
@@ -27,14 +28,14 @@ char GetChoice(int min,
 
 string tolowerstring(string);
 
-void BookInformation(const bookType*, bool cashier = false);
+void BookInformation(const bookType&, bool cashier = false);
 
 // main menu modules
-void CashierFunction(bookType* []);
+void CashierFunction(unorderedLinkedList<bookType>&);
 
-void InventoryFunction(bookType* []);
+void InventoryFunction(unorderedLinkedList<bookType>&);
 
-void ReportsFunction(bookType* []);
+void ReportsFunction(unorderedLinkedList<bookType>&);
 
 
 

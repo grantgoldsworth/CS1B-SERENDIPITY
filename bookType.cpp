@@ -112,8 +112,6 @@ bookType::bookType(const bookType& otherBook) {
     retail      = otherBook.getRetail();
      */
     *this = otherBook;
-    cout << "COPY CONSRUCTOR\n";
-    system("pause");
     //bookCount ++; // unsure if this is appropriate in the copy constructor
 }
 

@@ -8,7 +8,7 @@
 #include "functions.h"
 
 /*******************************************************************************
- * A19- SERENDIPITY POINTERS EDITION
+ * A23 - OVERLOADING
  * -----------------------------------------------------------------------------
  * This is a menu driven program to simulate a management software for a bookstore.
  * It will allow a user to navigate through various modules, including a cashier
@@ -25,7 +25,8 @@
  *
  * -----------------------------------------------------------------------------
  * ALGORITHM
- *  1 Cre
+ *  1 Create the pointer list of bookType instances
+ *  2 implement the menu
  *******************************************************************************/
 
 int main() {
@@ -41,21 +42,14 @@ int main() {
     /*******************************************************************************
      * VARIABLES
      * -----------------------------------------------------------------------------
-     * database     : array of bookType pointers, acts as main book database
+     * LLDB         : unordered linked list of bookType instances, acts as main book database
      * choice       : user input choice
      * bookCount    : the number of books in the database; index od next available slot
      *******************************************************************************/
-    bookType* database[DBSIZE] = {nullptr};
-
+    unorderedLinkedList<bookType> LLDB;
     bookType* testingBook = nullptr;
-
     int bookCount;
     char choice;
-    //int  bookCount; // make static in next serendipity
-
-
-    //bookCount = 0;
-
 
     /*******************************************************************************
      * DO-WHILE LOOP - Program Main Menu
@@ -93,7 +87,7 @@ int main() {
             case '1':
                 // only allow purchase if there are books in the database to purchase.
                 if (bookType::getBookCount() > 0) {
-                    CashierFunction(database);
+                    CashierFunction(LLDB);
                 }
                 else {
                     system("cls");
@@ -104,12 +98,12 @@ int main() {
 
             // module 2 - Inventory menu - pass the arrays as they are used in submodule
             case '2':
-                InventoryFunction(database);
+                InventoryFunction(LLDB);
                 break;
 
             // module 3 - reports menu, currently stubs
             case '3':
-                ReportsFunction(database);
+                ReportsFunction(LLDB);
                 break;
 
             case '0':

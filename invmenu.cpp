@@ -40,7 +40,7 @@
  *      Plenty of output, though. :)
  ******************************************************************************/
 
-int lookUpBook(bookType *database[]) {
+int lookUpBook(unorderedLinkedList<bookType>& LLDB) {
 
     string target;  // IN CALC OUT - the user input search query
     char choice;    // IN CALC     - the user's menu navigation option
@@ -78,7 +78,7 @@ int lookUpBook(bookType *database[]) {
         case '1':
             cout << "\nEnter title to search for: ";
             getline(cin, target);
-            index = searchDatabase(database, target, 't');
+            index = searchDatabase(LLDB, target, 't');
             break;
 
 
@@ -86,7 +86,7 @@ int lookUpBook(bookType *database[]) {
         case '2':
             cout << "\nEnter author to search for: ";
             getline(cin, target);
-            index = searchDatabase(database, target, 'a');
+            index = searchDatabase(LLDB, target, 'a');
             break;
 
 
@@ -94,7 +94,7 @@ int lookUpBook(bookType *database[]) {
         case '3':
             cout << "\nEnter ISBN to search for: ";
             getline(cin, target);
-            index = searchDatabase(database, target, 'i');
+            index = searchDatabase(LLDB, target, 'i');
             break;
 
 
@@ -102,7 +102,7 @@ int lookUpBook(bookType *database[]) {
         case '4':
             cout << "\nEnter publisher to search for: ";
             getline(cin, target);
-            index = searchDatabase(database, target, 'p');
+            index = searchDatabase(LLDB, target, 'p');
             break;
 
 
@@ -138,7 +138,7 @@ int lookUpBook(bookType *database[]) {
  *      This function will not modify any of the actual parameters.
  ******************************************************************************/
 
-int searchDatabase(bookType* database[],
+int searchDatabase(unorderedLinkedList<bookType>& LLDB,
                 string target,
                 char flag) {
 
@@ -170,7 +170,7 @@ int searchDatabase(bookType* database[],
         case 't':
             for (int i = 0; i < bookCount; i ++) {
 
-                databaseTarget = database[i]->getBookTitle();
+                databaseTarget = LLDB[i].getBookTitle();
 
                 if (tolowerstring(databaseTarget).find(target) != string::npos) {
                     matchesArray[matchCount]  = databaseTarget;
@@ -191,7 +191,7 @@ int searchDatabase(bookType* database[],
         case 'a':
             for (int i = 0; i < bookCount; i ++) {
 
-                databaseTarget = database[i]->getAuthor();
+                databaseTarget = LLDB[i].getAuthor();
 
                 if (tolowerstring(databaseTarget).find(target) != string::npos) {
                     matchesArray[matchCount]  = databaseTarget;
@@ -212,7 +212,7 @@ int searchDatabase(bookType* database[],
         case 'i':
             for (int i = 0; i < bookCount; i ++) {
 
-                databaseTarget = database[i]->getISBN();
+                databaseTarget = LLDB[i].getISBN();
 
                 if (tolowerstring(databaseTarget).find(target) != string::npos) {
                     matchesArray[matchCount]  = databaseTarget;
@@ -233,7 +233,7 @@ int searchDatabase(bookType* database[],
         case 'p':
             for (int i = 0; i < bookCount; i ++) {
 
-                databaseTarget = database[i]->getPublisher();
+                databaseTarget = LLDB[i].getPublisher();
 
                 if (tolowerstring(databaseTarget).find(target) != string::npos) {
                     matchesArray[matchCount]  = databaseTarget;
@@ -285,10 +285,10 @@ int searchDatabase(bookType* database[],
                 else {
                     cout << "    ";
                 }
-                cout << setw(30) << database[indexMatches[i]]->getBookTitle().substr(0, 28)
-                     << setw(15) << database[indexMatches[i]]->getISBN()
-                     << setw(30) << database[indexMatches[i]]->getAuthor().substr(0, 28)
-                     << setw(20) << database[indexMatches[i]]->getPublisher().substr(0, 28)
+                cout << setw(30) << LLDB[indexMatches[i]].getBookTitle().substr(0, 28)
+                     << setw(15) << LLDB[indexMatches[i]].getISBN()
+                     << setw(30) << LLDB[indexMatches[i]].getAuthor().substr(0, 28)
+                     << setw(20) << LLDB[indexMatches[i]].getPublisher().substr(0, 28)
                      << endl;
             }
             cout << right << endl;
@@ -372,21 +372,16 @@ int searchDatabase(bookType* database[],
  *      chooses to save changes to an addition
  ******************************************************************************/
 
-void addBook(bookType* database[]) {
+void addBook(unorderedLinkedList<bookType>& LLDB) {
 
     const int MENU_INDENT = 45;
 
     char choice;
     bool changes;
+    string input;
+    float numInput;
 
-    string tempTitle    = "EMPTY";
-    string tempISBN     = "EMPTY";
-    string tempAuthor   = "EMPTY";
-    string tempPub      = "EMPTY";
-    string tempDate     = "EMPTY";
-    int    tempQOH      = 0;
-    float  tempWhole    = 0.0;
-    float  tempRet      = 0.0;
+    bookType temp("EMPTY", "EMPTY", "EMPTY", "EMPTY", "EMPTY", 0, 0, 0);
 
     int bookCount;
     changes = false;
@@ -406,15 +401,15 @@ void addBook(bookType* database[]) {
         cout << left;
         cout << setfill('=') << setw(MENU_INDENT + 25) << "=" << endl;
         cout << setfill(' ');
-        cout << setw(MENU_INDENT) << "[1] Enter book title"                 << "| --  " << tempTitle    << endl;
-        cout << setw(MENU_INDENT) << "[2] Enter ISBN"                       << "| --  " << tempISBN     << endl;
-        cout << setw(MENU_INDENT) << "[3] Enter author"                     << "| --  " << tempAuthor   << endl;
-        cout << setw(MENU_INDENT) << "[4] Enter publisher"                  << "| --  " << tempPub      << endl;
-        cout << setw(MENU_INDENT) << "[5] Enter date added (MM/DD/YYYY)"    << "| --  " << tempDate     << endl;
-        cout << setw(MENU_INDENT) << "[6] Enter quantity on hand"           << "| --  " << tempQOH      << endl;
+        cout << setw(MENU_INDENT) << "[1] Enter book title"                 << "| --  " << temp.getBookTitle()   << endl;
+        cout << setw(MENU_INDENT) << "[2] Enter ISBN"                       << "| --  " << temp.getISBN()        << endl;
+        cout << setw(MENU_INDENT) << "[3] Enter author"                     << "| --  " << temp.getAuthor()      << endl;
+        cout << setw(MENU_INDENT) << "[4] Enter publisher"                  << "| --  " << temp.getPublisher()   << endl;
+        cout << setw(MENU_INDENT) << "[5] Enter date added (MM/DD/YYYY)"    << "| --  " << temp.getDateAdded()   << endl;
+        cout << setw(MENU_INDENT) << "[6] Enter quantity on hand"           << "| --  " << temp.getQtyOnHand()   << endl;
         cout << setprecision(2) << fixed;
-        cout << setw(MENU_INDENT) << "[7] Enter wholesale cost"             << "| --$ " << tempWhole    << endl;
-        cout << setw(MENU_INDENT) << "[8] Enter retail price"               << "| --$ " << tempRet      << endl;
+        cout << setw(MENU_INDENT) << "[7] Enter wholesale cost"             << "| --$ " << temp.getWholesale()   << endl;
+        cout << setw(MENU_INDENT) << "[8] Enter retail price"               << "| --$ " << temp.getRetail()      << endl;
         cout.unsetf(ios_base::floatfield);
         cout << setprecision(6);
         cout << "[9] Save book to database\n";
@@ -430,63 +425,71 @@ void addBook(bookType* database[]) {
 
             case '1':
                 cout << "Enter book's title: ";
-                getline(cin, tempTitle);
+                getline(cin, input);
+                temp.setBookTitle(input);
                 changes = true;
                 break;
 
             case '2':
-                tempISBN = getUniqueISBN(database);
+                input = getUniqueISBN(LLDB);
+                temp.setISBN(input);
                 changes = true;
                 break;
 
             case '3':
                 cout << "Enter author: ";
-                getline(cin, tempAuthor);
+                getline(cin, input);
+                temp.setAuthor(input);
                 changes = true;
                 break;
 
             case '4':
                 cout << "Enter publisher: ";
-                getline(cin, tempPub);
+                getline(cin, input);
+                temp.setPublisher(input);
                 changes = true;
                 break;
 
             case '5':
                 cout << "Enter date of addition: ";
-                getline(cin, tempDate);
+                getline(cin, input);
+                temp.setDateAdded(input);
                 changes = true;
                 break;
 
             case '6':
                 cout << "Enter quantity on hand: ";
-                cin  >> tempQOH;
-                while (tempQOH < 0) {
+                cin  >> numInput;
+                while (numInput < 0) {
                     cout << "Error - enter valid quantity: ";
-                    cin  >> tempQOH;
+                    cin  >> numInput;
                 }
                 changes = true;
+                temp.setQtyOnHand((int)numInput);
                 cin.ignore(1000, '\n');
                 break;
 
             case '7':
                 cout << "Enter wholesale price: ";
-                cin  >> tempWhole;
-                while (tempWhole < 0) {
+                cin  >> numInput;
+                while (numInput < 0) {
                     cout << "Error - enter valid quantity: ";
-                    cin  >> tempWhole;
+                    cin  >> numInput;
                 }
                 changes = true;
+                temp.setWholesale(numInput);
                 cin.ignore(1000, '\n');
                 break;
 
             case '8':
                 cout << "Enter retail price: ";
-                cin  >> tempRet;
-                while (tempRet < 0) {
+                cin  >> numInput;
+                while (numInput < 0) {
                     cout << "Error - enter valid quantity: ";
-                    cin  >> tempRet;
+                    cin  >> numInput;
                 }
                 changes = true;
+                temp.setRetail(numInput);
                 cin.ignore(1000, '\n');
                 break;
 
@@ -494,18 +497,18 @@ void addBook(bookType* database[]) {
                 if (bookCount < DBSIZE) {
 
                     // bookCount IS INCREMENTED BY CALLING THE BOOKTYPE CONSTRUCTOR HERE!!!!
-                    database[bookCount] = new bookType(tempTitle, tempISBN, tempAuthor, tempPub, tempDate, tempQOH, tempWhole, tempRet);
+                    LLDB.insertLast(bookType(temp));
 
 
                     // reset placeholders to default values for next book entry
-                    tempTitle   = "EMPTY";
-                    tempISBN    = "EMPTY";
-                    tempAuthor  = "EMPTY";
-                    tempPub     = "EMPTY";
-                    tempDate    = "EMPTY";
-                    tempQOH     = 0;
-                    tempWhole   = 0.0f;
-                    tempRet     = 0.0f;
+                    temp.setBookTitle("EMPTY");
+                    temp.setAuthor("EMPTY");
+                    temp.setPublisher("EMPTY");
+                    temp.setISBN("EMPTY");
+                    temp.setDateAdded("EMPTY");
+                    temp.setQtyOnHand(0);
+                    temp.setWholesale(0);
+                    temp.setRetail(0);
 
                     changes = false;
                 }
@@ -559,7 +562,7 @@ void addBook(bookType* database[]) {
  *      Returns a string representing the unique ISBN
  ******************************************************************************/
 
-string getUniqueISBN(bookType *database[]) {
+string getUniqueISBN(unorderedLinkedList<bookType>& LLDB) {
 
     string tempISBN;    // holder for the user input
     bool isbnIsClone;   // boolean for if the entered ISBN matches another in the isbn array
@@ -579,7 +582,7 @@ string getUniqueISBN(bookType *database[]) {
         // iterate through the isbn array and look for matches
         isbnIsClone = false;
         for (int j = 0; j < bookCount; j ++) {
-            if (tempISBN == database[j]->getISBN()) {
+            if (tempISBN == LLDB[j].getISBN()) {
                 isbnIsClone = true;
                 isbnCloneIndex = j;
             }
@@ -588,7 +591,7 @@ string getUniqueISBN(bookType *database[]) {
         // output error message
         if (isbnIsClone) {
             cout << "\n***** ERROR -- DUPLICATE ISBN ENTERED! *****\n";
-            cout << "Your ISBN matches the ISBN of " << database[isbnCloneIndex]->getBookTitle();
+            cout << "Your ISBN matches the ISBN of " << LLDB[isbnCloneIndex].getBookTitle();
             cout << " (" << tempISBN << ")\n";
             cout << "Please enter a unique ISBN.\n";
         }
@@ -618,12 +621,11 @@ string getUniqueISBN(bookType *database[]) {
  *      Based on user input, this function can modify all of the actual array arguments
  ******************************************************************************/
 
-void editBook(bookType* database[]   // REF - the array of bookType structs, main database
-              ) {
+void editBook(unorderedLinkedList<bookType>& LLDB) {
 
     const int MENU_INDENT = 55;
 
-    int index = lookUpBook(database);
+    int index = lookUpBook(LLDB);
 
     char choice;    // user navigation
     string strTemp; // holder for user string inputs
@@ -655,16 +657,16 @@ void editBook(bookType* database[]   // REF - the array of bookType structs, mai
             cout << left;
             cout << setfill('=') << setw(MENU_INDENT + 25) << "=" << endl;
             cout << setfill(' ');
-            cout << setw(MENU_INDENT) << "[1] Enter book title" << "| --  " <<              database[index]->getBookTitle() << endl;
-            cout << setw(MENU_INDENT) << "[2] Enter ISBN" << "| --  " <<                    database[index]->getISBN() << endl;
-            cout << setw(MENU_INDENT) << "[3] Enter author" << "| --  " <<                  database[index]->getAuthor() << endl;
-            cout << setw(MENU_INDENT) << "[4] Enter publisher" << "| --  " <<               database[index]->getPublisher() << endl;
-            cout << setw(MENU_INDENT) << "[5] Enter date added (MM/DD/YYYY)" << "| --  " << database[index]->getDateAdded()
+            cout << setw(MENU_INDENT) << "[1] Enter book title" << "| --  " <<              LLDB[index].getBookTitle() << endl;
+            cout << setw(MENU_INDENT) << "[2] Enter ISBN" << "| --  " <<                    LLDB[index].getISBN() << endl;
+            cout << setw(MENU_INDENT) << "[3] Enter author" << "| --  " <<                  LLDB[index].getAuthor() << endl;
+            cout << setw(MENU_INDENT) << "[4] Enter publisher" << "| --  " <<               LLDB[index].getPublisher() << endl;
+            cout << setw(MENU_INDENT) << "[5] Enter date added (MM/DD/YYYY)" << "| --  " << LLDB[index].getDateAdded()
                  << endl;
-            cout << setw(MENU_INDENT) << "[6] Enter quantity on hand" << "| --  " <<        database[index]->getQtyOnHand() << endl;
+            cout << setw(MENU_INDENT) << "[6] Enter quantity on hand" << "| --  " <<        LLDB[index].getQtyOnHand() << endl;
             cout << setprecision(2) << fixed;
-            cout << setw(MENU_INDENT) << "[7] Enter wholesale cost" << "| --$ " <<          database[index]->getWholesale() << endl;
-            cout << setw(MENU_INDENT) << "[8] Enter retail price" << "| --$ " <<            database[index]->getRetail() << endl;
+            cout << setw(MENU_INDENT) << "[7] Enter wholesale cost" << "| --$ " <<          LLDB[index].getWholesale() << endl;
+            cout << setw(MENU_INDENT) << "[8] Enter retail price" << "| --$ " <<            LLDB[index].getRetail() << endl;
             cout.unsetf(ios_base::floatfield);
             cout << setprecision(6);
             cout << "[9] Save and return to inventory menu\n";
@@ -681,15 +683,15 @@ void editBook(bookType* database[]   // REF - the array of bookType structs, mai
                 case '1':
                     cout << "Enter book's title: ";
                     getline(cin, strTemp);
-                    database[index]->setBookTitle(strTemp);
+                    LLDB[index].setBookTitle(strTemp);
                     break;
 
 
 
                     // edit the ISBN once a unique one is entered
                 case '2':
-                    strTemp = getUniqueISBN(database);
-                    database[index]->setISBN(strTemp);
+                    strTemp = getUniqueISBN(LLDB);
+                    LLDB[index].setISBN(strTemp);
                     break;
 
 
@@ -698,7 +700,7 @@ void editBook(bookType* database[]   // REF - the array of bookType structs, mai
                 case '3':
                     cout << "Enter author: ";
                     getline(cin, strTemp);
-                    database[index]->setAuthor(strTemp);
+                    LLDB[index].setAuthor(strTemp);
                     break;
 
 
@@ -707,7 +709,7 @@ void editBook(bookType* database[]   // REF - the array of bookType structs, mai
                 case '4':
                     cout << "Enter publisher: ";
                     getline(cin, strTemp);
-                    database[index]->setPublisher(strTemp);
+                    LLDB[index].setPublisher(strTemp);
                     break;
 
 
@@ -716,7 +718,7 @@ void editBook(bookType* database[]   // REF - the array of bookType structs, mai
                 case '5':
                     cout << "Enter date of addition: ";
                     getline(cin, strTemp);
-                    database[index]->setDateAdded(strTemp);
+                    LLDB[index].setDateAdded(strTemp);
                     break;
 
 
@@ -730,7 +732,7 @@ void editBook(bookType* database[]   // REF - the array of bookType structs, mai
                         cin >> intTemp;
                     }
                     cin.ignore(1000, '\n');
-                    database[index]->setQtyOnHand(intTemp);
+                    LLDB[index].setQtyOnHand(intTemp);
                     break;
 
 
@@ -744,7 +746,7 @@ void editBook(bookType* database[]   // REF - the array of bookType structs, mai
                         cin >> fltTemp;
                     }
                     cin.ignore(1000, '\n');
-                    database[index]->setWholesale(fltTemp);
+                    LLDB[index].setWholesale(fltTemp);
                     break;
 
 
@@ -758,7 +760,7 @@ void editBook(bookType* database[]   // REF - the array of bookType structs, mai
                         cin >> fltTemp;
                     }
                     cin.ignore(1000, '\n');
-                    database[index]->setRetail(fltTemp);
+                    LLDB[index].setRetail(fltTemp);
                     break;
 
                     // exit case
@@ -811,18 +813,18 @@ void editBook(bookType* database[]   // REF - the array of bookType structs, mai
  *      If a book is deleted, bookCount will decrease by one
  ******************************************************************************/
 
-void deleteBook(bookType* database []) {
+void deleteBook(unorderedLinkedList<bookType>& LLDB) {
 
     char choice;    // user choice for menu options
     int index;
     int bookCount = bookType::getBookCount();
 
-    index = lookUpBook(database);
+    index = lookUpBook(LLDB);
 
     // if lookUpBook does not return -1 (for not found), then proceed
     if (index >= 0) {
 
-        bookType* t = database[index];
+        bookType t = LLDB[index];
 
         // display information about the target book
         BookInformation(t);
@@ -842,20 +844,10 @@ void deleteBook(bookType* database []) {
             // decrement this copy variable of bookType static bookCount so the deletion can still work
             bookCount --;
 
-            /*
-            SetBookTitle(database[index], database[bookCount]->bookTitle);
-            SetAuthor(database[index], database[bookCount]->author);
-            SetPublisher(database[index], database[bookCount]->publisher);
-            SetDateAdded(database[index], database[bookCount]->dateAdded);
-            SetQtyOnHand(database[index], database[bookCount]->qtyOnHand);
-            SetWholesale(database[index], database[bookCount]->wholesale);
-            SetRetail(database[index], database[bookCount]->retail);
-             */
-            *database[index] = *database[bookCount];
+            LLDB[index] = LLDB[bookCount];
 
             // delete the dynamic book in the now unaccounted for slot and reset pointer
-            delete database[bookCount];
-            database[bookCount] = nullptr;
+            LLDB.deleteNode(LLDB[bookCount]);
         }
     } // end (if index >= 0)
     system("cls");

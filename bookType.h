@@ -6,7 +6,6 @@
 *******************************************/
 
 #include <iostream>
-#include "selectionSort.h"
 using namespace std;
 
 #ifndef A4_BOOKTYPE_H

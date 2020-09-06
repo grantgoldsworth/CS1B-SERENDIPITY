@@ -28,12 +28,11 @@
  *      bookCount is not modified
  ******************************************************************************/
 
-void repListing(bookType *database[]) {
+void repListing(unorderedLinkedList<bookType>& LLDB) {
 
     time_t theTime = time(nullptr); // for displaying the time
     int page = 0;                   // the current page being displayed, set of ten books
     int maxPages = 1;               // the maximum number of pages, default to 1 (empty listing)
-    int escStat = 0;                // holds bit key of GetKeyState for the escape key, used to exit menu
     bool quit = false;              // if user hits escape, then quit is set to true
 
     const int bookCount = bookType::getBookCount();
@@ -43,8 +42,6 @@ void repListing(bookType *database[]) {
     if (bookCount != 0) {
         maxPages = ceil(bookCount / 10.0);
     }
-
-    char userChoice;
 
         /****************************************************************
          * DO-WHILE
@@ -85,15 +82,15 @@ void repListing(bookType *database[]) {
 
             for (int i = page * 10; i < 10 + page * 10 ; i++) {
                 if (i < bookCount) {
-                    cout << setw(28) << database[i]->getBookTitle().substr(0, 27) << setw(15) << database[i]->getISBN()
+                    cout << setw(28) << LLDB[i].getBookTitle().substr(0, 27) << setw(15) << LLDB[i].getISBN()
                          << setw(16)
-                         << database[i]->getAuthor().substr(0, 15)
-                         << setw(15) << database[i]->getPublisher().substr(0, 14) << setw(11) << database[i]->getDateAdded()
+                         << LLDB[i].getAuthor().substr(0, 15)
+                         << setw(15) << LLDB[i].getPublisher().substr(0, 14) << setw(11) << LLDB[i].getDateAdded()
                          << right
-                         << setw(7) << database[i]->getQtyOnHand()
-                         << setprecision(2) << fixed << "      $" << setfill('.') << setw(8) << database[i]->getWholesale()
+                         << setw(7) << LLDB[i].getQtyOnHand()
+                         << setprecision(2) << fixed << "      $" << setfill('.') << setw(8) << LLDB[i].getWholesale()
                          << "   $"
-                         << setfill(' ') << setw(9) << database[i]->getRetail()
+                         << setfill(' ') << setw(9) << LLDB[i].getRetail()
                          << left << endl << endl;
                     cout << endl;
                 }
@@ -191,7 +188,7 @@ void repListing(bookType *database[]) {
  *
  ******************************************************************************/
 
-void repCost(bookType *database[]) {
+void repCost(unorderedLinkedList<bookType>& LLDB) {
     cout << "repCost module - currently empty\n";
     system("pause");
     system("cls");
@@ -216,14 +213,13 @@ void repCost(bookType *database[]) {
  *      bookCount is not modified
  ******************************************************************************/
 
-void repWholesale(bookType *database[]) {
+void repWholesale(unorderedLinkedList<bookType>& LLDB) {
     time_t theTime = time(nullptr); // for displaying the time
     int page = 0;                   // the current page being displayed, set of ten books
     int maxPages = 1;               // the maximum number of pages, default to 1 (empty listing)
-    int escStat = 0;                // holds bit key of GetKeyState for the escape key, used to exit menu
     bool quit = false;              // if user hits escape, then quit is set to true
     float totalWholesale = 0;       // total wholesale price of all books (qtyOnHand * wholesalePrice)
-    char userChoice;                // user navigation
+
 
     const int bookCount = bookType::getBookCount();
 
@@ -235,7 +231,7 @@ void repWholesale(bookType *database[]) {
 
     // calculate the total inventory wholesale
     for (int i = 0; i < bookCount; i ++) {
-        totalWholesale += database[i]->getWholesale() * database[i]->getQtyOnHand();
+        totalWholesale += LLDB[i].getWholesale() * (float)LLDB[i].getQtyOnHand();
     }
 
 
@@ -275,11 +271,11 @@ void repWholesale(bookType *database[]) {
 
         for (int i = page * 10; i < 10 + page * 10 ; i++) {
             if (i < bookCount) {
-                cout << setw(50) << database[i]->getBookTitle().substr(0, 44)
-                     << setw(25) << database[i]->getISBN()
+                cout << setw(50) << LLDB[i].getBookTitle().substr(0, 44)
+                     << setw(25) << LLDB[i].getISBN()
                      << right
-                     << setw(7) << database[i]->getQtyOnHand()
-                     << setprecision(2) << fixed << setw(19) << "$" << setfill('.') << setw(13) << database[i]->getWholesale() << setfill(' ')
+                     << setw(7) << LLDB[i].getQtyOnHand()
+                     << setprecision(2) << fixed << setw(19) << "$" << setfill('.') << setw(13) << LLDB[i].getWholesale() << setfill(' ')
                      << left << endl << endl;
 
             }
@@ -389,14 +385,12 @@ void repWholesale(bookType *database[]) {
  *      bookCount is not modified
  ******************************************************************************/
 
-void repRetail(bookType* database[]) {
+void repRetail(unorderedLinkedList<bookType>& LLDB) {
     time_t theTime = time(nullptr); // for displaying the time
     int page = 0;                   // the current page being displayed, set of ten books
     int maxPages = 1;               // the maximum number of pages, default to 1 (empty listing)
-    int escStat = 0;                // holds bit key of GetKeyState for the escape key, used to exit menu
     bool quit = false;              // if user hits escape, then quit is set to true
     float totalWholesale = 0;       // total wholesale price of all books (qtyOnHand * wholesalePrice)
-    char userChoice;
 
     const int bookCount = bookType::getBookCount();
 
@@ -406,7 +400,7 @@ void repRetail(bookType* database[]) {
     }
 
     for (int i = 0; i < bookCount; i ++) {
-        totalWholesale += database[i]->getRetail() * database[i]->getQtyOnHand();
+        totalWholesale += LLDB[i].getRetail() * (float)LLDB[i].getQtyOnHand();
     }
 
 
@@ -446,11 +440,11 @@ void repRetail(bookType* database[]) {
 
         for (int i = page * 10; i < 10 + page * 10 ; i++) {
             if (i < bookCount) {
-                cout << setw(50) << database[i]->getBookTitle().substr(0, 44)
-                     << setw(25) << database[i]->getISBN()
+                cout << setw(50) << LLDB[i].getBookTitle().substr(0, 44)
+                     << setw(25) << LLDB[i].getISBN()
                      << right
-                     << setw(7) << database[i]->getQtyOnHand()
-                     << setprecision(2) << fixed << setw(19) << "$" << setfill('.') << setw(13) << database[i]->getRetail() << setfill(' ')
+                     << setw(7) << LLDB[i].getQtyOnHand()
+                     << setprecision(2) << fixed << setw(19) << "$" << setfill('.') << setw(13) << LLDB[i].getRetail() << setfill(' ')
                      << left << endl << endl;
 
             }
@@ -573,14 +567,11 @@ void repAge() {
  *
  ******************************************************************************/
 
-void repQty(bookType* database[]) {
+void repQty(unorderedLinkedList<bookType>& LLDB) {
     time_t theTime = time(nullptr); // for displaying the time
     int page = 0;                   // the current page being displayed, set of ten books
     int maxPages = 1;               // the maximum number of pages, default to 1 (empty listing)
-    int escStat = 0;                // holds bit key of GetKeyState for the escape key, used to exit menu
     bool quit = false;              // if user hits escape, then quit is set to true
-    float totalWholesale = 0;       // total wholesale price of all books (qtyOnHand * wholesalePrice)
-    char userChoice;
 
     const int bookCount = bookType::getBookCount();
 
@@ -591,7 +582,7 @@ void repQty(bookType* database[]) {
 
     // sort books by quantity on hand
     bookType::compareCode = 5;
-    selectionSort(database, bookCount, 'd');
+    LLDB.mergeSort();
 
 
     /****************************************************************
@@ -628,12 +619,12 @@ void repQty(bookType* database[]) {
         for (int i = page * 10; i < 10 + page * 10 ; i++) {
             if (i < bookCount) {
                         // book title column
-                cout << setw(50) << database[i]->getBookTitle().substr(0, 44)
+                cout << setw(50) << LLDB[i].getBookTitle().substr(0, 44)
                         // book ISBN column
-                     << setw(25) << database[i]->getISBN()
+                     << setw(25) << LLDB[i].getISBN()
                         // right align QOH column
                      << right
-                     << setw(7) << database[i]->getQtyOnHand()
+                     << setw(7) << LLDB[i].getQtyOnHand()
                      << left << endl << endl;
 
             }
