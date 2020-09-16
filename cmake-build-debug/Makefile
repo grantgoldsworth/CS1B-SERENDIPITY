@@ -122,32 +122,32 @@ SERENDIPITY/fast:
 	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/build
 .PHONY : SERENDIPITY/fast
 
-bookTypeFunctions.obj: bookTypeFunctions.cpp.obj
+bookType.obj: bookType.cpp.obj
 
-.PHONY : bookTypeFunctions.obj
+.PHONY : bookType.obj
 
 # target to build an object file
-bookTypeFunctions.cpp.obj:
-	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/bookTypeFunctions.cpp.obj
-.PHONY : bookTypeFunctions.cpp.obj
+bookType.cpp.obj:
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/bookType.cpp.obj
+.PHONY : bookType.cpp.obj
 
-bookTypeFunctions.i: bookTypeFunctions.cpp.i
+bookType.i: bookType.cpp.i
 
-.PHONY : bookTypeFunctions.i
+.PHONY : bookType.i
 
 # target to preprocess a source file
-bookTypeFunctions.cpp.i:
-	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/bookTypeFunctions.cpp.i
-.PHONY : bookTypeFunctions.cpp.i
+bookType.cpp.i:
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/bookType.cpp.i
+.PHONY : bookType.cpp.i
 
-bookTypeFunctions.s: bookTypeFunctions.cpp.s
+bookType.s: bookType.cpp.s
 
-.PHONY : bookTypeFunctions.s
+.PHONY : bookType.s
 
 # target to generate assembly for a file
-bookTypeFunctions.cpp.s:
-	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/bookTypeFunctions.cpp.s
-.PHONY : bookTypeFunctions.cpp.s
+bookType.cpp.s:
+	$(MAKE) -f CMakeFiles\SERENDIPITY.dir\build.make CMakeFiles/SERENDIPITY.dir/bookType.cpp.s
+.PHONY : bookType.cpp.s
 
 invmenu.obj: invmenu.cpp.obj
 
@@ -266,9 +266,9 @@ help:
 	@echo ... rebuild_cache
 	@echo ... SERENDIPITY
 	@echo ... edit_cache
-	@echo ... bookTypeFunctions.obj
-	@echo ... bookTypeFunctions.i
-	@echo ... bookTypeFunctions.s
+	@echo ... bookType.obj
+	@echo ... bookType.i
+	@echo ... bookType.s
 	@echo ... invmenu.obj
 	@echo ... invmenu.i
 	@echo ... invmenu.s

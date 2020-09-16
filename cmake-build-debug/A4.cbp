@@ -80,7 +80,10 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Grant/CS1B/CS1B-SERENDIPITY/bookTypeFunctions.cpp">
+		<Unit filename="C:/Users/Grant/CS1B/CS1B-SERENDIPITY/bookType.cpp">
+			<Option target="SERENDIPITY"/>
+		</Unit>
+		<Unit filename="C:/Users/Grant/CS1B/CS1B-SERENDIPITY/bookType.h">
 			<Option target="SERENDIPITY"/>
 		</Unit>
 		<Unit filename="C:/Users/Grant/CS1B/CS1B-SERENDIPITY/functions.h">
@@ -102,6 +105,9 @@
 			<Option target="SERENDIPITY"/>
 		</Unit>
 		<Unit filename="C:/Users/Grant/CS1B/CS1B-SERENDIPITY/reports.h">
+			<Option target="SERENDIPITY"/>
+		</Unit>
+		<Unit filename="C:/Users/Grant/CS1B/CS1B-SERENDIPITY/selectionSort.h">
 			<Option target="SERENDIPITY"/>
 		</Unit>
 		<Unit filename="C:/Users/Grant/CS1B/CS1B-SERENDIPITY/CMakeLists.txt">

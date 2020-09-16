@@ -12,12 +12,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="036fd02e-248e-46da-bb3a-9f4c3cf046d4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/bookType.h.gch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookTypeFunctions.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.h.gch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainfucntions.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports.h.gch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/A19.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/A23.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/books-2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/A4.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/A4.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.16.5/CompilerIdC/a.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.16.5/CompilerIdCXX/a.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/objects1.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SERENDIPITY.dir/objects1.rsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/SERENDIPITY.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/selectionSort.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sortTest.exe" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,12 +65,23 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SERENDIPITY" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="A4" TARGET_NAME="SERENDIPITY" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="A4" RUN_TARGET_NAME="SERENDIPITY">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -104,12 +127,33 @@
       <workItem from="1583679243875" duration="1085000" />
       <workItem from="1587829105216" duration="14645000" />
       <workItem from="1587916332862" duration="3961000" />
-      <workItem from="1587920377982" duration="5412000" />
+      <workItem from="1587920377982" duration="5596000" />
+      <workItem from="1587935066047" duration="2777000" />
+      <workItem from="1587963408591" duration="843000" />
+      <workItem from="1587998299392" duration="4976000" />
+      <workItem from="1588539641143" duration="76000" />
+      <workItem from="1588539789377" duration="5561000" />
+      <workItem from="1588563492229" duration="4378000" />
+      <workItem from="1588604697706" duration="2773000" />
+      <workItem from="1588633560194" duration="5615000" />
+      <workItem from="1588702533135" duration="8304000" />
+      <workItem from="1588722894229" duration="1722000" />
+      <workItem from="1588777800669" duration="2316000" />
+      <workItem from="1588787880263" duration="458000" />
+      <workItem from="1589153366132" duration="799000" />
+      <workItem from="1590075588386" duration="2951000" />
+      <workItem from="1598026642367" duration="38000" />
+      <workItem from="1598026900068" duration="53000" />
+      <workItem from="1598027130519" duration="173000" />
+      <workItem from="1598206188848" duration="106000" />
+      <workItem from="1598483189167" duration="1700000" />
+      <workItem from="1599352709284" duration="382000" />
+      <workItem from="1600297544192" duration="28000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -177,5 +221,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1587919171764" />
+    <state x="1547" y="231" width="672" height="678" key="search.everywhere.popup" timestamp="1588543294825">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1547" y="231" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588543294825" />
   </component>
 </project>

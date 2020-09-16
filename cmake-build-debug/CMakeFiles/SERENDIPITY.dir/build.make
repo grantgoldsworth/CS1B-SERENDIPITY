@@ -108,18 +108,18 @@ CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-SERENDIPITY\mainfucntions.cpp -o CMakeFiles\SERENDIPITY.dir\mainfucntions.cpp.s
 
-CMakeFiles/SERENDIPITY.dir/bookTypeFunctions.cpp.obj: CMakeFiles/SERENDIPITY.dir/flags.make
-CMakeFiles/SERENDIPITY.dir/bookTypeFunctions.cpp.obj: ../bookTypeFunctions.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SERENDIPITY.dir/bookTypeFunctions.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SERENDIPITY.dir\bookTypeFunctions.cpp.obj -c C:\Users\Grant\CS1B\CS1B-SERENDIPITY\bookTypeFunctions.cpp
+CMakeFiles/SERENDIPITY.dir/bookType.cpp.obj: CMakeFiles/SERENDIPITY.dir/flags.make
+CMakeFiles/SERENDIPITY.dir/bookType.cpp.obj: ../bookType.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Grant\CS1B\CS1B-SERENDIPITY\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SERENDIPITY.dir/bookType.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SERENDIPITY.dir\bookType.cpp.obj -c C:\Users\Grant\CS1B\CS1B-SERENDIPITY\bookType.cpp
 
-CMakeFiles/SERENDIPITY.dir/bookTypeFunctions.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SERENDIPITY.dir/bookTypeFunctions.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-SERENDIPITY\bookTypeFunctions.cpp > CMakeFiles\SERENDIPITY.dir\bookTypeFunctions.cpp.i
+CMakeFiles/SERENDIPITY.dir/bookType.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SERENDIPITY.dir/bookType.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Grant\CS1B\CS1B-SERENDIPITY\bookType.cpp > CMakeFiles\SERENDIPITY.dir\bookType.cpp.i
 
-CMakeFiles/SERENDIPITY.dir/bookTypeFunctions.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SERENDIPITY.dir/bookTypeFunctions.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-SERENDIPITY\bookTypeFunctions.cpp -o CMakeFiles\SERENDIPITY.dir\bookTypeFunctions.cpp.s
+CMakeFiles/SERENDIPITY.dir/bookType.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SERENDIPITY.dir/bookType.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Grant\CS1B\CS1B-SERENDIPITY\bookType.cpp -o CMakeFiles\SERENDIPITY.dir\bookType.cpp.s
 
 # Object files for target SERENDIPITY
 SERENDIPITY_OBJECTS = \
@@ -127,7 +127,7 @@ SERENDIPITY_OBJECTS = \
 "CMakeFiles/SERENDIPITY.dir/invmenu.cpp.obj" \
 "CMakeFiles/SERENDIPITY.dir/reports.cpp.obj" \
 "CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.obj" \
-"CMakeFiles/SERENDIPITY.dir/bookTypeFunctions.cpp.obj"
+"CMakeFiles/SERENDIPITY.dir/bookType.cpp.obj"
 
 # External object files for target SERENDIPITY
 SERENDIPITY_EXTERNAL_OBJECTS =
@@ -136,7 +136,7 @@ SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/main.cpp.obj
 SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/invmenu.cpp.obj
 SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/reports.cpp.obj
 SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/mainfucntions.cpp.obj
-SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/bookTypeFunctions.cpp.obj
+SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/bookType.cpp.obj
 SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/build.make
 SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/linklibs.rsp
 SERENDIPITY.exe: CMakeFiles/SERENDIPITY.dir/objects1.rsp
